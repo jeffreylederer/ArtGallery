@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Selecting this button will add a row to the bottom of the table allowing you to enter a new reproduction.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>When checked this indicates that the original art work is available for sale. If not checked, but there are one or reproductions entered, then where the price is usual displayed, the phrase "Original art work is not available for sale" is displayed. If this not checked and there are not reproductions, then this art work is not display in any public menu.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="CancelInsert" xml:space="preserve">
+    <value>Selecting this link removes the values you have entered and restores the screen to it original state.</value>
+    <comment>On picture add page and gallery add page</comment>
+  </data>
+  <data name="CancelInsertGird" xml:space="preserve">
+    <value>Selecting this link discards the changes you made to this row.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="CancelUpdate" xml:space="preserve">
+    <value>Selecting this link discards the change made to the item above and restores these items to their original values.</value>
+    <comment>on picture edit and gallery edit pages in formview</comment>
+  </data>
+  <data name="CancelUpdateGrid" xml:space="preserve">
+    <value>Selecting this link discards the changes you entered in this row.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Selecting this link will delete the gallery from the database. This can fail if there are pictures still in the gallery.</value>
+    <comment>on picture edit page and gallery edit page</comment>
+  </data>
+  <data name="DeleteGrid" xml:space="preserve">
+    <value>Selecting this link deletes this reproduction record and redraws the table with this record removed.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="DeletePicture" xml:space="preserve">
+    <value>When this link is selected, the record for this picture and its reproduction are removed from the database. That actual picture image file remains on the server and he be reused in another gallery. When selected, this link returns you back to the home page.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Enter additional information about this art work here. This information is displayed on the Picture and Search Result pages. If this field is left blank, the description line is removed from these pages on the Picture and Search Result pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Selecting this link allows you to edit this reproduction record</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>If this is a framed piece, put the frame description here; otherwise enter as unframed. This value is displayed on the Picture and Search Result pages. &lt;br/&gt;&lt;br/&gt;Changes on this screen made will not be permanent until you select the Update link below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="GalleryAvailable" xml:space="preserve">
+    <value>When not checked, the Gallery will not appear in the list of Galleries visible to the public. Leave unchecked until the gallery is ready.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new gallery) below.</value>
+    <comment>Checkbox on gallery edit/add page</comment>
+  </data>
+  <data name="GalleryDescription" xml:space="preserve">
+    <value>This is the text that will appear on the top of the Gallery Description Page. &lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new gallery) below.</value>
+    <comment>on Gallery edit/add page </comment>
+  </data>
+  <data name="GalleryMenu" xml:space="preserve">
+    <value>This is the text that will appear in the Galleries menu.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new gallery) below.</value>
+    <comment>on Gallery edit/add page</comment>
+  </data>
+  <data name="GalleryName" xml:space="preserve">
+    <value>The gallery where the art work is displayed. You can move an art work to another gallery by selecting a different gallery from the list&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>Dropdown list on Picture add/edit page</comment>
+  </data>
+  <data name="Handling" xml:space="preserve">
+    <value>This is the dollar amount added to the shipping charge that is independent of distance but may include your cost of packaging the art work to protect it during shipping. This handling charge will be displayed by PayPal on the Buy Now page.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>For both a framed and unframed art work,  the height should be the unframed height. You can give a more details about the overall dimensions in the description below for a framed piece. This value is displayed on the Picture and Search Result pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>Selecting this link inserts a new record into the database. Failure to select to link will mean that your changes will not be saved.</value>
+    <comment>On picture add page and gallery add page</comment>
+  </data>
+  <data name="InsertGrid" xml:space="preserve">
+    <value>Selecting this link saves the new reproduction record.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Enter the media used to created this art work here. This information will be displayed on the Picture and Search pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="MetaTagsPicture" xml:space="preserve">
+    <value>pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>These note are only displayed on the screen and not displayed on any other page of this site.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="PackingWeight" xml:space="preserve">
+    <value>The weigth of packing used to safely ship the artwork. This is added to the weight of the artwork to determine the shipping costs.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="PictureFile" xml:space="preserve">
+    <value>The file name of the image file containing the image to display. Normally this text box is filled in automatically when the image is uploaded from your computer. &lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="PictureTitle" xml:space="preserve">
+    <value>Enter the title of the art work here. The title appears in menus, the Picture page, Search Result page and as the item name in PayPal on the Buy Now page and PayPal correspondence. &lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Enter the price for the original art work here. The price should be in the currency selected on the PayPal page. Please do not enter separators between thousands. This is not the price of geclee prints made from the original, those prices should be entered below. &lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Selecting this link updates the databases you have just made on this screen. Failure to select this link means that all changes you made will be lost.</value>
+    <comment>on picture edit page and gallery edit page</comment>
+  </data>
+  <data name="UpdateCancel" xml:space="preserve">
+    <value>Selecting this link will restore the values on the page to their values since the last update or if this screen has not been updated, then the values when the screen was originally displayed.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="UpdateGrid" xml:space="preserve">
+    <value>Selecting this link saves the changes you made to this row.</value>
+    <comment>reproduction grid on edit picture page</comment>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>This is the total weight of the piece including the frame and the packing used to protect the art work during shipping. This value is used to by PayPal to determine the shipping costs. This value is displayed on the Picture and Search Result pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>For both a framed and unframed art work, the width should be the unframed width. You can give a more details about the overall dimensions in the description below for a framed piece. This value is displayed on the Picture and Search Result pages. Changes made will not be permanent until you select the Update link below.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Enter the year when this art work was completed. This will be displayed on the picture page and as part of the copyright notice.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
+    <comment>On picture edit/add page</comment>
+  </data>
+</root>

@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="ArtGallery.SiteMaster" Codebehind="Site.master.cs" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	
+    <form runat="server" id="masterForm">
+    <ajax:ToolkitScriptManager runat="server" ID="asm" />
+    <div class="page">
+        <div class="header">
+            <div class="title">
+            <asp:HyperLink runat="server" ID="hypHome" NavigateUrl="~/Default.aspx" ForeColor="Black"  >
+                <asp:Image runat="server" ID="logo"   AlternateText="Return to home page"/></asp:HyperLink>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+             <div class="clear hideSkiplink">
+             <table width="100%" border="0" style="border: 0px none transparent"><tr><td>
+             <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                     EnableViewState="false" IncludeStyleBlock="False" Orientation="Horizontal" 
+                     Width="50%" ClientIDMode="Static">
+             </asp:Menu>
+             </td>
+             <td style="color:white; text-align:right;" >
+            
+             Search: 
+                 <asp:TextBox runat="server"  AutoPostBack="true" OnTextChanged="btnSearch_Click" 
+                     ID="txtSearch" Width="300px" /><asp:RequiredFieldValidator 
+                     runat="server" ID="vdSearch" Text="*"   ValidationGroup="search" ControlToValidate="txtSearch"/>
+                 
+ 
+            </td></tr></table>
+           </div>
+        </div>
+        <div class="main" runat="server" id="dvMain">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    </form>
+    
+</body>
+</html>
