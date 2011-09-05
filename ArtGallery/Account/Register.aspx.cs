@@ -13,12 +13,15 @@ namespace ArtGallery.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            RegisterUser.ContinueDestinationPageUrl = "~/default.aspx";
         }
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
             FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
+
+
+            Roles.AddUserToRole( RegisterUser.UserName, "Admin" );
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))

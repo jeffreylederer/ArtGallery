@@ -49,13 +49,21 @@ namespace ArtGallery
                     MenuItem Item = new MenuItem(row.menutext, null, null, "~/Admin/EditGallery.aspx?id=" + row.id.ToString());
                     AdminEditGalleryItem.ChildItems.Add(Item);
                 }
-                MenuItem Item1 = new MenuItem( "Add new Gallry", null, null, "~/Admin/AddGallery.aspx" );
+                MenuItem Item1 = new MenuItem( "Add new Gallery", null, null, "~/Admin/AddGallery.aspx" );
                 AdminEditGalleryItem.ChildItems.Add( Item1 );
                 AdminItem.ChildItems.Add(AdminEditGalleryItem);
 
                 AdminItem.ChildItems.Add((new MenuItem("Add Picture", null, null, "~/Admin/AddPicture.aspx")));
                 AdminItem.ChildItems.Add( (new MenuItem( "Remove Orphan Pictures", null, null, "~/Admin/OrphanPictures.aspx" )) );
                 AdminItem.ChildItems.Add( (new MenuItem( "Report", null, null, "~/Admin/ReportPage.aspx" )) );
+
+                MenuItem AdminAccount = new MenuItem( "Administator Accounts" );
+                AdminAccount.ChildItems.Add( (new MenuItem( "Change Password", null, null, "~/Account/ChangePassword.aspx" )) );
+                AdminAccount.ChildItems.Add( (new MenuItem( "Change Email Address", null, null, "~/Account/ChangeEmail.aspx" )) );
+                AdminAccount.ChildItems.Add( (new MenuItem( "Add New Administator", null, null, "~/Account/Register.aspx" )) );
+                 AdminAccount.ChildItems.Add( (new MenuItem( "Remove Administator", null, null, "~/Account/RemoveUser.aspx" )) );
+                AdminItem.ChildItems.Add( AdminAccount );
+
                 menu.Items.Add(AdminItem);
             }
             

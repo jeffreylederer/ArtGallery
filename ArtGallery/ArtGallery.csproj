@@ -74,10 +74,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Account\ChangeEmail.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RemoveUser.aspx" />
     <Content Include="Admin\AddGallery.aspx" />
     <Content Include="Admin\AddPicture.aspx" />
     <Content Include="Admin\EditGallery.aspx" />
@@ -138,6 +141,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\ChangeEmail.aspx.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangeEmail.aspx.designer.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,12 +169,26 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.designer.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RemoveUser.aspx.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RemoveUser.aspx.designer.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddGallery.aspx.cs">
       <DependentUpon>AddGallery.aspx</DependentUpon>

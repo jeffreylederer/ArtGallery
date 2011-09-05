@@ -13,7 +13,7 @@
         Please enter your username and password. This login is for administators only.
         
     </p>
-    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" 
+    <asp:Login ID="LoginUser" runat="server" EnableViewState="false"  
         RenderOuterTable="false" onauthenticate="LoginUser_Authenticate">
  <LayoutTemplate>
             <span class="failureNotification">
@@ -80,6 +80,5 @@
             </div>
         </LayoutTemplate>
     </asp:Login>
-
-
+    <asp:HyperLink runat="server" Text="Recover lost password" NavigateUrl="~/Account/RecoverPassword.aspx" ID="hyp1" />
 </asp:Content>
