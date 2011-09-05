@@ -109,8 +109,6 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            if (data.Picture.Rows.Count == 0)
-                return null;
             return data.Picture;
         }
 

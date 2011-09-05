@@ -29,9 +29,11 @@ namespace ArtGallery
         {
             get
             {
-                string str = (string)GetGlobalResourceObject( "HelpText", Key );
+                object obj = GetGlobalResourceObject( "HelpText", Key );
+                if (obj == null || !(obj is string))
+                    return "Unknown help string";
                 //Panel1.Height = str.Length / 8+ 10;
-                return str;
+                return obj.ToString();
             }
         }
             

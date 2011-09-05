@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPicture.aspx.cs" Inherits="ArtGallery.Admin.AddPicture" %>
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 <%@ Register  Assembly="Controls" TagPrefix="cc" Namespace="ArtGallery"  %>
-<%@ OutputCache Duration="1" VaryByParam="id" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -12,16 +11,16 @@
     <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
     <ContentTemplate>
    
-    <div style="text-align:center;">
+   
     <asp:ValidationSummary runat="server" ID="vs" /><asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
-    </div>
     <asp:FormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  
         DataKeyNames="id" DefaultMode="Insert" Width="100%" 
         onprerender="FormView1_PreRender" >
         <InsertItemTemplate>
-            <table>
+             <table>
             <tr>
-            <td>
+            <td >
+
             <table cellpadding="2" cellspacing="2">
             <tr>
             <td align="right">
@@ -29,7 +28,7 @@
             </td>
             <td>
             <asp:TextBox ID="lblTitle" runat="server" Text='<%# Bind("Title") %>' 
-                    Width="200px" Rows="2" TextMode="MultiLine" />
+                    Width="300px" Rows="2" TextMode="MultiLine" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="lblTitle" ErrorMessage="Title is required">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
@@ -40,11 +39,11 @@
 
              <tr>
             <td align="right">
-            Picture<br />File Name<cc3:Popup runat="server" ID="puPictureFile" Key="PictureFile" />
+            Picture<br />File Name<cc3:Popup runat="server" ID="puPictureFile" Key="PictureFile" />:
             </td>
             <td >
             <asp:TextBox ID="lblPicturePath" runat="server" Text='<%# Bind("PicturePath") %>' 
-                    Width="187px" />
+                    Width="300px" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                     ControlToValidate="lblPicturePath" ErrorMessage="Picture File is required">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" 
@@ -152,9 +151,9 @@
             </td>
             <td>
             <asp:TextBox ID="lblMedia" runat="server" Text='<%# Bind("Media") %>' 
-                    Width="200px" /><asp:RequiredFieldValidator runat="server" ID="reqMedia" ControlToValidate="lblMedia"
-                    Text="*" ErrorMessage="Media is requied" />
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
+                    Width="300px" /><asp:RequiredFieldValidator ID="RequiredFieldValidatorMedia" runat="server" 
+                    ControlToValidate="lblMedia" ErrorMessage="Media is required">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidatorMedia" runat="server" 
                     ControlToValidate="lblMedia" ErrorMessage="Media must be 50 character or less" 
                     ValidationExpression=".{1,50}">*</asp:RegularExpressionValidator>
             </td>
@@ -166,7 +165,7 @@
             </td>
             <td>
             <asp:TextBox ID="lblMegatags" runat="server" Text='<%# Bind("MetaTags") %>' 
-                    Rows="2" TextMode="MultiLine" Width="200px" />
+                    Rows="2" TextMode="MultiLine" Width="300px" />
             </td>
             </tr>
 
@@ -176,7 +175,7 @@
             </td>
             <td>
             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Notes") %>' Rows="2" 
-                    TextMode="MultiLine" Width="200px" />
+                    TextMode="MultiLine" Width="300px" />
             </td>
             </tr>
 
@@ -186,7 +185,7 @@
             </td>
             <td>
             <asp:TextBox ID="lblDescription" runat="server" Text='<%# Bind("Description") %>' 
-                    Rows="8" TextMode="MultiLine" Width="200px" />
+                    Rows="8" TextMode="MultiLine" Width="300px" />
             </td>
             </tr>
 
@@ -205,12 +204,12 @@
 
             </td>
             </tr>
-
-            <td align="right">
+              
+             <td align="right">
             Handling<cc3:Popup runat="server" ID="puHandling" Key="Handling" />:
             </td>
             <td>
-            $<asp:TextBox ID="lblHandling" runat="server" Text='<%# Bind("handling") %>' 
+            <asp:TextBox ID="lblHandling" runat="server" Text='<%# Bind("handling", "{0:0.00}") %>' 
                     Width="75px" />
              <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="lblHandling" MinimumValue="0" 
                MaximumValue='2000' Type="Currency" Text="*" ErrorMessage="Handling must be a positive number less than 2000" />

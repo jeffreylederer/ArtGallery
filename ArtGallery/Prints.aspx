@@ -3,8 +3,7 @@
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
    <script src="scripts/jquery-1.4.1.js" type="text/javascript"></script>
-  <script src="scripts/site.js" type="text/javascript"></script>
-  <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script> 
+   <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
@@ -16,16 +15,11 @@
     
 // -->
 </script>
-   
-
-
- 
-
 <div class="standardtext"> 
    
     <asp:FormView ID="FormView1" runat="server"  
          DataKeyNames="id" 
-        DataSourceID="odsPicture">
+        DataSourceID="odsPicture" onprerender="FormView1_PreRender">
         <ItemTemplate>
         <asp:HiddenField runat="server" Value='<%# Eval("Metatags") %>' ID="metatags" />
          
@@ -137,21 +131,18 @@
                  </Parameters>
               </cc1:GeneratedImage><br />
                <asp:Label runat="server" ID="lblCopyright" Text='<%#"&#64; " + Eval("copyrightholder").ToString() + " " +  Eval("Date").ToString() %>' ></asp:Label>
-               
- 
-       
         </ItemTemplate>
     </asp:FormView>
 </div>
 
- <asp:ObjectDataSource ID="odsPicture" runat="server"  
+<asp:ObjectDataSource ID="odsPicture" runat="server"  
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="GetById" TypeName="ArtGallery.PictureDL" >
       <SelectParameters>
          <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
      </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsReproduction" runat="server" DeleteMethod="Delete" 
+<asp:ObjectDataSource ID="odsReproduction" runat="server" DeleteMethod="Delete" 
         InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
         SelectMethod="GetByPictureId" TypeName="ArtGallery.ReproductionDL" 
         UpdateMethod="Update">

@@ -24,5 +24,11 @@ namespace ArtGallery
                 }
             }
         }
+
+        protected void FormView1_PreRender( object sender, EventArgs e )
+        {
+            if(!(FormView1.DataKey.Value is int))
+                Response.Redirect("~/default.aspx");
+        }
     }
 }
