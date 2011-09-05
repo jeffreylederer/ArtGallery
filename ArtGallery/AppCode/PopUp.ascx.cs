@@ -34,21 +34,21 @@ namespace ArtGallery
                 return str;
             }
         }
-
+            
 
         protected void Page_PreRender( object sender, EventArgs e )
         {
 
-            //// Set the BehaviorID
-            //string behaviorID = PopupControlExtender1.ClientID;
-            //PopupControlExtender1.BehaviorID = behaviorID;
+            // Set the BehaviorID
+            string behaviorID = PopupControlExtender1.ClientID;
+            PopupControlExtender1.BehaviorID = behaviorID;
 
-            //// Add the clie nt-side attributes (onmouseover & onmouseout)
-            //string OnMouseOverScript = string.Format( "$find('{0}').showPopup();", behaviorID );
-            //string ClickScript = string.Format( "$find('{0}').hidePopup();", behaviorID );
+            // Add the clie nt-side attributes (onmouseover & onmouseout)
+            string OnMouseOverScript = string.Format( "$find('{0}').showPopup();", behaviorID );
+            string ClickScript = string.Format( "$find('{0}').hidePopup();", behaviorID );
 
-            //Image1.Attributes.Add( "onmouseover", OnMouseOverScript );
-            //Image1.Attributes.Add( "onmouseout", ClickScript );
+            Image1.Attributes.Add( "onclick", OnMouseOverScript );
+            impClose.Attributes.Add( "onclick", ClickScript );
         }
     }
 }
