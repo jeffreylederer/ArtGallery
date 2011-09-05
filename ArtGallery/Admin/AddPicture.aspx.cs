@@ -65,8 +65,8 @@ namespace ArtGallery.Admin
                 up1.Update();
                 return;
             }
-            int id = (int)e.ReturnValue;
-            Response.Redirect( "EditPicture.aspx?id=" + id.ToString() );
+            string id = e.ReturnValue.ToString();
+            Response.Redirect( "EditPicture.aspx?id=" + id);
         }
 
                

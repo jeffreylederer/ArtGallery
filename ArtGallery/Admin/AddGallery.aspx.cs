@@ -27,9 +27,9 @@ namespace ArtGallery.Admin
                 e.ExceptionHandled = true;
                 return;
             }
-            int id = (int)e.ReturnValue;
+            string id = e.ReturnValue.ToString();
             Application["keywords"] = null;
-            Response.Redirect("EditGallery.aspx?id=" + id.ToString());
+            Response.Redirect("EditGallery.aspx?id=" + id);
         }
     }
 }
