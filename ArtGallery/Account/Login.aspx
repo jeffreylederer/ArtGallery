@@ -13,7 +13,8 @@
         Please enter your username and password. This login is for administators only.
         
     </p>
-    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" 
+        RenderOuterTable="false" onauthenticate="LoginUser_Authenticate">
  <LayoutTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
@@ -41,27 +42,34 @@
                        <p>
                            
                            <p>
-                           </p>
-                           <p>
-                               <asp:CheckBox ID="RememberMe" runat="server" />
-                               <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" 
-                                   CssClass="inline">Keep me logged in</asp:Label>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
-                           </p>
-                           <p>
+                               &nbsp;<cc1:captchacontrol id="CAPTCHA" runat="server" CaptchaLineNoise="Low" CaptchaLength="7"></cc1:captchacontrol>
+                               <p>
+                               </p>
+                               <p>
+                                   <asp:CheckBox ID="RememberMe" runat="server" />
+                                   <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" 
+                                       CssClass="inline">Keep me logged in</asp:Label>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
+                               <p>
+                               </p>
                            </p>
                        </p>     
                     </p>
