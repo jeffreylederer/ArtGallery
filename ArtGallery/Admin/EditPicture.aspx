@@ -501,7 +501,7 @@
                  <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
                  <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
-                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtHandling"
+                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price must be a positive number" ValidationGroup="grid" 
                  MinimumValue="0"  MaximumValue="100000" Type="Currency" />
              </EditItemTemplate>
@@ -509,7 +509,7 @@
                  <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
                  <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
-                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtHandling"
+                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price must be a positive number" ValidationGroup="grid" 
                  MinimumValue="0"  MaximumValue="100000" Type="Currency" />
              </FooterTemplate>                       
