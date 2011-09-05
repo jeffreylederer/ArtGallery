@@ -364,13 +364,13 @@
                      CommandName="Delete" Text="Delete"></asp:LinkButton>
              </ItemTemplate>
              <EditItemTemplate>
-                 <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="True" 
+                 <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="True" ValidationGroup="grid"
                      CommandName="Update" Text="Update"></asp:LinkButton>
                  &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="False" 
                      CommandName="Cancel" Text="Cancel"></asp:LinkButton>
              </EditItemTemplate>
               <FooterTemplate>
-                 <asp:LinkButton ID="LinkButton5" runat="server" CausesValidation="True" 
+                 <asp:LinkButton ID="LinkButton5" runat="server" CausesValidation="True" ValidationGroup="grid"
                      CommandName="Insert" Text="Insert"></asp:LinkButton>
                  &nbsp;<asp:LinkButton ID="LinkButton6" runat="server" CausesValidation="False" 
                      CommandName="Cancel" Text="Cancel"></asp:LinkButton>
@@ -383,9 +383,17 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="250px" ID="txtDescription" runat="server" Text='<%# Bind("description") %>'></asp:TextBox>
+                 <asp:RequiredFieldValidator runat="server" ID="rqDescription" ControlToValidate="txtDescription"
+                 Text="*" ErrorMessage="Description is required" ValidationGroup="grid" />
+                 <asp:RegularExpressionValidator runat="server" ID="RequiredFieldValidator9" ControlToValidate="txtDescription"
+                 Text="*" ErrorMessage="Description must be 300 characters or less" ValidationGroup="grid" ValidationExpression=".{1,300}" />
              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="250px" ID="txtDescription" runat="server" ></asp:TextBox>
+                  <asp:RequiredFieldValidator runat="server" ID="rqDescription" ControlToValidate="txtDescription"
+                 Text="*" ErrorMessage="Description is required" ValidationGroup="grid" />
+                 <asp:RegularExpressionValidator runat="server" ID="RequiredFieldValidator9" ControlToValidate="txtDescription"
+                 Text="*" ErrorMessage="Description must be 300 characters or less" ValidationGroup="grid" ValidationExpression=".{1,300}" />
              </FooterTemplate>
          </asp:TemplateField>
 
@@ -395,9 +403,19 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtWidth" runat="server" Text='<%# Bind("width") %>'></asp:TextBox>
+                  <asp:RequiredFieldValidator runat="server" ID="rqWidth" ControlToValidate="txtWidth"
+                 Text="*" ErrorMessage="Width is required" ValidationGroup="grid" />
+                 <asp:RangeValidator runat="server" ID="rangeWidth" ControlToValidate="txtWidth"
+                 Text="*" ErrorMessage="Width must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </EditItemTemplate>
               <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtWidth" runat="server" ></asp:TextBox>
+                 <asp:RequiredFieldValidator runat="server" ID="rqWidth" ControlToValidate="txtWidth"
+                 Text="*" ErrorMessage="Width is required" ValidationGroup="grid" />
+                  <asp:RangeValidator runat="server" ID="rangeWidth" ControlToValidate="txtWidth"
+                 Text="*" ErrorMessage="Width must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </FooterTemplate>
         </asp:TemplateField>
 
@@ -407,9 +425,19 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtHeight" runat="server" Text='<%# Bind("height") %>'></asp:TextBox>
+                  <asp:RequiredFieldValidator runat="server" ID="rqHeight" ControlToValidate="txtWeight"
+                 Text="*" ErrorMessage="Height is required" ValidationGroup="grid" />
+                 <asp:RangeValidator runat="server" ID="rangeHeight" ControlToValidate="txtWeight"
+                 Text="*" ErrorMessage="Height must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtHeight" runat="server" ></asp:TextBox>
+                  <asp:RequiredFieldValidator runat="server" ID="rqHeight" ControlToValidate="txtHeight"
+                 Text="*" ErrorMessage="Height is required" ValidationGroup="grid" />
+                 <asp:RangeValidator runat="server" ID="rangeHeight" ControlToValidate="txtWeight"
+                 Text="*" ErrorMessage="Height must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </FooterTemplate>
          </asp:TemplateField>
 
@@ -419,9 +447,13 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtWeight" runat="server" Text='<%# Bind("weight") %>'></asp:TextBox>
+                 <asp:RequiredFieldValidator runat="server" ID="rqWeight" ControlToValidate="txtWeight"
+                 Text="*" ErrorMessage="Weight is required" ValidationGroup="grid" />
              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtWeight" runat="server"></asp:TextBox>
+                  <asp:RequiredFieldValidator runat="server" ID="rqWeight" ControlToValidate="txtWeight"
+                 Text="*" ErrorMessage="Weight is required" ValidationGroup="grid" />
              </FooterTemplate>
          </asp:TemplateField>
 
@@ -431,9 +463,15 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtPacking" runat="server" Text='<%# Bind("packingweight") %>'></asp:TextBox>
+                  <asp:RangeValidator runat="server" ID="rangetxtPacking" ControlToValidate="txtPacking"
+                 Text="*" ErrorMessage="Packing weight must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtPacking" runat="server" Text='<%# Bind("packingweight") %>'></asp:TextBox>
+                 <asp:RangeValidator runat="server" ID="rangetxtPacking" ControlToValidate="txtPacking"
+                 Text="*" ErrorMessage="Packing weight must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </FooterTemplate>
          </asp:TemplateField>
 
@@ -443,9 +481,15 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtHandling" runat="server" Text='<%# Bind("handling") %>'></asp:TextBox>
-             </EditItemTemplate>
+                  <asp:RangeValidator runat="server" ID="rangetxtHandling" ControlToValidate="txtHandling"
+                 Text="*" ErrorMessage="Handling must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
+              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtHandling" runat="server" Text='<%# Bind("handling") %>'></asp:TextBox>
+                 <asp:RangeValidator runat="server" ID="rangetxtHandling" ControlToValidate="txtHandling"
+                 Text="*" ErrorMessage="Handling must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
              </FooterTemplate>
          </asp:TemplateField>
 
@@ -455,9 +499,19 @@
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
+                 <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
+                 Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
+                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtHandling"
+                 Text="*" ErrorMessage="Price must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Currency" />
              </EditItemTemplate>
              <FooterTemplate>
                  <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
+                 <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
+                 Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
+                  <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtHandling"
+                 Text="*" ErrorMessage="Price must be a positive number" ValidationGroup="grid" 
+                 MinimumValue="0"  MaximumValue="100000" Type="Currency" />
              </FooterTemplate>                       
          </asp:TemplateField>
 
