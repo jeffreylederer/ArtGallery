@@ -85,5 +85,14 @@ namespace ArtGallery
             e.InputParameters["height"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtHeight" )).Text );
             e.InputParameters["packingweight"] = Packing.Text == "" ? (double?)null : double.Parse( Packing.Text );
         }
+
+        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception == null && (int)e.ReturnValue == 1)
+            {
+                ErrorLabel.Text = "Saved Successfully";
+                up1.Update();
+            }
+        }
    }
 }

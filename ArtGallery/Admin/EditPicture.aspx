@@ -11,7 +11,8 @@
     <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server" ErrorLabelID="ErrorLabel"
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
         TypeName="ArtGallery.PictureDL" DeleteMethod="Delete" 
-        UpdateMethod="Update" AddDummyRow="True" >
+        UpdateMethod="Update" AddDummyRow="True" 
+        onupdated="ObjectDataSource1_Updated" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
@@ -52,11 +53,11 @@
 <tr>
 <td>
 <div style="text-align:center;">
-
+   <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
+    <ContentTemplate>
      <asp:ValidationSummary runat="server" ID="vs" /><asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
 </div>
-    <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
-    <ContentTemplate>
+ 
     <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  UpdatePanelID="up2"
         DataKeyNames="id,lastupdated,metatags" DefaultMode="Edit" Width="100%" InsertOrUpdateCheckField="lastupdated"
         onprerender="FormView1_PreRender">

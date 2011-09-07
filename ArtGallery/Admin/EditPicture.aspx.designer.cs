@@ -49,6 +49,15 @@ namespace ArtGallery {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsGallery;
         
         /// <summary>
+        /// up2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up2;
+        
+        /// <summary>
         /// vs control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace ArtGallery {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ErrorLabel;
-        
-        /// <summary>
-        /// up2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up2;
         
         /// <summary>
         /// FormView1 control.

@@ -22,6 +22,15 @@ namespace ArtGallery.Admin {
         protected global::ArtGallery.TPMSObjectDataSource ObjectDataSource1;
         
         /// <summary>
+        /// up1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up1;
+        
+        /// <summary>
         /// vs control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace ArtGallery.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ErrorLabel;
-        
-        /// <summary>
-        /// up1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up1;
         
         /// <summary>
         /// FormView1 control.

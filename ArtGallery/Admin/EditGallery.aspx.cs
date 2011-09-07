@@ -19,7 +19,20 @@ namespace ArtGallery.Admin
         protected void FormView1_PreRender(object sender, EventArgs e)
         {
             if (FormView1.DataKey.Values.Count == 0)
+            {
                 Response.Redirect( "~/default.aspx" );
+                up1.Update();
+            }
+        }
+
+        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception == null && (int)e.ReturnValue == 1)
+            {
+                ErrorLabel.Text = "Saved Successfully";
+                up1.Update();
+            }
+
         }
     }
 }
