@@ -29,7 +29,7 @@ namespace ArtGallery.Admin
             }
             string id = e.ReturnValue.ToString();
             Application["keywords"] = null;
-            Response.Redirect("EditGallery.aspx?id=" + id);
+            Response.Redirect("EditGallery.aspx?id=" + id, true);
         }
     }
 }

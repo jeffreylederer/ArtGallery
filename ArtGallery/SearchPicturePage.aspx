@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Search Result Picture" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"  EnableViewState="true" 
  Inherits="ArtGallery.SearchPicturePage"  Codebehind="SearchPicturePage.aspx.cs" %>
-<%@ OutputCache Duration="1" VaryByParam="id" %>
+<%@ OutputCache Duration="100" VaryByParam="id" %>
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">

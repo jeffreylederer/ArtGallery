@@ -53,6 +53,7 @@ namespace ArtGallery.Admin
 
         protected void ObjectDataSource1_Inserted( object sender, ObjectDataSourceStatusEventArgs e )
         {
+            
             if (e.Exception != null)
             {
                 Exception ex = e.Exception;
@@ -62,11 +63,10 @@ namespace ArtGallery.Admin
                     ex = ex.InnerException;
                 }
                 e.ExceptionHandled = true;
-                up1.Update();
                 return;
             }
-            string id = e.ReturnValue.ToString();
-            Response.Redirect( "EditPicture.aspx?id=" + id);
+                string id = e.ReturnValue.ToString();
+                Response.Redirect( "EditPicture.aspx?id=" + id, true );
         }
 
                
