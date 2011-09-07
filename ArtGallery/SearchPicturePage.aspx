@@ -150,8 +150,7 @@
                     <cc1:ImageParameter Name="ActualHeight" Value='<%# Eval("Height") %>' />
                     <cc1:ImageParameter Name="ActualWidth" Value='<%# Eval("Width") %>' />
                  </Parameters>
-              </cc1:GeneratedImage><br />
-               <asp:Label runat="server" ID="lblCopyright" Text='<%#"&#64; " + Eval("copyrightholder").ToString() + " " +  Eval("Date").ToString() %>' ></asp:Label>
+              </cc1:GeneratedImage>
                </td>
                 <td class="rightarrow"> <asp:ImageButton runat="server" ID="btnNext" ImageUrl="~/Images/right.jpg" 
                     BorderStyle="None"  OnClick="btnNext_Click" Height="20px" Width="20px" /></td>
@@ -159,7 +158,9 @@
 
                </tr>
                </table>
- 
+                <div class="copyright">
+               <asp:Label runat="server" ID="Label1" Text='<%#"&#169; " +Eval("Date").ToString() + " " + Eval("copyrightholder").ToString()%>' ></asp:Label>
+               </div>
        
         </ItemTemplate>
     </asp:FormView>

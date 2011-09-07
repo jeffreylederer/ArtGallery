@@ -496,7 +496,7 @@
 
          <asp:TemplateField HeaderText="Price" SortExpression="price">
              <ItemTemplate>
-                 <asp:Label ID="Label7" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                 <asp:Label ID="Label7" runat="server" Text='<%# Bind("price", "{0:0.00}") %>'></asp:Label>
              </ItemTemplate>
              <EditItemTemplate>
                  <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
