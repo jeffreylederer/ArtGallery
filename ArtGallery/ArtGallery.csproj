@@ -52,10 +52,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\WebSites\Gallery\Bin\Microsoft.Web.GeneratedImage.dll</HintPath>
     </Reference>
-    <Reference Include="MSCaptcha, Version=4.0.4250.31585, Culture=neutral, PublicKeyToken=b9ff12f28cdcf412, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\MSCaptcha.dll</HintPath>
-    </Reference>
     <Reference Include="SpiceLogicPayPalStd, Version=3.6.0.6, Culture=neutral, PublicKeyToken=e444157244638e02, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\SpiceLogicPayPalStd.dll</HintPath>
@@ -425,6 +421,10 @@
     <ProjectReference Include="..\Controls\Controls.csproj">
       <Project>{A6FBD0F3-F370-41E7-BE1C-7133349938A4}</Project>
       <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebControlCaptcha\WebControlCaptcha.vbproj">
+      <Project>{03D1C790-162A-4AC0-B33B-634B263C0A63}</Project>
+      <Name>WebControlCaptcha</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
