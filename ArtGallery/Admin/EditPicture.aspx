@@ -211,6 +211,8 @@
             <td>
             <asp:TextBox ID="lblMegatags" runat="server" Text='<%# Bind("MetaTags") %>' 
                     Rows="2" TextMode="MultiLine" Width="300px" />
+                    <asp:RequiredFieldValidator runat="server" ID="requiredmetatags" ControlToValidate="lblMetatags"
+                    Text="*" ErrorMessage="Metatags are required." />
             </td>
             </tr>
 
