@@ -5,18 +5,21 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:FormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1">
              <ItemTemplate>
-            <div class="standardtext">
-             <asp:Label ID="HomePageTextLabel" runat="server" 
-                    Text='<%# Bind("ArtistPageText") %>' />
-            </div>
-            <div class="picture">
+             <div class="aboutpicture">
              <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx">
                 <Parameters>
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/Images/" + Eval("ArtistImagePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />
+                    <cc1:ImageParameter Name="Wdith" Value="500" />
                  </Parameters>
               </cc1:GeneratedImage>
+              <div class="spacer"></div>
              </div>
+            <div class="aboutstandardtext">
+             <asp:Label ID="HomePageTextLabel" runat="server" 
+                    Text='<%# Bind("ArtistPageText") %>' />
+            </div>
+            
              
              </ItemTemplate>
         </asp:FormView>

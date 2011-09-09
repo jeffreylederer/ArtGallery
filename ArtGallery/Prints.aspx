@@ -106,7 +106,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
             
-            <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" DataFormatString="{0:c}" />
+            <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" DataFormatString="{0:0.00}" />
             
         </Columns>
     </asp:GridView>
