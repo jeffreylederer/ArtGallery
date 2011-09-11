@@ -20,20 +20,19 @@
 </script>
    
 
-
- 
-
 <div class="standardtext"> 
     <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
     <ContentTemplate>
-   
-    <asp:FormView ID="FormView1" runat="server"  
+    <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
+    <h1>Processing your order</h1>
+    </asp:Panel>
+
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="id,lastupdated" 
         onprerender="FormView1_PreRender">
         <ItemTemplate>
         <asp:HiddenField runat="server" Value='<%# Eval("Metatags") %>' ID="metatags" />
         <asp:HiddenField runat="server" Value='<%# Eval("Available") %>' ID="Available" /> 
-        <asp:HiddenField runat="server" Value='<%# Eval("id") %>' ID="ID" /> 
-         
+          
             <table cellpadding="2" cellspacing="2">
             <tr>
             <td align="left">
@@ -112,22 +111,37 @@
             </tr>
 
             </table>
+
+             <asp:Panel runat="server" ID="pnlFramed" >
+              <br />    
+             <asp:CheckBox runat="server" ID="chkUnframed" Text="Ship Unframed" /><cc3:Popup runat="server" Key="unframed" ID="puUnframed" /><br />
+             </asp:Panel>
             </ItemTemplate>
     </asp:FormView>
-    
-     </ContentTemplate>
+    </ContentTemplate>
     </asp:UpdatePanel>
      
- <br />    <cc2:BuyNowButton ID="btnBuy" 
+ 
+ <br />
+    <cc2:BuyNowButton ID="btnBuy" 
                         BusinessEmailOrMerchantID="placeholder"
                         runat="server" 
-                        ImageUrl="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" 
+                        ImageUrl="~/Images/btn_buynowCC_LG.gif" 
                         Quantity="1" 
                         CurrencyCode="US_Dollar"
                         WeightUnit="Pounds"
-                        onpaypal_returned="BuyNowButton_PayPal_Returned" 
-        onclick="btnBuy_Click">
-       </cc2:BuyNowButton>
+                       
+        onclick="btnBuy_Click" AlternateText="Buy now via PayPal"><PayPalDisplayPage 
+        ShippingAddress="ShippingAddressMust" /><PayPalIPN 
+        Custom_IPN_Url="~/PayPalNotification.aspx" 
+        EnablePageLoadEventInIPNSession="True" />
+        <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
+            Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
+            PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
+        <EncryptedButtonGeneration CertificateId="1234" 
+            PayPalCertPath="~/Images/ArtGallery.xxx" 
+            PKCS12CertPath="~/Images/ArtGallery.P12" PKCS12Password="Ilene913" />
+    </cc2:BuyNowButton>
 </div>
 <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
     <ContentTemplate>
@@ -142,15 +156,7 @@
             <td class="leftarrow"><asp:ImageButton runat="server" ID="btnPrevious" ImageUrl="~/Images/left.jpg" 
                     BorderStyle="None"  OnClick="btnPrevious_Click" Height="20px" Width="20px" /></td>
             <td class="picture">
-            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx">
-                <Parameters>
-                    <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
-                    <cc1:ImageParameter Name="Height" Value="500" />
-                    <cc1:ImageParameter Name="Width" Value="450" />
-                    <cc1:ImageParameter Name="ActualHeight" Value='<%# Eval("Height") %>' />
-                    <cc1:ImageParameter Name="ActualWidth" Value='<%# Eval("Width") %>' />
-                 </Parameters>
-              </cc1:GeneratedImage>
+            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx"><Parameters><cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' /><cc1:ImageParameter Name="Height" Value="500" /><cc1:ImageParameter Name="Width" Value="450" /><cc1:ImageParameter Name="ActualHeight" Value='<%# Eval("Height") %>' /><cc1:ImageParameter Name="ActualWidth" Value='<%# Eval("Width") %>' /></Parameters></cc1:GeneratedImage>
                </td>
                 <td class="rightarrow"> <asp:ImageButton runat="server" ID="btnNext" ImageUrl="~/Images/right.jpg" 
                     BorderStyle="None"  OnClick="btnNext_Click" Height="20px" Width="20px" /></td>
@@ -171,9 +177,7 @@
 </asp:UpdatePanel>
 
 
-
-       
-                   
+             
 </asp:Content>
 
 

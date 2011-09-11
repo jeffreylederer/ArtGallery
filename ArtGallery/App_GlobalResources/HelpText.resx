@@ -225,6 +225,9 @@
     <value>Enter the price for the original art work here. The price should be in the currency selected on the PayPal page. Please do not enter separators between thousands. This is not the price of geclee prints made from the original, those prices should be entered below. &lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
     <comment>On picture edit/add page</comment>
   </data>
+  <data name="Unframed" xml:space="preserve">
+    <value>Framed pieces are shipped in StrongBox packaging which cost between $50 to $150 depending on the size of the piece and adds weights 3 to 7 pounds to the shipping. The frames themselves weight between 2 and 10 pounds. We can unframe the art work and ship it to you so you can frame it. The shipping container for unframed art work costs about $10 (dependent on size) and adds about 2 pounds to the shipping costs. Unframed pieces weight less than a pound.</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Selecting this link updates the databases you have just made on this screen. Failure to select this link means that all changes you made will be lost.</value>
     <comment>on picture edit page and gallery edit page</comment>

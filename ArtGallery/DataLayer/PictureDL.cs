@@ -150,8 +150,6 @@ namespace ArtGallery
             short price,
             float weight,
             string description,
-            double? handling,
-            decimal? Packingweight,
             bool Available, 
             int original_id,
             string original_metatags,
@@ -179,10 +177,8 @@ namespace ArtGallery
                 selectCommand.Parameters.AddWithValue("@price", price);
                 selectCommand.Parameters.AddWithValue("@weight", weight);
                 selectCommand.Parameters.AddWithValue("@description", description);
-                selectCommand.Parameters.AddWithValue( "@Handling", handling );
                 selectCommand.Parameters.AddWithValue( "@Available", Available );
-                selectCommand.Parameters.AddWithValue( "@Packingweight", Packingweight );
-                 selectCommand.Parameters.AddWithValue("@original_id", original_id);
+                selectCommand.Parameters.AddWithValue("@original_id", original_id);
                 selectCommand.Parameters.AddWithValue("@original_metatags",original_metatags);
                 selectCommand.Parameters.AddWithValue( "@original_lastupdated", original_lastupdated );
                 return selectCommand.ExecuteNonQuery();
@@ -214,8 +210,6 @@ namespace ArtGallery
             short price,
             float weight,
             string description,
-            double? handling,
-            decimal? Packingweight,
             bool Available
            )
         {
@@ -240,13 +234,11 @@ namespace ArtGallery
                 selectCommand.Parameters.AddWithValue("@price", price);
                 selectCommand.Parameters.AddWithValue("@weight", weight);
                 selectCommand.Parameters.AddWithValue("@description", CheckNull(description));
-                selectCommand.Parameters.AddWithValue( "@handling", handling );
                 selectCommand.Parameters.AddWithValue( "@Available", Available );
-                selectCommand.Parameters.AddWithValue( "@Packingweight", Packingweight );
                 SqlParameter id = selectCommand.Parameters.Add("@id", SqlDbType.Int);
                 id.Direction = ParameterDirection.Output;
                 int rowcount=selectCommand.ExecuteNonQuery();
-                if (rowcount == 1)
+                if (rowcount > 0)
                     return (int) selectCommand.Parameters["@id"].Value;
                 return 0;
             }

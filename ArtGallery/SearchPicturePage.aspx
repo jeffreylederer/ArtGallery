@@ -18,7 +18,9 @@
     
 // -->
 </script>
-   
+ <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
+    <h1>Processing your order</h1>
+    </asp:Panel>
     <div class="standardtext">
     <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
     <ContentTemplate>
@@ -113,22 +115,30 @@
             </td>
             </tr>
             </table>
+            <asp:Panel runat="server" ID="pnlFramed" > <br /> 
+             <asp:CheckBox runat="server" ID="chkUnframed" Text="Ship Unframed" /><cc3:Popup runat="server" Key="unframed" ID="puUnframed" /><br />
+             </asp:Panel>
             </ItemTemplate>
     </asp:FormView>
     
      </ContentTemplate>
     </asp:UpdatePanel>
-     
- <br />    <cc2:BuyNowButton ID="btnBuy" 
+       
+ 
+ <br />   <cc2:BuyNowButton ID="btnBuy" 
                         BusinessEmailOrMerchantID="placeholder"
                         runat="server" 
-                        ImageUrl="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" 
+                        ImageUrl="~/Images/btn_buynowCC_LG.gif" 
                         Quantity="1" 
                         CurrencyCode="US_Dollar"
                         WeightUnit="Pounds"
-                        onpaypal_returned="BuyNowButton_PayPal_Returned" 
-            onclick="btnBuy_Click">
-       </cc2:BuyNowButton>
+         onclick="btnBuy_Click"><PayPalDisplayPage 
+        ShippingAddress="ShippingAddressMust" /><PayPalIPN 
+        Custom_IPN_Url="~/PayPalNotification.aspx" 
+        EnablePageLoadEventInIPNSession="True" />
+        <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
+            Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
+            PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
 </div>
          <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
     <ContentTemplate>

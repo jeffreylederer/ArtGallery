@@ -16,9 +16,11 @@ namespace ArtGallery
             ArtGalleryDS.SiteDataTable table = SiteDL.Get();
             Application["logo"] = table[0].LogoPath;
             Application["metatags"] = table[0].Metatags;
+            Application["email"] = table[0].email;
 
             ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
             Application["ppAccount"] = row.BusinessEmailOrMerchantID;
+            
         }
 
         void Application_End(object sender, EventArgs e)

@@ -8,11 +8,11 @@
     <asp:Button runat="server" id="UploadButton" text="Upload" 
         onclick="UploadButton_Click" ValidationGroup="none" />
     <br />
-    <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server" ErrorLabelID="ErrorLabel"
+    <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server"
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
         TypeName="ArtGallery.PictureDL" DeleteMethod="Delete" 
         UpdateMethod="Update" AddDummyRow="True" 
-        onupdated="ObjectDataSource1_Updated" >
+        onupdated="ObjectDataSource1_Updated" UniqueConstaintMessage="" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
@@ -37,8 +37,6 @@
             <asp:Parameter Name="price" Type="Int16" />
             <asp:Parameter Name="weight" Type="Single" />
             <asp:Parameter Name="description" Type="String" />
-            <asp:Parameter Name="handling" Type="Double" />
-            <asp:Parameter Name="Packingweight" Type="Decimal" />
             <asp:Parameter Name="Available" Type="Boolean" />
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_metatags" Type="String" />
@@ -211,7 +209,7 @@
             <td>
             <asp:TextBox ID="lblMegatags" runat="server" Text='<%# Bind("MetaTags") %>' 
                     Rows="2" TextMode="MultiLine" Width="300px" />
-                    <asp:RequiredFieldValidator runat="server" ID="requiredmetatags" ControlToValidate="lblMetatags"
+                    <asp:RequiredFieldValidator runat="server" ID="requiredmetatags" ControlToValidate="lblMegatags"
                     Text="*" ErrorMessage="Metatags are required." />
             </td>
             </tr>
@@ -252,31 +250,6 @@
             </td>
             </tr>
               
-             <td align="right">
-            Handling<cc3:Popup runat="server" ID="puHandling" Key="Handling" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblHandling" runat="server" Text='<%# Bind("handling", "{0:0.00}") %>' 
-                    Width="75px" />
-             <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="lblHandling" MinimumValue="0" 
-               MaximumValue='2000' Type="Currency" Text="*" ErrorMessage="Handling must be a positive number less than 2000" />
-
-            </td>
-            </tr>
-
-            <tr>
-            <td align="right">
-            Packing weight<cc3:Popup runat="server" ID="puPackingWeight" Key="PackingWeight" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblPackingweight" runat="server" Text='<%# Bind("Packingweight") %>' 
-                    Width="75px" />
-            <asp:RangeValidator ID="RangeValidator6" runat="server" ControlToValidate="lblPackingweight" MinimumValue="0" 
-               MaximumValue='200' Type="Double" Text="*" ErrorMessage="Packing weight must be a positive number less than 200" />
-
-            </td>
-            </tr>
-
             <tr>
             <td align="right">
             Original Available for Sale<cc3:Popup runat="server" ID="puAvailable" Key="Available" />:
@@ -460,42 +433,6 @@
              </FooterTemplate>
          </asp:TemplateField>
 
-        <asp:TemplateField HeaderText="Packing Weight" SortExpression="packingweight">
-             <ItemTemplate>
-                 <asp:Label ID="Label8" runat="server" Text='<%# Bind("packingweight") %>'></asp:Label>
-             </ItemTemplate>
-             <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtPacking" runat="server" Text='<%# Bind("packingweight") %>'></asp:TextBox>
-                  <asp:RangeValidator runat="server" ID="rangetxtPacking" ControlToValidate="txtPacking"
-                 Text="*" ErrorMessage="Packing weight must be a positive number" ValidationGroup="grid" 
-                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
-             </EditItemTemplate>
-             <FooterTemplate>
-                 <asp:TextBox width="75px" ID="txtPacking" runat="server" Text='<%# Bind("packingweight") %>'></asp:TextBox>
-                 <asp:RangeValidator runat="server" ID="rangetxtPacking" ControlToValidate="txtPacking"
-                 Text="*" ErrorMessage="Packing weight must be a positive number" ValidationGroup="grid" 
-                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
-             </FooterTemplate>
-         </asp:TemplateField>
-
-         <asp:TemplateField HeaderText="Handling" SortExpression="handling">
-             <ItemTemplate>
-                 <asp:Label ID="Label6" runat="server" Text='<%# Bind("handling") %>'></asp:Label>
-             </ItemTemplate>
-             <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtHandling" runat="server" Text='<%# Bind("handling") %>'></asp:TextBox>
-                  <asp:RangeValidator runat="server" ID="rangetxtHandling" ControlToValidate="txtHandling"
-                 Text="*" ErrorMessage="Handling must be a positive number" ValidationGroup="grid" 
-                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
-              </EditItemTemplate>
-             <FooterTemplate>
-                 <asp:TextBox width="75px" ID="txtHandling" runat="server" Text='<%# Bind("handling") %>'></asp:TextBox>
-                 <asp:RangeValidator runat="server" ID="rangetxtHandling" ControlToValidate="txtHandling"
-                 Text="*" ErrorMessage="Handling must be a positive number" ValidationGroup="grid" 
-                 MinimumValue="0"  MaximumValue="100000" Type="Double" />
-             </FooterTemplate>
-         </asp:TemplateField>
-
          <asp:TemplateField HeaderText="Price" SortExpression="price">
              <ItemTemplate>
                  <asp:Label ID="Label7" runat="server" Text='<%# Bind("price", "{0:0.00}") %>'></asp:Label>
@@ -539,10 +476,8 @@
          <asp:Parameter Name="description" Type="String" />
          <asp:Parameter Name="price" Type="Decimal" />
          <asp:Parameter Name="weight" Type="Decimal" />
-         <asp:Parameter Name="handling" Type="Decimal" />
          <asp:Parameter Name="width" Type="Decimal" />
          <asp:Parameter Name="height" Type="Decimal" />
-         <asp:Parameter Name="packingweight" Type="Double" />
      </InsertParameters>
      <SelectParameters>
          <asp:QueryStringParameter Name="pictureid" QueryStringField="id" Type="Int32" />

@@ -89,11 +89,9 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue( "@description",  description);
                 selectCommand.Parameters.AddWithValue( "@price", price );
-                selectCommand.Parameters.AddWithValue( "@handling", handling );
                 selectCommand.Parameters.AddWithValue( "@width",  width);
                 selectCommand.Parameters.AddWithValue( "@height", height );
                 selectCommand.Parameters.AddWithValue( "@weight", weight );
-                selectCommand.Parameters.AddWithValue( "@packingweight", packingweight );
                 selectCommand.Parameters.AddWithValue( "@original_id", original_id );
                 selectCommand.Parameters.AddWithValue( "@original_lastupdated", original_lastupdated );
                 return selectCommand.ExecuteNonQuery();
@@ -115,11 +113,9 @@ namespace ArtGallery
             string description,
             decimal price,
             decimal weight,
-            decimal? handling,
             decimal width,
-            decimal height,
-            double? packingweight
-            )
+            decimal height
+        )
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
             ArtGalleryDS data = new ArtGalleryDS();
@@ -130,11 +126,9 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue( "@description", description );
                 selectCommand.Parameters.AddWithValue( "@price", price );
-                selectCommand.Parameters.AddWithValue( "@handling", handling );
                 selectCommand.Parameters.AddWithValue( "@width", width );
                 selectCommand.Parameters.AddWithValue( "@height", height );
                 selectCommand.Parameters.AddWithValue( "@weight", weight );
-                selectCommand.Parameters.AddWithValue( "@packingweight", packingweight );
                 selectCommand.Parameters.AddWithValue( "@pictureid", pictureid );
                 return selectCommand.ExecuteNonQuery();
             }

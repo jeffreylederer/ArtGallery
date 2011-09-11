@@ -15,8 +15,10 @@
     
 // -->
 </script>
+<asp:Panel runat="server" ID="pnlProcessing" Visible="false">
+    <h1>Processing your order</h1>
+    </asp:Panel>
 <div class="standardtext"> 
-   
     <asp:FormView ID="FormView1" runat="server"  
          DataKeyNames="id" 
         DataSourceID="odsPicture" onprerender="FormView1_PreRender">
@@ -74,16 +76,20 @@
 
      
  <br />    
-    <cc2:BuyNowButton ID="btnBuy" 
+  <cc2:BuyNowButton ID="btnBuy" 
                         BusinessEmailOrMerchantID="placeholder"
                         runat="server" 
-                        ImageUrl="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" 
+                        ImageUrl="~/Images/btn_buynowCC_LG.gif" 
                         Quantity="1" 
                         CurrencyCode="US_Dollar"
                         WeightUnit="Pounds"
-                        onpaypal_returned="BuyNowButton_PayPal_Returned" 
-       Visible="False">
-       </cc2:BuyNowButton>
+        onclick="btnBuy_Click"><PayPalDisplayPage 
+        ShippingAddress="ShippingAddressMust" /><PayPalIPN 
+        Custom_IPN_Url="~/PayPalNotification.aspx" 
+        EnablePageLoadEventInIPNSession="True" />
+        <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
+            Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
+            PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
     
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" Width="90%"
         DataKeyNames="id" DataSourceID="odsReproduction" 

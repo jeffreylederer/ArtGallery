@@ -204,31 +204,7 @@
 
             </td>
             </tr>
-              
-             <td align="right">
-            Handling<cc3:Popup runat="server" ID="puHandling" Key="Handling" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblHandling" runat="server" Text='<%# Bind("handling", "{0:0.00}") %>' 
-                    Width="75px" />
-             <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="lblHandling" MinimumValue="0" 
-               MaximumValue='2000' Type="Currency" Text="*" ErrorMessage="Handling must be a positive number less than 2000" />
-
-            </td>
-            </tr>
-
-            <tr>
-            <td align="right">
-            Packing weight<cc3:Popup runat="server" ID="puPackingWeight" Key="PackingWeight" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblPackingweight" runat="server" Text='<%# Bind("Packingweight") %>' 
-                    Width="75px" />
-            <asp:RangeValidator ID="RangeValidator6" runat="server" ControlToValidate="lblPackingweight" MinimumValue="0" 
-               MaximumValue='200' Type="Double" Text="*" ErrorMessage="Packing weight must be a positive number less than 200" />
-
-            </td>
-            </tr>
+           
 
             <tr>
             <td align="right">
@@ -275,8 +251,6 @@
             <asp:Parameter Name="price" Type="Int16" />
             <asp:Parameter Name="weight" Type="Single" />
             <asp:Parameter Name="description" Type="String" />
-            <asp:Parameter Name="handling" Type="Double" />
-            <asp:Parameter Name="Packingweight" Type="Decimal" />
             <asp:Parameter Name="Available" Type="Boolean" />
         </InsertParameters>
         <SelectParameters>

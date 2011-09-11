@@ -304,6 +304,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Framed pieces are shipped in StrongBox packaging which cost between $50 to $150 depending on the size of the piece and adds weights 3 to 7 pounds to the shipping. The frames themselves weight between 2 and 10 pounds. We can unframe the art work and ship it to you so you can frame it. The shipping container for unframed art work costs about $10 (dependent on size) and adds about 2 pounds to the shipping costs. Unframed pieces weight less than a pound..
+        /// </summary>
+        internal static string Unframed {
+            get {
+                return ResourceManager.GetString("Unframed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selecting this link updates the databases you have just made on this screen. Failure to select this link means that all changes you made will be lost..
         /// </summary>
         internal static string Update {

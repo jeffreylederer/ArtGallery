@@ -21,6 +21,8 @@ namespace ArtGallery
                     FormView1.Visible = false;
                     FormView2.Visible = false;
                     GridView1.Visible = false;
+                    pnlProcessing.Visible = true;
+                    return;
                 }
             }
         }

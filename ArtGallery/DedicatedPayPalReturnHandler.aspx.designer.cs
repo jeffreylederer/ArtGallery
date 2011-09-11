@@ -10,25 +10,7 @@
 namespace ArtGallery {
     
     
-    public partial class Prints {
-        
-        /// <summary>
-        /// pnlProcessing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProcessing;
-        
-        /// <summary>
-        /// FormView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FormView1;
+    public partial class DedicatedPayPalReturnHandler {
         
         /// <summary>
         /// btnBuy control.
@@ -37,42 +19,87 @@ namespace ArtGallery {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy;
+        protected global::SpiceLogic.PayPalCtrlForWPS.Controls.PayPalReturnHandler btnBuy;
         
         /// <summary>
-        /// GridView1 control.
+        /// MultiViewMyShop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.MultiView MultiViewMyShop;
         
         /// <summary>
-        /// FormView2 control.
+        /// ViewPaymentCompleted control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FormView2;
+        protected global::System.Web.UI.WebControls.View ViewPaymentCompleted;
         
         /// <summary>
-        /// odsPicture control.
+        /// lblTitleSale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsPicture;
+        protected global::System.Web.UI.WebControls.Label lblTitleSale;
         
         /// <summary>
-        /// odsReproduction control.
+        /// emai13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsReproduction;
+        protected global::ArtGallery.Email emai13;
+        
+        /// <summary>
+        /// ViewPaymentCancelled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View ViewPaymentCancelled;
+        
+        /// <summary>
+        /// pnlCancelledFramed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCancelledFramed;
+        
+        /// <summary>
+        /// pnlCancelUnframed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCancelUnframed;
+        
+        /// <summary>
+        /// emai11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ArtGallery.Email emai11;
+        
+        /// <summary>
+        /// emai12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ArtGallery.Email emai12;
     }
 }

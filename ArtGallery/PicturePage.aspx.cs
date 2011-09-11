@@ -27,7 +27,6 @@ namespace ArtGallery
                 if (!int.TryParse( idStr, out id ))
                     Response.Redirect( "default.aspx" );
                 btnBuy.BusinessEmailOrMerchantID = (string)Application["ppAccount"];
-
                 ProcessPicture( id );
             }
         }
@@ -77,14 +76,20 @@ namespace ArtGallery
             }
             up1.Update();
             up2.Update();
+
+            Label frame = FormView1.FindControl( "lblFrame" ) as Label;
+            Panel pnlFramed = FormView1.FindControl( "pnlFramed" ) as Panel;
+            CheckBox chkUnframed = FormView1.FindControl("chkUnframed") as CheckBox;
+            pnlFramed.Visible = Available.Value == "True" && !frame.Text.ToUpper().Contains( "UNFRAMED" );
+            chkUnframed.Checked = !pnlFramed.Visible;
         }
         
         protected void FormView1_PreRender(object sender, EventArgs e)
         {
-            HiddenField ID = FormView1.FindControl( "ID" ) as HiddenField;
-            int id = 0;
-            if(int.TryParse( ID.Value, out id ))
+            
+            if(FormView1.DataKey.Values["lastupdated"] is DateTime)
             {
+                int id = (int)FormView1.DataKey.Values["id"];
                 Page.MetaKeywords = ((HiddenField)FormView1.FindControl( "metatags" )).Value;
                 Page.MetaDescription = ((Label)FormView2.FindControl( "lblTitle" )).Text;
                 Page.Title = ((Label)FormView2.FindControl( "lblTitle" )).Text;
@@ -98,23 +103,18 @@ namespace ArtGallery
         #region navigation button events
         protected void btnPrevious_Click( object sender, ImageClickEventArgs e )
         {
-            HiddenField ID = FormView1.FindControl( "ID" ) as HiddenField;
-            int id = 0;
-            if (int.TryParse( ID.Value, out id ))
+            int id = (int)FormView1.DataKey.Values["id"];
+            int newId = PictureDL.PreviousPublic( id );
+            if (newId > 0)
             {
-                int newId = PictureDL.PreviousPublic( id );
-                if (newId > 0)
-                {
-                    ProcessPicture( newId );
-                }
+                ProcessPicture( newId );
             }
+
         }
 
         protected void btnNext_Click( object sender, ImageClickEventArgs e )
         {
-            HiddenField ID = FormView1.FindControl( "ID" ) as HiddenField;
-            int id = 0;
-            if (int.TryParse( ID.Value, out id ))
+            int id = (int)FormView1.DataKey.Values["id"];
             {
                 int newId = PictureDL.NextPublic( id );
                 if (newId > 0)
@@ -124,17 +124,24 @@ namespace ArtGallery
             }
         }
         #endregion
-        
+
+        #region PayPal Events
         protected void btnBuy_Click( object sender, ImageClickEventArgs e )
         {
-             HiddenField ID = FormView1.FindControl( "ID" ) as HiddenField;
-            int id = 0;
-            if (int.TryParse( ID.Value, out id ))
+            int id = (int) FormView1.DataKey.Values["id"];
+            CheckBox chkUnframed = FormView1.FindControl( "chkUnframed" ) as CheckBox;
+            if (GenerateInvoice( id, btnBuy, chkUnframed.Checked ))
             {
-                if (GenerateInvoice( id, btnBuy ))
-                    return;
+                FormView1.Visible = false;
+                FormView2.Visible = false;
+                pnlProcessing.Visible = true;
+                return;
             }
             btnBuy.CancelSubmission();
         }
-   }
+        #endregion
+
+        
+        
+    }
 }

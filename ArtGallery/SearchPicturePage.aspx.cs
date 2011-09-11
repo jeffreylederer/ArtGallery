@@ -76,6 +76,10 @@ namespace ArtGallery
                 lblSold.Visible = false;
                 lblPrints.Text = rpt[0].description;
             }
+
+            Label frame = FormView1.FindControl( "lblFrame" ) as Label;
+            Panel pnlFramed = FormView1.FindControl( "pnlFramed" ) as Panel;
+            pnlFramed.Visible = Available.Value == "True" && !frame.Text.ToUpper().Contains( "UNFRAMED" );
             up1.Update();
             up2.Update();
         }
@@ -148,12 +152,14 @@ namespace ArtGallery
 
         protected void btnBuy_Click( object sender, ImageClickEventArgs e )
         {
-            HiddenField ID = FormView1.FindControl( "ID" ) as HiddenField;
-            int id = 0;
-            if (int.TryParse( ID.Value, out id ))
+            int id = (int) FormView1.DataKey.Values["id"];
+            CheckBox chkUnframed = FormView1.FindControl( "chkUnframed" ) as CheckBox;
+            if (GenerateInvoice( id, btnBuy, chkUnframed.Checked ))
             {
-                if (GenerateInvoice( id, btnBuy ))
-                    return;
+                FormView1.Visible = false;
+                FormView2.Visible = false;
+                pnlProcessing.Visible = true;
+                return;
             }
             btnBuy.CancelSubmission();
         }

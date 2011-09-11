@@ -21,7 +21,7 @@ namespace ArtGallery
         protected void ObjectDataSource1_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
         {
             if (e.Exception == null)
-                Response.Redirect( "~/default.aspx" );
+                Response.Redirect( "~/default.aspx", true );
         }
 
         protected void FormView1_PreRender(object sender, EventArgs e)

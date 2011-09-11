@@ -23,7 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExcludeApp_Data>true</ExcludeApp_Data>
-    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
     <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
@@ -89,23 +89,28 @@
     <Content Include="Admin\SelectGallery.aspx" />
     <Content Include="Admin\EditPicture.aspx" />
     <Content Include="Admin\Setup.aspx" />
+    <Content Include="AppCode\Email.ascx" />
     <Content Include="AppCode\PopUp.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Cancel.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="DedicatedPayPalReturnHandler.aspx" />
+    <Content Include="Images\btn_buynowCC_LG.gif" />
     <Content Include="Images\dot.jpg" />
     <Content Include="Images\email.png" />
     <Content Include="Images\facebook.png" />
+    <Content Include="Images\Ilene-Vignette2008-11.jpg" />
+    <Content Include="Images\IWLMagicEyeGalleryHeader2.jpg" />
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\question.jpg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\wordpress.png" />
+    <Content Include="PayPalNotification.aspx" />
     <Content Include="Prints.aspx" />
     <Content Include="SearchPicturePage.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="GalleryPage.aspx" />
-    <Content Include="Images\bio.jpg" />
     <Content Include="Images\left.jpg" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\Missing.jpg" />
@@ -246,6 +251,13 @@
     <Compile Include="Admin\Setup.aspx.designer.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\Email.ascx.cs">
+      <DependentUpon>Email.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\Email.ascx.designer.cs">
+      <DependentUpon>Email.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AppCode\InvoicePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -276,6 +288,21 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\ReproductionDL.cs" />
+    <Compile Include="DataLayer\StrongBoxDL.cs" />
+    <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
+      <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DedicatedPayPalReturnHandler.aspx.designer.cs">
+      <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPalNotification.aspx.cs">
+      <DependentUpon>PayPalNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPalNotification.aspx.designer.cs">
+      <DependentUpon>PayPalNotification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Prints.aspx.cs">
       <DependentUpon>Prints.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
