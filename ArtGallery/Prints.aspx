@@ -6,15 +6,19 @@
    <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script language="javascript" type="text/javascript">
-<!--
 
-        $().ready(function () {
-            $('#description').jTruncate();
-        });
-    
-// -->
+<script language="javascript" type="text/javascript">
+<!--
+      function pageLoad() {
+          $().ready(function () {
+              $('#description').jTruncate({
+                  minTrail: 20
+              });
+          });
+      }
+-->
 </script>
+
 <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
     <h1>Processing your order</h1>
     </asp:Panel>

@@ -5,19 +5,23 @@
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <script src="scripts/jquery-1.4.1.js" type="text/javascript"></script>
-  <script src="scripts/site.js" type="text/javascript"></script>
+     <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script> 
 <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <script language="javascript" type="text/javascript">
-<!--
 
-    $().ready(function () {
-        $('#description').jTruncate();
-    });
-    
-// -->
+<script language="javascript" type="text/javascript">
+<!--
+    function pageLoad() {
+        $().ready(function () {
+            $('#description').jTruncate({
+                minTrail: 20
+            });
+        });
+    }
+-->
 </script>
+
  <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
     <h1>Processing your order</h1>
     </asp:Panel>
