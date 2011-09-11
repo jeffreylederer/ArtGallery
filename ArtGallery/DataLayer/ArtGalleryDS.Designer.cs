@@ -2875,13 +2875,13 @@ namespace ArtGallery.DataLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PictureRow AddPictureRow(
-                        short price, 
+                        double price, 
                         string Title, 
                         string Frame, 
                         string surface, 
                         double Width, 
                         double Height, 
-                        double weight, 
+                        decimal weight, 
                         short Date, 
                         string MetaTags, 
                         string Notes, 
@@ -2978,7 +2978,7 @@ namespace ArtGallery.DataLayer {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
@@ -2990,7 +2990,7 @@ namespace ArtGallery.DataLayer {
                 base.Columns.Add(this.columnWidth);
                 this.columnHeight = new global::System.Data.DataColumn("Height", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHeight);
-                this.columnweight = new global::System.Data.DataColumn("weight", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnweight = new global::System.Data.DataColumn("weight", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
@@ -4748,9 +4748,9 @@ namespace ArtGallery.DataLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short price {
+            public double price {
                 get {
-                    return ((short)(this[this.tablePicture.priceColumn]));
+                    return ((double)(this[this.tablePicture.priceColumn]));
                 }
                 set {
                     this[this.tablePicture.priceColumn] = value;
@@ -4819,9 +4819,9 @@ namespace ArtGallery.DataLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double weight {
+            public decimal weight {
                 get {
-                    return ((double)(this[this.tablePicture.weightColumn]));
+                    return ((decimal)(this[this.tablePicture.weightColumn]));
                 }
                 set {
                     this[this.tablePicture.weightColumn] = value;

@@ -34,8 +34,8 @@
             <asp:Parameter Name="GalleryId" Type="Int32" />
             <asp:Parameter Name="PicturePath" Type="String" />
             <asp:Parameter Name="surface" Type="String" />
-            <asp:Parameter Name="price" Type="Int16" />
-            <asp:Parameter Name="weight" Type="Single" />
+            <asp:Parameter Name="price" Type="Double" />
+            <asp:Parameter Name="weight" Type="Decimal" />
             <asp:Parameter Name="description" Type="String" />
             <asp:Parameter Name="Available" Type="Boolean" />
             <asp:Parameter Name="original_id" Type="Int32" />
@@ -141,7 +141,7 @@
             Width<cc3:Popup runat="server" ID="puWidth" Key="Width" />:
             </td>
             <td>
-            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width") %>' 
+            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width","{0:0.000}") %>' 
                     Width="50px" />"
             </td>
             </tr>
@@ -151,7 +151,7 @@
             Height<cc3:Popup runat="server" ID="puHeight" Key="Height" />:
             </td>
             <td>
-            <asp:TextBox ID="lblHeight" runat="server" Text='<%# Bind("Height") %>' 
+            <asp:TextBox ID="lblHeight" runat="server" Text='<%# Bind("Height","{0:0.000}") %>' 
                     Width="50px" />"
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                     ControlToValidate="lblHeight" ErrorMessage="Height is required">*</asp:RequiredFieldValidator>
@@ -165,7 +165,7 @@
             Weight<cc3:Popup runat="server" ID="puWeight" Key="Weight" />:
             </td>
             <td>
-            <asp:TextBox ID="lblWeight" runat="server" Text='<%# Bind("Weight") %>' 
+            <asp:TextBox ID="lblWeight" runat="server" Text='<%# Bind("Weight","{0:0.000}") %>' 
                     Width="50px" /> lbs
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                     ControlToValidate="lblWeight" ErrorMessage="Weight is required">*</asp:RequiredFieldValidator>
@@ -240,12 +240,12 @@
             Price<cc3:Popup runat="server" ID="puPrice" Key="Price" />:
             </td>
             <td>
-            $<asp:TextBox ID="lblPrice" runat="server" Text='<%# Bind("price") %>' 
+            $<asp:TextBox ID="lblPrice" runat="server" Text='<%# Bind("price","{0:0.00}") %>' 
                     Width="75px" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                     ControlToValidate="lblPrice" ErrorMessage="Price is required">*</asp:RequiredFieldValidator>
              <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="lblPrice" MinimumValue="0" 
-               MaximumValue='20000' Type="Integer" Text="*" ErrorMessage="Price must be a positive number less than 20000" />
+               MaximumValue='1000000' Type="Currency" Text="*" ErrorMessage="Price must be a positive number." />
 
             </td>
             </tr>
@@ -375,10 +375,10 @@
 
          <asp:TemplateField HeaderText="Width" SortExpression="width">
              <ItemTemplate>
-                 <asp:Label ID="Label3" runat="server" Text='<%# Bind("width") %>'></asp:Label>
+                 <asp:Label ID="Label3" runat="server" Text='<%# Bind("width","{0:0.00}") %>'></asp:Label>
              </ItemTemplate>
              <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtWidth" runat="server" Text='<%# Bind("width") %>'></asp:TextBox>
+                 <asp:TextBox width="75px" ID="txtWidth" runat="server" Text='<%# Bind("width","{0:0.00}") %>'></asp:TextBox>
                   <asp:RequiredFieldValidator runat="server" ID="rqWidth" ControlToValidate="txtWidth"
                  Text="*" ErrorMessage="Width is required" ValidationGroup="grid" />
                  <asp:RangeValidator runat="server" ID="rangeWidth" ControlToValidate="txtWidth"
@@ -397,10 +397,10 @@
 
          <asp:TemplateField HeaderText="Height" SortExpression="height">
              <ItemTemplate>
-                 <asp:Label ID="Label4" runat="server" Text='<%# Bind("height") %>'></asp:Label>
+                 <asp:Label ID="Label4" runat="server" Text='<%# Bind("height","{0:0.00}") %>'></asp:Label>
              </ItemTemplate>
              <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtHeight" runat="server" Text='<%# Bind("height") %>'></asp:TextBox>
+                 <asp:TextBox width="75px" ID="txtHeight" runat="server" Text='<%# Bind("height","{0:0.00}") %>'></asp:TextBox>
                   <asp:RequiredFieldValidator runat="server" ID="rqHeight" ControlToValidate="txtWeight"
                  Text="*" ErrorMessage="Height is required" ValidationGroup="grid" />
                  <asp:RangeValidator runat="server" ID="rangeHeight" ControlToValidate="txtWeight"
@@ -419,10 +419,10 @@
 
          <asp:TemplateField HeaderText="Weight" SortExpression="weight">
              <ItemTemplate>
-                 <asp:Label ID="Label5" runat="server" Text='<%# Bind("weight") %>'></asp:Label>
+                 <asp:Label ID="Label5" runat="server" Text='<%# Bind("weight","{0:0.00}") %>'></asp:Label>
              </ItemTemplate>
              <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtWeight" runat="server" Text='<%# Bind("weight") %>'></asp:TextBox>
+                 <asp:TextBox width="75px" ID="txtWeight" runat="server" Text='<%# Bind("weight","{0:0.00}") %>'></asp:TextBox>
                  <asp:RequiredFieldValidator runat="server" ID="rqWeight" ControlToValidate="txtWeight"
                  Text="*" ErrorMessage="Weight is required" ValidationGroup="grid" />
              </EditItemTemplate>
@@ -438,7 +438,7 @@
                  <asp:Label ID="Label7" runat="server" Text='<%# Bind("price", "{0:0.00}") %>'></asp:Label>
              </ItemTemplate>
              <EditItemTemplate>
-                 <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
+                 <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price","{0:0.00}") %>'></asp:TextBox>
                  <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
                   <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtPrice"
@@ -446,7 +446,7 @@
                  MinimumValue="0"  MaximumValue="100000" Type="Currency" />
              </EditItemTemplate>
              <FooterTemplate>
-                 <asp:TextBox width="75px" ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
+                 <asp:TextBox width="75px" ID="txtPrice" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator runat="server" ID="rqPrice" ControlToValidate="txtPrice"
                  Text="*" ErrorMessage="Price is required" ValidationGroup="grid" />
                   <asp:RangeValidator runat="server" ID="rangetxtPrice" ControlToValidate="txtPrice"
@@ -486,10 +486,8 @@
          <asp:Parameter Name="description" Type="String" />
          <asp:Parameter Name="price" Type="Decimal" />
          <asp:Parameter Name="weight" Type="Decimal" />
-         <asp:Parameter Name="handling" Type="Decimal" />
          <asp:Parameter Name="width" Type="Decimal" />
          <asp:Parameter Name="height" Type="Decimal" />
-         <asp:Parameter Name="packingweight" Type="Double" />
          <asp:Parameter Name="original_id" Type="Int32" />
          <asp:Parameter Name="original_lastupdated" Type="DateTime" />
      </UpdateParameters>

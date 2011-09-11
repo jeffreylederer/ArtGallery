@@ -96,7 +96,7 @@
             Price:
             </td>
             <td>
-            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price", "{0:c}") %>' />
+            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price", "{0:0.00}") %>' />
             <asp:Label ID="lblSold" runat="server" Text="Original is not available" />
             </td>
             </tr>
@@ -111,7 +111,7 @@
 
             <tr>
             <td colspan="2" align="center">
-            <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl="~/SearchResult.aspx?list=1" Text="Back to Search Results" />
+            <br /><asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl="~/SearchResult.aspx?list=1" Text="Back to Search Results" />
             </td>
             </tr>
             </table>
@@ -139,6 +139,7 @@
         <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
             Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
             PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
+            </cc2:BuyNowButton>
 </div>
          <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
     <ContentTemplate>

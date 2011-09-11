@@ -148,33 +148,11 @@
          <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
      </SelectParameters>
     </asp:ObjectDataSource>
-<asp:ObjectDataSource ID="odsReproduction" runat="server" DeleteMethod="Delete" 
-        InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
-        SelectMethod="GetByPictureId" TypeName="ArtGallery.ReproductionDL" 
-        UpdateMethod="Update">
-        <DeleteParameters>
-            <asp:Parameter Name="original_id" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="pictureid" Type="Int32" />
-            <asp:Parameter Name="description" Type="String" />
-            <asp:Parameter Name="price" Type="Decimal" />
-            <asp:Parameter Name="weight" Type="Decimal" />
-            <asp:Parameter Name="handling" Type="Decimal" />
-            <asp:Parameter Name="width" Type="Decimal" />
-            <asp:Parameter Name="height" Type="Decimal" />
-        </InsertParameters>
-        <SelectParameters>
+<asp:ObjectDataSource ID="odsReproduction" runat="server"  
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="GetByPictureId" TypeName="ArtGallery.ReproductionDL">
+         <SelectParameters>
             <asp:QueryStringParameter Name="pictureid" QueryStringField="id" Type="Int32" />
-        </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="description" Type="String" />
-            <asp:Parameter Name="price" Type="Decimal" />
-            <asp:Parameter Name="weight" Type="Decimal" />
-            <asp:Parameter Name="handling" Type="Decimal" />
-            <asp:Parameter Name="width" Type="Decimal" />
-            <asp:Parameter Name="height" Type="Decimal" />
-            <asp:Parameter Name="original_id" Type="Int32" />
-        </UpdateParameters>
+        </SelectParameters>  
     </asp:ObjectDataSource>
 </asp:Content>

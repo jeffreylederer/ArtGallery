@@ -199,8 +199,8 @@
                     Width="75px" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                     ControlToValidate="lblPrice" ErrorMessage="Price is required">*</asp:RequiredFieldValidator>
-             <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="lblPrice" MinimumValue="0" 
-               MaximumValue='20000' Type="Integer" Text="*" ErrorMessage="Price must be a positive number less than 20000" />
+             <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="lblPrice" MinimumValue="0"  
+               MaximumValue='1000000' Type="Double" Text="*" ErrorMessage="Price must be a positive number." />
 
             </td>
             </tr>
@@ -248,8 +248,8 @@
             <asp:Parameter Name="GalleryId" Type="Int32" />
             <asp:Parameter Name="PicturePath" Type="String" />
             <asp:Parameter Name="surface" Type="String" />
-            <asp:Parameter Name="price" Type="Int16" />
-            <asp:Parameter Name="weight" Type="Single" />
+            <asp:Parameter Name="price" Type="Double" />
+            <asp:Parameter Name="weight" Type="Decimal" />
             <asp:Parameter Name="description" Type="String" />
             <asp:Parameter Name="Available" Type="Boolean" />
         </InsertParameters>

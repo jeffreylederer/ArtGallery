@@ -80,10 +80,8 @@ namespace ArtGallery
             e.InputParameters["description"] = ((TextBox)GridView1.FooterRow.FindControl( "txtDescription" )).Text;
             e.InputParameters["price"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtPrice" )).Text );
             e.InputParameters["weight"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtWeight" )).Text );
-            e.InputParameters["handling"] = handling.Text == "" ? (decimal?) null : decimal.Parse(handling.Text);
             e.InputParameters["width"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtWidth" )).Text );
             e.InputParameters["height"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtHeight" )).Text );
-            e.InputParameters["packingweight"] = Packing.Text == "" ? (double?)null : double.Parse( Packing.Text );
         }
 
         protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )

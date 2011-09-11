@@ -147,8 +147,8 @@ namespace ArtGallery
             int GalleryId,
             string PicturePath,
             string surface,
-            short price,
-            float weight,
+            double price,
+            decimal weight,
             string description,
             bool Available, 
             int original_id,
@@ -207,8 +207,8 @@ namespace ArtGallery
             int GalleryId,
             string PicturePath,
             string surface,
-            short price,
-            float weight,
+            double price,
+            decimal weight,
             string description,
             bool Available
            )

@@ -74,7 +74,7 @@ namespace ArtGallery
             btnBuy.AdditionalDataItems["height"] = "0";
                  
              
-            btnBuy.Amount = row.price;
+            btnBuy.Amount = (decimal) row.price;
 
             ArtGalleryDS.PayPalRow row1 = ArtGallery.PayPayDL.GetAcive();
             if (row1 == null)
@@ -135,7 +135,7 @@ namespace ArtGallery
             SMTP.Send( eMail );
         }
 
-        private void  Calculate( SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy, double width, double length, string frame, double weight )
+        private void  Calculate( SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy, double width, double length, string frame, decimal weight )
         {
             ArtGalleryDS.StrongBoxDataTable table = StrongBoxDL.Get();
             double big = Math.Max( width, length );

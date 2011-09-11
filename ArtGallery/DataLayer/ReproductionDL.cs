@@ -72,10 +72,8 @@ namespace ArtGallery
             string description,
             decimal price,
             decimal weight,
-            decimal? handling,
             decimal width,
             decimal height,
-            double? packingweight,
             int original_id,
             DateTime original_lastupdated
             )

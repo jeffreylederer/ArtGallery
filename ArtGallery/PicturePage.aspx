@@ -97,7 +97,7 @@
             Price:
             </td>
             <td>
-            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price", "{0:c}") %>' />
+            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price", "{0:0.00}") %>' />
             <asp:Label ID="lblSold" runat="server" Text="Original is not available" />
             </td>
             </tr>
