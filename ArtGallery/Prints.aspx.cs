@@ -32,5 +32,6 @@ namespace ArtGallery
             if(!(FormView1.DataKey.Value is int))
                 Response.Redirect("~/default.aspx");
         }
+
     }
 }

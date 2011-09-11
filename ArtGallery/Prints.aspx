@@ -82,14 +82,14 @@
                         ImageUrl="~/Images/btn_buynowCC_LG.gif" 
                         Quantity="1" 
                         CurrencyCode="US_Dollar"
-                        WeightUnit="Pounds"
-        onclick="btnBuy_Click"><PayPalDisplayPage 
+                        WeightUnit="Pounds"><PayPalDisplayPage 
         ShippingAddress="ShippingAddressMust" /><PayPalIPN 
         Custom_IPN_Url="~/PayPalNotification.aspx" 
         EnablePageLoadEventInIPNSession="True" />
         <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
             Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
             PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
+            </cc2:BuyNowButton>
     
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" Width="90%"
         DataKeyNames="id" DataSourceID="odsReproduction" 
