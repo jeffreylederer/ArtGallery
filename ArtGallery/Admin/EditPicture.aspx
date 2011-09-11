@@ -12,7 +12,8 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
         TypeName="ArtGallery.PictureDL" DeleteMethod="Delete" 
         UpdateMethod="Update" AddDummyRow="True" 
-        onupdated="ObjectDataSource1_Updated" UniqueConstaintMessage="" >
+        onupdated="ObjectDataSource1_Updated" UniqueConstaintMessage="" 
+        onselected="ObjectDataSource1_Selected" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
@@ -57,8 +58,8 @@
 </div>
  
     <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  UpdatePanelID="up2"
-        DataKeyNames="id,lastupdated,metatags" DefaultMode="Edit" Width="100%" InsertOrUpdateCheckField="lastupdated"
-        onprerender="FormView1_PreRender">
+        DataKeyNames="id,lastupdated,metatags" DefaultMode="Edit" Width="100%" 
+            InsertOrUpdateCheckField="lastupdated">
         <EditItemTemplate>
          <table>
             <tr>
@@ -292,7 +293,7 @@
 <td>
     <asp:FormView ID="FormView2" runat="server" DataSourceID="ObjectDataSource1" 
         DataKeyNames="id,metatags" Width="100%"
-        onprerender="FormView1_PreRender">
+        >
         <ItemTemplate>
 
     <table>

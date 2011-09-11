@@ -8,6 +8,7 @@ using ArtGallery.DataLayer;
 using System.IO;
 
 
+
 namespace ArtGallery
 {
     public partial class EditPicture : System.Web.UI.Page
@@ -18,18 +19,6 @@ namespace ArtGallery
         }
 
  
-        protected void ObjectDataSource1_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
-        {
-            if (e.Exception == null)
-                Response.Redirect( "~/default.aspx", true );
-        }
-
-        protected void FormView1_PreRender(object sender, EventArgs e)
-        {
-            if (!(FormView1.DataKey.Value is int))
-                Response.Redirect("~/default.aspx");
-        }
-
         protected void UploadButton_Click( object sender, EventArgs e )
         {
             if (FileUpload1.HasFile)
@@ -91,6 +80,12 @@ namespace ArtGallery
                 ErrorLabel.Text = "Saved Successfully";
                 up1.Update();
             }
+        }
+
+        protected void ObjectDataSource1_Selected( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.ReturnValue == null || ((ArtGalleryDS.PictureDataTable)e.ReturnValue).Rows.Count == 0)
+                Response.Redirect( "~/default.aspx", true );
         }
    }
 }
