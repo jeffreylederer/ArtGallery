@@ -64,6 +64,8 @@ namespace ArtGallery
                  AdminAccount.ChildItems.Add( (new MenuItem( "Remove Administator", null, null, "~/Account/RemoveUser.aspx" )) );
                 AdminItem.ChildItems.Add( AdminAccount );
 
+                AdminItem.ChildItems.Add( (new MenuItem( "View Error Log", null, null, "~/Admin/ErrorLog.aspx" )) );
+                
                 menu.Items.Add(AdminItem);
             }
             

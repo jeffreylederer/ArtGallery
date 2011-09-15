@@ -11,7 +11,16 @@ namespace ArtGallery
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                Exception ex = Server.GetLastError();
+                int id = ErrorLogDL.Insert( ex );
+                lblError.Text = id.ToString();
+            }
+            catch
+            {
+                lblError.Text = "Unknown";
+            }
         }
     }
 }

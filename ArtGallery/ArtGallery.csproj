@@ -84,6 +84,8 @@
     <Content Include="Admin\AddGallery.aspx" />
     <Content Include="Admin\AddPicture.aspx" />
     <Content Include="Admin\EditGallery.aspx" />
+    <Content Include="Admin\ErrorLog.aspx" />
+    <Content Include="Admin\ErrorLogDetail.aspx" />
     <Content Include="Admin\OrphanPictures.aspx" />
     <Content Include="Admin\ReportPage.aspx" />
     <Content Include="Admin\SelectGallery.aspx" />
@@ -101,6 +103,7 @@
     <Content Include="Images\email.png" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\Ilene-Vignette2008-11.jpg" />
+    <Content Include="Images\IleneMagicEye2.jpg" />
     <Content Include="Images\IWLMagicEyeGalleryHeader2.jpg" />
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\question.jpg" />
@@ -216,6 +219,20 @@
     <Compile Include="Admin\EditGallery.aspx.designer.cs">
       <DependentUpon>EditGallery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ErrorLog.aspx.cs">
+      <DependentUpon>ErrorLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ErrorLog.aspx.designer.cs">
+      <DependentUpon>ErrorLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ErrorLogDetail.aspx.cs">
+      <DependentUpon>ErrorLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ErrorLogDetail.aspx.designer.cs">
+      <DependentUpon>ErrorLogDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\OrphanPictures.aspx.cs">
       <DependentUpon>OrphanPictures.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +304,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\ErrorLogDL.cs" />
     <Compile Include="DataLayer\ReproductionDL.cs" />
     <Compile Include="DataLayer\StrongBoxDL.cs" />
     <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
