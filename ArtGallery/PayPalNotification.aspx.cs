@@ -56,7 +56,7 @@ namespace ArtGallery
                 invoice.AppendLine( string.Format( "Tax:       {0:0.00}", e.PaymentInfo.Tax ) );
                 invoice.AppendLine( string.Format( "Price:     {0:0.00}", e.PaymentInfo.McNet ) );
                 invoice.AppendLine( string.Format( "Total:     {0:0.00}", e.PaymentInfo.McGross ) );
-                SendMail( "Sale", invoice.ToString(), false );
+                SendMailDL.SendMail( "Sale", invoice.ToString(), false );
             }
             else
             {
@@ -65,7 +65,7 @@ namespace ArtGallery
                  * and do not deliver the product.                                                            *
                  **********************************************************************************************/
 
-                SendMail( "Fraud Attempt detected",
+                SendMailDL.SendMail( "Fraud Attempt detected",
                         @"Fraud attempt detected : The payment_gross value is different " +
                         "from the expected amount for the transaction id :" +
                         e.TransactionID, false );
@@ -96,7 +96,8 @@ namespace ArtGallery
             debugDataBuilder.AppendLine( "Exception occured at " + e.ExceptionDateTime );
             debugDataBuilder.AppendLine( "Is this ipn resent ? : " + e.IsResent );
             debugDataBuilder.AppendLine( "Sent Http Status Code : " + e.IpnResponse.StatusCode );
-            SendMail( "Exception", debugDataBuilder.ToString(), false );
+            SendMailDL.SendMail( "Exception", debugDataBuilder.ToString(), false );
+            ErrorLogDL.Insert( e.IpnException );
         }
     }
 }

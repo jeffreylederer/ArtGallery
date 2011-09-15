@@ -90,6 +90,7 @@
     <Content Include="Admin\ReportPage.aspx" />
     <Content Include="Admin\SelectGallery.aspx" />
     <Content Include="Admin\EditPicture.aspx" />
+    <Content Include="Admin\SendMail.aspx" />
     <Content Include="Admin\Setup.aspx" />
     <Content Include="AppCode\Email.ascx" />
     <Content Include="AppCode\PopUp.ascx">
@@ -261,6 +262,13 @@
     <Compile Include="Admin\EditPicture.aspx.designer.cs">
       <DependentUpon>EditPicture.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Setup.aspx.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +314,7 @@
     </Compile>
     <Compile Include="DataLayer\ErrorLogDL.cs" />
     <Compile Include="DataLayer\ReproductionDL.cs" />
+    <Compile Include="DataLayer\SendMailDL.cs" />
     <Compile Include="DataLayer\StrongBoxDL.cs" />
     <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>

@@ -10,16 +10,12 @@ using System.Text;
 using SpiceLogic.PayPalCtrlForWPS;
 using SpiceLogic.PayPalCtrlForWPS.Core;
 using System.Data;
-using System.Net.Mail;
 
 namespace ArtGallery
 {
 
     public partial class InvoicePage : Page
     {
-
-        protected string MyBusinessEmail = "jeffrey@winnlederer.com";
-        protected string MyBusinessName = "Jeffrey Lederer";
 
         protected bool GenerateInvoiceReproduction( int id, SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy )
         {
@@ -87,53 +83,7 @@ namespace ArtGallery
             return true;
         }
 
-        protected void SendMailFromMe( string to, string toname, string subject, string body, bool html )
-        {
-            MailMessage eMail = new System.Net.Mail.MailMessage( new MailAddress( MyBusinessEmail, MyBusinessName ), new MailAddress( to, toname ) );
-            eMail.Body = body;
-            eMail.Subject = subject;
-            eMail.IsBodyHtml = html;
-
-            SmtpClient SMTP = new System.Net.Mail.SmtpClient();
-            SMTP.EnableSsl = true;
-            SMTP.Port = 587;
-            SMTP.Host = "smtp.gmail.com";
-            SMTP.DeliveryMethod = SmtpDeliveryMethod.Network;
-            SMTP.Credentials = new System.Net.NetworkCredential( "jeffrey@winnlederer.com", "Ilene13" );
-            SMTP.Send( eMail );
-        }
-
-        protected void SendMail( string subject, string body, bool html )
-        {
-            MailMessage eMail = new System.Net.Mail.MailMessage( new MailAddress( MyBusinessEmail, MyBusinessName ), new MailAddress( MyBusinessEmail, MyBusinessName ) );
-            eMail.Body = body;
-            eMail.Subject = subject;
-            eMail.IsBodyHtml = html;
-
-            SmtpClient SMTP = new System.Net.Mail.SmtpClient();
-            SMTP.EnableSsl = true;
-            SMTP.Port = 587;
-            SMTP.Host = "smtp.gmail.com";
-            SMTP.DeliveryMethod = SmtpDeliveryMethod.Network;
-            SMTP.Credentials = new System.Net.NetworkCredential( "jeffrey@winnlederer.com", "Ilene13" );
-            SMTP.Send( eMail );
-        }
-
-        protected void SendMailFromCustomer( string from, string fromname, string subject, string body, bool html )
-        {
-            MailMessage eMail = new System.Net.Mail.MailMessage( new MailAddress( from, fromname ), new MailAddress( MyBusinessEmail, MyBusinessName ) );
-            eMail.Body = body;
-            eMail.Subject = subject;
-            eMail.IsBodyHtml = html;
-
-            SmtpClient SMTP = new System.Net.Mail.SmtpClient();
-            SMTP.Credentials = new System.Net.NetworkCredential( "webmaster@magiceyegallery.com", "Ilene13" );
-            SMTP.Host = "localhost";
-            SMTP.Host = "smtp.google.com";
-            SMTP.EnableSsl = true;
-            SMTP.Port = 587;
-            SMTP.Send( eMail );
-        }
+  
 
         private void  Calculate( SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy, double width, double length, string frame, decimal weight )
         {

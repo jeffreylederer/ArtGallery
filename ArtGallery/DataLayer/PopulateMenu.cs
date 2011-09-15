@@ -65,6 +65,7 @@ namespace ArtGallery
                 AdminItem.ChildItems.Add( AdminAccount );
 
                 AdminItem.ChildItems.Add( (new MenuItem( "View Error Log", null, null, "~/Admin/ErrorLog.aspx" )) );
+                AdminItem.ChildItems.Add( (new MenuItem( "Email Server", null, null, "~/Admin/Sendmail.aspx" )) );
                 
                 menu.Items.Add(AdminItem);
             }

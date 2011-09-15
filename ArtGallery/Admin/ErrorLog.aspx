@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ErrorLog.aspx.cs" Inherits="ArtGallery.Admin.ErrorLog" %>
+﻿<%@ Page Title="Error Log" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ErrorLog.aspx.cs" Inherits="ArtGallery.Admin.ErrorLog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -19,7 +19,7 @@
     </asp:GridView>
     Look up Error: <asp:TextBox runat="server" ID="txtid" /><asp:RequiredFieldValidator
     runat="server" ID="req1" ControlToValidate="txtid" Text="*" />
-    <asp:CompareValidator
+<asp:CompareValidator
     runat="server" ID="cv" Type="Integer"
      Operator="DataTypeCheck" Text="*" ControlToValidate="txtid" />
     <asp:Button runat="server" ID="btnSubmit" Text="Look Up"  
