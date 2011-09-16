@@ -138,10 +138,10 @@
         EnablePageLoadEventInIPNSession="True" />
         <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
             Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
-            PDTAuthenticationToken="lOR2XbjyDyxCcVMMdxt4yLD6CaeRPMwCXsL0Y4kX5umFr9kQClSvVyX4yTa" />
-        <EncryptedButtonGeneration CertificateId="1234" 
-            PayPalCertPath="~/Images/ArtGallery.xxx" 
-            PKCS12CertPath="~/Images/ArtGallery.P12" PKCS12Password="Ilene913" />
+            PDTAuthenticationToken="s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu" />
+        <EncryptedButtonGeneration CertificateId="P6PLGT4MQMKVY" 
+            PayPalCertPath="~/App_Data/paypal_cert_pem.txt" 
+            PKCS12CertPath="~/App_Data/ArtGallery.P12" PKCS12Password="Jeffrey17" />
     </cc2:BuyNowButton>
 </div>
 <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">

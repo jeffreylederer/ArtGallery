@@ -460,7 +460,7 @@ namespace ArtGallery
             {
                 FileInfo fi = new FileInfo( file );
                 string filename = fi.Name;
-                if (filename == "Missing.jpg")
+                if (filename == "Missing.jpg" || filename == "artgallery.p12" || filename == "paypal_cert_pem.txt")
                     continue; 
                 var query = from p in table where filename.ToUpper() == p.PicturePath.ToUpper() select p.PicturePath;
                 if (query.Count() == 0)

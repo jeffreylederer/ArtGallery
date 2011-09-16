@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div style="white-space:pre-wrap">
+    <div style="white-space:pre-wrap">
     This page has the information you need to fill out in order to send email from 
     this application to your customers and back to you<br />
 </div>  
