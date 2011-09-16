@@ -78,11 +78,11 @@ namespace ArtGallery
             }
         }
 
-        public static void SendMail( string to, string toname, string subject, string body, bool html )
+        public static bool SendMail( string to, string toname, string subject, string body, bool html )
         {
             ArtGalleryDS.SendMailDataTable table = Get();
             if (table == null || table.Rows.Count != 1)
-                return;
+                return false;
 
             ArtGalleryDS.SendMailRow row = table[0];
             MailMessage eMail = new System.Net.Mail.MailMessage( new MailAddress( row.emailaddress, row.EmailName ), new MailAddress( to, toname ) );
@@ -100,14 +100,15 @@ namespace ArtGallery
             {
                 SMTP.Send( eMail );
             }
-            catch { }
+            catch { return false; }
+            return true;
         }
 
-        public static void SendMail( string subject, string body, bool html )
+        public static bool SendMail( string subject, string body, bool html )
         {
             ArtGalleryDS.SendMailDataTable table = Get();
             if (table == null || table.Rows.Count != 1)
-                return;
+                return false;
 
             ArtGalleryDS.SendMailRow row = table[0];
             MailMessage eMail = new System.Net.Mail.MailMessage( new MailAddress( row.emailaddress, row.EmailName ), new MailAddress( row.emailaddress, row.EmailName ) );
@@ -125,7 +126,8 @@ namespace ArtGallery
             {
                 SMTP.Send( eMail );
             }
-            catch { }
+            catch { return false; }
+            return true;
         }
     }
 }

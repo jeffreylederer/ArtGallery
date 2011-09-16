@@ -90,6 +90,10 @@
                 CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
     </cc:TPMSFormView>
+        <br />
+        <asp:Button ID="Button1" runat="server" CausesValidation="False" 
+            onclick="Button1_Click" Text="Test Email" />
+        <br />
      </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
