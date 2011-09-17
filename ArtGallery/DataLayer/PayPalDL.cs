@@ -19,7 +19,7 @@ namespace ArtGallery
     public static class PayPayDL
     {
         [DataObjectMethod( DataObjectMethodType.Select, false )]
-        public static ArtGalleryDS.PayPalDataTable Get()
+        public static ArtGalleryDS.PayPalDataTable GetByMode(string mode)
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
             ArtGalleryDS data = new ArtGalleryDS();
@@ -27,8 +27,9 @@ namespace ArtGallery
             try
             {
                 conn.Open();
-                SqlCommand selectCommand = new SqlCommand( "PayPal_Get", conn );
+                SqlCommand selectCommand = new SqlCommand( "PayPal_GetByMode", conn );
                 selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@mode", mode );
                 SqlDataAdapter da = new SqlDataAdapter( selectCommand );
                 da.Fill( data, "PayPal" );
             }
@@ -76,6 +77,12 @@ namespace ArtGallery
             string buynowurl,
             string BusinessEmailOrMerchantID,
             bool active,
+            string PDTAuthenticationToken,
+            string CertificateId,
+            string PKCS12CertFile,
+            string PKCS12Password,
+            string PayPalCertPath,
+            DateTime original_lastupdated,
             string original_mode
             )
         {
@@ -89,7 +96,67 @@ namespace ArtGallery
                 selectCommand.Parameters.AddWithValue( "@buynowurl", buynowurl );
                 selectCommand.Parameters.AddWithValue( "@BusinessEmailOrMerchantID", BusinessEmailOrMerchantID );
                 selectCommand.Parameters.AddWithValue( "@Active", active );
+                selectCommand.Parameters.AddWithValue( "@PDTAuthenticationToken", PDTAuthenticationToken );
+                selectCommand.Parameters.AddWithValue( "@CertificateId", CertificateId );
+                selectCommand.Parameters.AddWithValue( "@PKCS12CertFile", PKCS12CertFile );
+                selectCommand.Parameters.AddWithValue( "@PKCS12Password", PKCS12Password );
+                selectCommand.Parameters.AddWithValue( "@PayPalCertPath", PayPalCertPath );
+                selectCommand.Parameters.AddWithValue( "@original_lastupdated", original_lastupdated );
                 selectCommand.Parameters.AddWithValue( "@original_mode", original_mode );
+                return selectCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+        public static int UpdatePKCS12CertPath(
+            string PKCS12CertFile,
+            string mode
+            )
+        {
+            SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand( "PayPal_UpdatePKCS12CertPath", conn );
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@PKCS12CertFile", PKCS12CertFile );
+                selectCommand.Parameters.AddWithValue( "@mode", mode );
+                return selectCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+          public static int UpdatePayPalPath(
+            string PayPalCertPath,
+            string mode
+            )
+        {
+            SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand( "PayPal_UpdatePayPalCertPath", conn );
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@PayPalCertPath", PayPalCertPath );
+                selectCommand.Parameters.AddWithValue( "@mode", mode );
                 return selectCommand.ExecuteNonQuery();
             }
             catch (Exception ex)

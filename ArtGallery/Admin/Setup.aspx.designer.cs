@@ -31,15 +31,6 @@ namespace ArtGallery.Admin {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsArtist;
         
         /// <summary>
-        /// odsPayPal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsPayPal;
-        
-        /// <summary>
         /// tab control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,33 @@ namespace ArtGallery.Admin {
         protected global::AjaxControlToolkit.TabPanel pnlPayPal;
         
         /// <summary>
+        /// odsPayPal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ArtGallery.TPMSObjectDataSource odsPayPal;
+        
+        /// <summary>
+        /// modeDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList modeDropDownList;
+        
+        /// <summary>
+        /// upPayPal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPayPal;
+        
+        /// <summary>
         /// ErrorLabelPayPal control.
         /// </summary>
         /// <remarks>
@@ -148,12 +166,12 @@ namespace ArtGallery.Admin {
         protected global::System.Web.UI.WebControls.ValidationSummary vsPayPal;
         
         /// <summary>
-        /// GridView1 control.
+        /// fmPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::ArtGallery.TPMSFormView fmPayPal;
     }
 }

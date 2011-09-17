@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Setup Site" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Setup.aspx.cs" Inherits="ArtGallery.Admin.Setup"  ValidateRequest="false" %>
+<%@ Register  Assembly="Controls" TagPrefix="cc" Namespace="ArtGallery"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -26,17 +27,7 @@
             </UpdateParameters>
 </asp:ObjectDataSource>
 
- <asp:ObjectDataSource ID="odsPayPal" runat="server" 
-            OldValuesParameterFormatString="original_{0}" SelectMethod="Get" 
-            TypeName="ArtGallery.PayPayDL" UpdateMethod="Update" 
-            onupdated="odsPayPal_Updated">
-            <UpdateParameters>
-                <asp:Parameter Name="buynowurl" Type="String" />
-                <asp:Parameter Name="BusinessEmailOrMerchantID" Type="String" />
-                <asp:Parameter Name="active" Type="Boolean" />
-                <asp:Parameter Name="original_mode" Type="String" />
-                </UpdateParameters>
-    </asp:ObjectDataSource>
+ 
 
 
 <ajax:TabContainer runat="server" Width="100%"  ID="tab" ActiveTabIndex="0">
@@ -196,67 +187,158 @@
 </ajax:TabPanel>
 <ajax:TabPanel runat="server" HeaderText="PayPal" ID="pnlPayPal">
     <ContentTemplate>
-     <asp:Label runat="server" ID="ErrorLabelPayPal" ForeColor="Red" EnableViewState="False" />
+    <cc:TPMSObjectDataSource ID="odsPayPal" runat="server"  ErrorLabelID="ErrorLabelPayPal"
+            OldValuesParameterFormatString="original_{0}" SelectMethod="GetByMode" 
+            TypeName="ArtGallery.PayPayDL" UpdateMethod="Update" 
+            onupdated="odsPayPal_Updated" AddDummyRow="True" 
+        UniqueConstaintMessage="">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="modeDropDownList" Name="mode" 
+                    PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="buynowurl" Type="String" />
+                <asp:Parameter Name="BusinessEmailOrMerchantID" Type="String" />
+                <asp:Parameter Name="active" Type="Boolean" />
+                <asp:Parameter Name="PDTAuthenticationToken" Type="String" />
+                <asp:Parameter Name="CertificateId" Type="String" />
+                <asp:Parameter Name="PKCS12CertFile" Type="String" />
+                <asp:Parameter Name="PKCS12Password" Type="String" />
+                <asp:Parameter Name="PayPalCertPath" Type="String" />
+                <asp:Parameter Name="original_lastupdated" Type="DateTime" />
+                <asp:Parameter Name="original_mode" Type="String" />
+                </UpdateParameters>
+    </cc:TPMSObjectDataSource>
+       PayPal Mode: <asp:DropDownList ID="modeDropDownList" runat="server" AutoPostBack="True" 
+            onselectedindexchanged="modeDropDownList_SelectedIndexChanged" >
+        <asp:ListItem Text="Sandbox" Value="SandBox" />
+        <asp:ListItem Text="Real" Value="Real" selected="True" />
+       </asp:DropDownList>
+    <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
+    <ContentTemplate>
+    <asp:Label runat="server" ID="ErrorLabelPayPal" ForeColor="Red" EnableViewState="False" />
     <asp:ValidationSummary runat="server" ID="vsPayPal" ValidationGroup="paypal" />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            DataKeyNames="mode" DataSourceID="odsPayPal"><Columns>
-<asp:BoundField DataField="mode" HeaderText="mode" ReadOnly="True" 
-                    SortExpression="mode" />
-<asp:TemplateField HeaderText="Active" SortExpression="active">
-    <EditItemTemplate>
-                        <asp:CheckBox ID="chkActiveEdit" runat="server" Checked='<%# Bind("Active") %>' />
-                    
-</EditItemTemplate>
-<ItemTemplate>
-                       <asp:CheckBox ID="chkActiveItem" runat="server" Checked='<%# Eval("Active") %>' Enabled="false" />
-                    
-</ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="PayPal URL" SortExpression="buynowurl">
-    <EditItemTemplate>
-                        <asp:TextBox ID="txtPayPalUrl" runat="server" Width="300px"
-            Text='<%# Bind("buynowurl") %>'></asp:TextBox>
-                    
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" 
-            runat="server" ControlToValidate="txtPayPalUrl" 
-            ErrorMessage="PayPal url is required" ValidationGroup="paypal">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator 
-            ID="RegularExpressionValidator5" runat="server" 
-            ControlToValidate="txtPayPalUrl" 
-            ErrorMessage="PayPal url must be 100 characters or less" 
-            ValidationExpression="{0.100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
-                    
-</EditItemTemplate>
-<ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("buynowurl") %>'></asp:Label>
-                    
-</ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Business Email Or Merchant ID" 
-                    SortExpression="BusinessEmailOrMerchantID">
-    <EditItemTemplate>
-                        <asp:TextBox ID="txtMerchant" runat="server" 
-                            Text='<%# Bind("BusinessEmailOrMerchantID") %>' Width="300px"></asp:TextBox>
-                    
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" 
-            runat="server" ControlToValidate="txtMerchant" 
-            ErrorMessage="Business Email or MerchantID is required" 
-            ValidationGroup="paypal">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator 
-            ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtMerchant" 
-            ErrorMessage="Business Email or Merchant ID must be 100 characters or less" 
-            ValidationExpression="{0.100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
-                    
-</EditItemTemplate>
-<ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" 
-                            Text='<%# Eval("BusinessEmailOrMerchantID") %>'></asp:Label>
-                    
-</ItemTemplate>
-</asp:TemplateField>
-<asp:CommandField ShowEditButton="True" />
-</Columns>
-</asp:GridView>
+      
+    <cc:TPMSFormView ID="fmPayPal" runat="server" DataKeyNames="mode,lastupdated" 
+            UpdatePanelID="upPayPal" InsertOrUpdateCheckField="lastupdated"
+            DataSourceID="odsPayPal" DefaultMode="Edit">
+            <EditItemTemplate>
+            <table>
+
+            <tr><td align="right">
+                PayPal URL:</td><td>
+                <asp:TextBox ID="buynowurlTextBox" runat="server"  width="200px"
+                    Text='<%# Bind("buynowurl") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator5" 
+                        runat="server" ControlToValidate="buynowurlTextBox" 
+                        ErrorMessage="PayPal url is required" ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator5" runat="server" 
+                        ControlToValidate="buynowurlTextBox" 
+                        ErrorMessage="PayPal url must be 100 characters or less" 
+                        ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                </td></tr>
+
+                <tr><td align="right">
+                Business Email Or MerchantID:</td><td>
+                <asp:TextBox ID="BusinessEmailOrMerchantIDTextBox" runat="server"  width="200px"
+                    Text='<%# Bind("BusinessEmailOrMerchantID") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator6" 
+                        runat="server" ControlToValidate="BusinessEmailOrMerchantIDTextBox" 
+                        ErrorMessage="Business Email or MerchantID is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator6" runat="server" ControlToValidate="BusinessEmailOrMerchantIDTextBox" 
+                        ErrorMessage="Business Email or Merchant ID must be 100 characters or less" 
+                        ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                 </td></tr>
+
+                <tr><td align="right">
+                active:</td><td>
+                <asp:CheckBox ID="activeCheckBox" runat="server" 
+                    Checked='<%# Bind("active") %>' />
+                 </td></tr>
+
+                <tr><td align="right">
+                PDT Authentication Token:</td><td>
+                <asp:TextBox ID="PDTAuthenticationTokenTextBox" runat="server" width="300px"
+                    Text='<%# Bind("PDTAuthenticationToken") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator7" 
+                        runat="server" ControlToValidate="PDTAuthenticationTokenTextBox" 
+                        ErrorMessage="PDT Authentication Token is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator8" runat="server" ControlToValidate="PDTAuthenticationTokenTextBox" 
+                        ErrorMessage="PDT Authentication Token must be 200 characters or less" 
+                        ValidationExpression=".{0,200}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                 </td></tr>
+
+                 <tr><td align="right">
+                Certificate Id:</td><td>
+                <asp:TextBox ID="CertificateIdTextBox" runat="server"  width="150px"
+                    Text='<%# Bind("CertificateId") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator8" 
+                        runat="server" ControlToValidate="CertificateIdTextBox" 
+                        ErrorMessage="Certificate Id is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator9" runat="server" ControlToValidate="CertificateIdTextBox" 
+                        ErrorMessage="Certificate Id must be 50 characters or less" 
+                        ValidationExpression=".{0,50}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                 </td></tr>
+
+               <tr><td align="right">
+                PayPal Cert File:</td><td>
+                <asp:TextBox ID="PayPalCertPathTextBox" runat="server"  width="200px"
+                    Text='<%# Bind("PayPalCertPath") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator9" 
+                        runat="server" ControlToValidate="PayPalCertPathTextBox" 
+                        ErrorMessage="PayPal Cert is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator10" runat="server" ControlToValidate="PayPalCertPathTextBox" 
+                        ErrorMessage="PayPal Cert must be 100 characters or less" 
+                        ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                    <asp:FileUpload ID="FileUpPayPal" runat="server" />
+                    <asp:Button runat="server" id="UploadPayPalButton" text="Upload" 
+                        onclick="UploadPayPalButton_Click" ValidationGroup="none" />
+                 </td></tr>
+
+                 <tr><td align="right">
+                PKCS12 Cert File:</td><td>
+                <asp:TextBox ID="PKCS12CertFileTextBox" runat="server"  width="200px"
+                    Text='<%# Bind("PKCS12CertFile") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator11" 
+                        runat="server" ControlToValidate="PKCS12CertFileTextBox" 
+                        ErrorMessage="PKCS12 Cert File is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator12" runat="server" ControlToValidate="PKCS12CertFileTextBox" 
+                        ErrorMessage="PKCS12 Cert File must be 100 characters or less" 
+                        ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                    <asp:FileUpload ID="FileUplPKCS12Cert" runat="server" />
+                    <asp:Button runat="server" id="PKCS12CertButton" text="Upload" 
+                        onclick="UploadPKCS12CertButton_Click" ValidationGroup="none" />
+                 </td></tr>
+
+                <tr><td align="right">
+                PKCS12 Password:</td><td>
+                <asp:TextBox ID="PKCS12PasswordTextBox" runat="server"  width="150px"
+                    Text='<%# Bind("PKCS12Password") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator10" 
+                        runat="server" ControlToValidate="PKCS12PasswordTextBox" 
+                        ErrorMessage="PKCS12 Password is required" 
+                        ValidationGroup="paypal">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                        ID="RegularExpressionValidator11" runat="server" ControlToValidate="PKCS12PasswordTextBox" 
+                        ErrorMessage="PKCS12 Password must be 50 characters or less" 
+                        ValidationExpression=".{0,50}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
+                 </td></tr>
+
+                <tr><td align="center" colspan="2">
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True"  ValidationGroup="paypal"
+                    CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
+                    CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                 </td></tr>
+                 </table>
+            </EditItemTemplate>
+         </cc:TPMSFormView>
+ </ContentTemplate>
+    </asp:UpdatePanel>
  </ContentTemplate>
 </ajax:TabPanel>
 

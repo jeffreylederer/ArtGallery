@@ -1,6 +1,6 @@
 1. The Paypal account is ilene@magiceyegallery.com
     userid: Jeffrey17
-2. Password in artgallery.12 file is Jeffrey17
+2. Password in artgallery.p12 file is Jeffrey17
 3. PDT token is: s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu
 4. CertificateId is: P6PLGT4MQMKVY
 4. Password for Membership and ArtGalleryUser id AG#412

@@ -16,6 +16,7 @@ namespace ArtGallery.Admin
 
         }
 
+        #region Site
         protected void UploadLogoButton_Click( object sender, EventArgs e )
         {
             FileUpload FileUploadLogo = FormView1.FindControl( "FileUploadLogo" ) as FileUpload;
@@ -58,6 +59,27 @@ namespace ArtGallery.Admin
                 ErrorLabel.Text = "Could not find file";
         }
 
+        protected void odsSite_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+            {
+                Exception ex = e.Exception;
+                while (ex != null)
+                {
+                    ErrorLabel.Text = e.Exception.Message;
+                    ex = ex.InnerException;
+                }
+                e.ExceptionHandled = true;
+                return;
+            }
+            if ((int)e.ReturnValue != 1)
+            {
+                ErrorLabel.Text = "Not Updated";
+            }
+        }
+        #endregion
+
+        #region Artist
         protected void UploadArtistImageButton_Click( object sender, EventArgs e )
         {
             FileUpload FileUploadArtistImage = FormView2.FindControl( "FileUploadArtistImage" ) as FileUpload;
@@ -80,26 +102,7 @@ namespace ArtGallery.Admin
                 lblErrorArtist.Text = "Could not find file";
         }
 
-        protected void odsSite_Updated(object sender, ObjectDataSourceStatusEventArgs e)
-        {
-          if (e.Exception != null)
-            {
-                Exception ex = e.Exception;
-                while (ex != null)
-                {
-                    ErrorLabel.Text = e.Exception.Message;
-                    ex = ex.InnerException;
-                }
-                e.ExceptionHandled = true;
-                 return;
-            }
-            if ((int)e.ReturnValue != 1)
-            {
-                ErrorLabel.Text = "Not Updated";
-            }
-        }
-
-        protected void odsArtist_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+         protected void odsArtist_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
             {
@@ -117,29 +120,69 @@ namespace ArtGallery.Admin
                 lblErrorArtist.Text = "Not Updated";
             }
         }
+        #endregion
 
+        #region PayPal
         protected void odsPayPal_Updated(object sender, ObjectDataSourceStatusEventArgs e)
         {
-            if (e.Exception != null)
+            if (e.Exception == null)
             {
-                Exception ex = e.Exception;
-                while (ex != null)
-                {
-                    ErrorLabelPayPal.Text = e.Exception.Message;
-                    ex = ex.InnerException;
-                }
-                e.ExceptionHandled = true;
-                return;
-            }
-            if ((int)e.ReturnValue != 2)
-            {
-                ErrorLabelPayPal.Text = "Not Updated";
-            }
-            else
-            {
-                ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
-                Application["ppAccount"] = row.BusinessEmailOrMerchantID;
+                ErrorLabelPayPal.Text = "PayPal Record saved Successfully";
             }
          }
+
+        protected void modeDropDownList_SelectedIndexChanged( object sender, EventArgs e )
+        {
+            fmPayPal.DataBind();
+            upPayPal.Update();
+        }
+ 
+
+        protected void UploadPayPalButton_Click( object sender, EventArgs e )
+        {
+            FileUpload FileUpPayPal = fmPayPal.FindControl( "FileUpPayPal" ) as FileUpload;
+            if (FileUpPayPal.HasFile)
+            {
+                try
+                {
+                    string filename = Path.GetFileName( FileUpPayPal.FileName );
+                    FileUpPayPal.SaveAs( Server.MapPath( "~/App_Data/" ) + filename );
+                    ErrorLabelPayPal.Text = "Upload status: PayPal File uploaded!";
+                    PayPayDL.UpdatePayPalPath( filename, modeDropDownList.SelectedValue );
+                    FormView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    ErrorLabelPayPal.Text = "Upload status: The file could not be uploaded. The following error occurred: " + ex.Message;
+                }
+            }
+            else
+                ErrorLabelPayPal.Text = "Count not find file";
+            upPayPal.Update();
+        }
+
+        protected void UploadPKCS12CertButton_Click( object sender, EventArgs e )
+        {
+            FileUpload FileUplPKCS12Cert = fmPayPal.FindControl( "FileUplPKCS12Cert" ) as FileUpload;
+            if (FileUplPKCS12Cert.HasFile)
+            {
+                try
+                {
+                    string filename = Path.GetFileName( FileUplPKCS12Cert.FileName );
+                    FileUplPKCS12Cert.SaveAs( Server.MapPath( "~/App_Data/" ) + filename );
+                    ErrorLabelPayPal.Text = "Upload status: PKCS12 Cert File uploaded!";
+                    PayPayDL.UpdatePKCS12CertPath( filename, modeDropDownList.SelectedValue );
+                    FormView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    ErrorLabelPayPal.Text = "Upload status: The file could not be uploaded. The following error occurred: " + ex.Message;
+                }
+            }
+            else
+                ErrorLabelPayPal.Text = "Count not find file";
+            upPayPal.Update();
+        }
+        #endregion
     }
 }
