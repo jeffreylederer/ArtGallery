@@ -83,10 +83,12 @@
     <Content Include="Account\RemoveUser.aspx" />
     <Content Include="Admin\AddGallery.aspx" />
     <Content Include="Admin\AddPicture.aspx" />
+    <Content Include="Admin\ArtistPage.aspx" />
     <Content Include="Admin\EditGallery.aspx" />
     <Content Include="Admin\ErrorLog.aspx" />
     <Content Include="Admin\ErrorLogDetail.aspx" />
     <Content Include="Admin\OrphanPictures.aspx" />
+    <Content Include="Admin\PayPal.aspx" />
     <Content Include="Admin\ReportPage.aspx" />
     <Content Include="Admin\SelectGallery.aspx" />
     <Content Include="Admin\EditPicture.aspx" />
@@ -212,6 +214,13 @@
     <Compile Include="Admin\AddPicture.aspx.designer.cs">
       <DependentUpon>AddPicture.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ArtistPage.aspx.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArtistPage.aspx.designer.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditGallery.aspx.cs">
       <DependentUpon>EditGallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,6 +248,13 @@
     </Compile>
     <Compile Include="Admin\OrphanPictures.aspx.designer.cs">
       <DependentUpon>OrphanPictures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PayPal.aspx.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PayPal.aspx.designer.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ReportPage.aspx.cs">
       <DependentUpon>ReportPage.aspx</DependentUpon>

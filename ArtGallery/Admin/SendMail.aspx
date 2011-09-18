@@ -30,19 +30,25 @@
         DefaultMode="Edit" DataKeyNames="lastupdated" 
         InsertOrUpdateCheckField="lastupdated">
         <EditItemTemplate>
-            EnableSSL:
+            <table>
+            <tr><td align="right">
+            EnableSSL:</td><td>
             <asp:CheckBox ID="EnableSSLCheckBox" runat="server" 
                 Checked='<%# Bind("EnableSSL") %>' />
-            <br />
-            Port:
+           </td></tr>
+
+            <tr><td align="right">
+            Port:</td><td>
             <asp:TextBox ID="PortTextBox" runat="server" Text='<%# Bind("Port") %>' />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="PortTextBox" ErrorMessage="Port is required">*</asp:RequiredFieldValidator>
             <asp:CompareValidator ID="CompareValidator1" runat="server" 
                 ControlToValidate="PortTextBox" ErrorMessage="Port must be a number" 
                 Operator="DataTypeCheck" Type="Integer">*</asp:CompareValidator>
-            <br />
-            Host:
+            </td></tr>
+
+            <tr><td align="right">
+            SMTP Host:</td><td>
             <asp:TextBox ID="HostTextBox" runat="server" Text='<%# Bind("Host") %>' />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ControlToValidate="HostTextBox" ErrorMessage="Host address is required">*</asp:RequiredFieldValidator>
@@ -50,8 +56,10 @@
                 ControlToValidate="HostTextBox" 
                 ErrorMessage="Host address must be less than 100 characters" 
                 ValidationExpression=".{0,100}">*</asp:RegularExpressionValidator>
-            <br />
-            Email Address:
+           </td></tr>
+
+            <tr><td align="right">
+            Email Address:</td><td>
             <asp:TextBox ID="emailaddressTextBox" runat="server" 
                 Text='<%# Bind("emailaddress") %>' />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
@@ -63,8 +71,10 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                 ControlToValidate="emailaddressTextBox"  ValidationExpression=".{1,100}"
                 ErrorMessage="Email address must be 100 characters or less">*</asp:RegularExpressionValidator>
-            <br />
-            password:
+            </td></tr>
+
+             <tr><td align="right">
+            password:</td><td>
             <asp:TextBox ID="passwordTextBox" runat="server" Text='<%# Bind("password") %>' 
                 TextMode="Password" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
@@ -73,8 +83,10 @@
                 ControlToValidate="passwordTextBox" 
                 ErrorMessage="Password must be 50 characters or less" 
                 ValidationExpression=".{0,50}">*</asp:RegularExpressionValidator>
-            <br />
-            Email Name:
+            </td></tr>
+
+             <tr><td align="right">
+            Email Name:</td><td>
             <asp:TextBox ID="EmailNameTextBox" runat="server" 
                 Text='<%# Bind("EmailName") %>' />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
@@ -82,17 +94,26 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" 
                 ControlToValidate="EmailNameTextBox" ValidationExpression=".{1,100}"
                 ErrorMessage="Email Name must be 100 character or less">*</asp:RegularExpressionValidator>
-            <br />
-            <br />
+            </td></tr>
+
+            <tr><td align="center" colspan="2">
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" 
                 CommandName="Update" Text="Update" />
 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" 
                 CommandName="Cancel" Text="Cancel" />
+                </td></tr>
+                <tr>
+                <td colspan="2"  style="text-align:center; vertical-align:bottom; height:50px">
+                <asp:Button ID="Button1" runat="server" CausesValidation="False" 
+            onclick="Button1_Click" Text="Send Test Email" />
+                </td>
+                </tr>
+                
+                </table>
         </EditItemTemplate>
     </cc:TPMSFormView>
         <br />
-        <asp:Button ID="Button1" runat="server" CausesValidation="False" 
-            onclick="Button1_Click" Text="Test Email" />
+        
         <br />
      </ContentTemplate>
     </asp:UpdatePanel>

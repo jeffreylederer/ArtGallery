@@ -10,51 +10,51 @@
 namespace ArtGallery.Admin {
     
     
-    public partial class SendMail {
+    public partial class ArtistPage {
         
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// odsArtist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ArtGallery.TPMSObjectDataSource ObjectDataSource1;
+        protected global::ArtGallery.TPMSObjectDataSource odsArtist;
         
         /// <summary>
-        /// up1 control.
+        /// lblErrorArtist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up1;
+        protected global::System.Web.UI.WebControls.Label lblErrorArtist;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// ValidationSummary2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
         
         /// <summary>
-        /// ErrorLabel control.
+        /// upPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        protected global::System.Web.UI.UpdatePanel upPayPal;
         
         /// <summary>
-        /// FormView1 control.
+        /// FormView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ArtGallery.TPMSFormView FormView1;
+        protected global::ArtGallery.TPMSFormView FormView2;
     }
 }

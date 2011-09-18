@@ -10,51 +10,60 @@
 namespace ArtGallery.Admin {
     
     
-    public partial class SendMail {
+    public partial class PayPal {
         
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// odsPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ArtGallery.TPMSObjectDataSource ObjectDataSource1;
+        protected global::ArtGallery.TPMSObjectDataSource odsPayPal;
         
         /// <summary>
-        /// up1 control.
+        /// modeDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up1;
+        protected global::System.Web.UI.WebControls.DropDownList modeDropDownList;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// upPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.UpdatePanel upPayPal;
         
         /// <summary>
-        /// ErrorLabel control.
+        /// ErrorLabelPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        protected global::System.Web.UI.WebControls.Label ErrorLabelPayPal;
         
         /// <summary>
-        /// FormView1 control.
+        /// vsPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ArtGallery.TPMSFormView FormView1;
+        protected global::System.Web.UI.WebControls.ValidationSummary vsPayPal;
+        
+        /// <summary>
+        /// fmPayPal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ArtGallery.TPMSFormView fmPayPal;
     }
 }

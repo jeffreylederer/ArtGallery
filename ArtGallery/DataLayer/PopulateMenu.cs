@@ -32,7 +32,14 @@ namespace ArtGallery
             {
                 MenuItem AdminItem = new MenuItem("Admin");
                 ArtGalleryDS.GalleryDataTable galleryTableAdmin = GalleryDL.Get();
-                AdminItem.ChildItems.Add( (new MenuItem( "Setup Site", null, null, "~/Admin/Setup.aspx" )) );
+
+                MenuItem Setup = new MenuItem( "Setup Site");
+                Setup.ChildItems.Add( new MenuItem( "Basic Site Setup", null, null, "~/Admin/Setup.aspx" ) );
+                Setup.ChildItems.Add( new MenuItem( "Artist Information", null, null, "~/Admin/ArtistPage.aspx" ) );
+                Setup.ChildItems.Add( new MenuItem( "Mail Server Setup", null, null, "~/Admin/SendMail.aspx" ) );
+                Setup.ChildItems.Add( new MenuItem( "PayPal Setup", null, null, "~/Admin/PayPal.aspx" ) );
+                AdminItem.ChildItems.Add( Setup );
+
 
                 MenuItem AdminGalleryItem = new MenuItem("Select Gallery to Edit Pictures");
                 foreach (ArtGalleryDS.GalleryRow row in galleryTableAdmin)
@@ -65,8 +72,7 @@ namespace ArtGallery
                 AdminItem.ChildItems.Add( AdminAccount );
 
                 AdminItem.ChildItems.Add( (new MenuItem( "View Error Log", null, null, "~/Admin/ErrorLog.aspx" )) );
-                AdminItem.ChildItems.Add( (new MenuItem( "Email Server", null, null, "~/Admin/Sendmail.aspx" )) );
-                
+             
                 menu.Items.Add(AdminItem);
             }
             
