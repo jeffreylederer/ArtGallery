@@ -9,6 +9,14 @@ namespace ArtGallery
 {
     public partial class Prints : InvoicePage
     {
+
+        //protected void Page_Load( object sender, EventArgs e )
+        //{
+        //    if (!IsPostBack)
+        //        SetupButton( btnBuy );
+        //}
+
+
         protected void GridView1_RowCommand( object sender, GridViewCommandEventArgs e )
         {
             if (e.CommandName == "Select")
@@ -21,7 +29,9 @@ namespace ArtGallery
                     FormView1.Visible = false;
                     FormView2.Visible = false;
                     GridView1.Visible = false;
+                    divBack.Visible = false;
                     pnlProcessing.Visible = true;
+                    btnBuy.Submit();
                     return;
                 }
             }

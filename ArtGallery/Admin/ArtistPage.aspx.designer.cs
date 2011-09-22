@@ -22,6 +22,24 @@ namespace ArtGallery.Admin {
         protected global::ArtGallery.TPMSObjectDataSource odsArtist;
         
         /// <summary>
+        /// FileUploadArtistImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadArtistImage;
+        
+        /// <summary>
+        /// UploadArtistImageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadArtistImageButton;
+        
+        /// <summary>
         /// lblErrorArtist control.
         /// </summary>
         /// <remarks>

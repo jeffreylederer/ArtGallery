@@ -36,10 +36,10 @@ namespace ArtGallery
                 invoice.AppendLine( string.Format( "Transaction ID: {0}", e.TransactionID ) );
                 invoice.AppendLine( string.Format( "Title: {0}", e.ItemInfo.ItemName ) );
                 invoice.AppendLine( string.Format( "Item #: {0}", e.ItemInfo.ItemNumber ) );
-                invoice.AppendLine( string.Format( "unframed : {0}", e.AdditionalDataItems["unframed"] ) );
-                invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] ) );
-                invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] ) );
-                invoice.AppendLine( string.Format(" strongbox model: {0}", e.AdditionalDataItems["strongbox"]));
+                invoice.AppendLine( string.Format( "unframed : {0}", e.AdditionalDataItems["unframed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"] ) );
+                invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" :  e.AdditionalDataItems["width"] ) );
+                invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" :  e.AdditionalDataItems["height"] ) );
+                invoice.AppendLine( string.Format(" strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" :  e.AdditionalDataItems["strongbox"]));
 
                 invoice.AppendLine();
                 invoice.AppendLine( string.Format( "Buyer : {0}", e.BuyerInfo.FirstName + " " + e.BuyerInfo.LastName ) );
@@ -64,11 +64,40 @@ namespace ArtGallery
                  * The price was manipulated by a FRAUD attempt. notify the admin by email about this attempt *
                  * and do not deliver the product.                                                            *
                  **********************************************************************************************/
+                StringBuilder invoice = new StringBuilder();
+                try
+                {
+                    invoice.AppendLine( string.Format( "Transaction ID: {0}", e.TransactionID ) );
+                    invoice.AppendLine( string.Format( "Title: {0}", e.ItemInfo.ItemName ) );
+                    invoice.AppendLine( string.Format( "Item #: {0}", e.ItemInfo.ItemNumber ) );
+                    invoice.AppendLine( string.Format( "unframed : {0}", e.AdditionalDataItems["unframed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"] ) );
+                    invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" : e.AdditionalDataItems["width"] ) );
+                    invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" : e.AdditionalDataItems["height"] ) );
+                    invoice.AppendLine( string.Format( " strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"] ) );
 
+                    invoice.AppendLine();
+                    invoice.AppendLine( string.Format( "Buyer : {0}", e.BuyerInfo.FirstName + " " + e.BuyerInfo.LastName ) );
+                    invoice.AppendLine( string.Format( "Ship To: {0}", e.BuyerInfo.ShippingAddress.AddressName ) );
+                    invoice.AppendLine( string.Format( "        {0}", e.BuyerInfo.ShippingAddress.Street ) );
+                    invoice.AppendLine( string.Format( "        {0}, {1} {2}", e.BuyerInfo.ShippingAddress.City, e.BuyerInfo.ShippingAddress.State, e.BuyerInfo.ShippingAddress.Zip ) );
+                    invoice.AppendLine( string.Format( "        {0}", e.BuyerInfo.ShippingAddress.Country ) );
+                    invoice.AppendLine( string.Format( "Email : {0}", e.BuyerInfo.PayerEmail ) );
+                    invoice.AppendLine( string.Format( "phone #: {0}", e.BuyerInfo.ContactPhone ) );
+
+                    invoice.AppendLine();
+                    invoice.AppendLine( string.Format( "Shipping : {0:0.00}", e.PaymentInfo.McShipping ) );
+                    invoice.AppendLine( string.Format( "Handling : {0:0.00}", e.PaymentInfo.McHandling ) );
+                    invoice.AppendLine( string.Format( "Tax:       {0:0.00}", e.PaymentInfo.Tax ) );
+                    invoice.AppendLine( string.Format( "Price:     {0:0.00}", e.PaymentInfo.McNet ) );
+                    invoice.AppendLine( string.Format( "Total:     {0:0.00}", e.PaymentInfo.McGross ) );
+                }
+                catch (Exception ex)
+                {
+                    invoice.AppendLine( ex.Message );
+                    invoice.AppendLine( ex.StackTrace );
+                }
                 SendMailDL.SendMail( "Fraud Attempt detected",
-                        @"Fraud attempt detected : The payment_gross value is different " +
-                        "from the expected amount for the transaction id :" +
-                        e.TransactionID, false );
+                        invoice.ToString(), false);
             }
            
         }

@@ -13,7 +13,7 @@ namespace ArtGallery.Admin
     {
         protected void UploadLogoButton_Click( object sender, EventArgs e )
         {
-            FileUpload FileUploadLogo = FormView1.FindControl( "FileUploadLogo" ) as FileUpload;
+            //FileUpload FileUploadLogo = FormView1.FindControl( "FileUploadLogo" ) as FileUpload;
             if (FileUploadLogo.HasFile)
             {
                 try
@@ -30,13 +30,13 @@ namespace ArtGallery.Admin
                 }
             }
             else
-                ErrorLabel.Text = "Count not find file";
+                ErrorLabel.Text = "Could not find file";
             upPayPal.Update();
         }
 
         protected void UploadImagesButton_Click( object sender, EventArgs e )
         {
-            FileUpload FileUploadImages = FormView1.FindControl( "FileUploadImages" ) as FileUpload;
+            //FileUpload FileUploadImages = FormView1.FindControl( "FileUploadImages" ) as FileUpload;
             if (FileUploadImages.HasFile)
             {
                 try

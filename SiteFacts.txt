@@ -4,3 +4,21 @@
 3. PDT token is: s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu
 4. CertificateId is: P6PLGT4MQMKVY
 4. Password for Membership and ArtGalleryUser id AG#412
+
+
+developers network: https://www.x.com/developers/paypal/documentation-tools/sandbox
+
+Test account
+Business 
+Test Account:	test_1313559878_biz@winnlederer.com	
+API Username:	test_1313559878_biz_api1.winnlederer.com
+API Password:	1313559918
+Signature:	 AyN7ksFVbisdzB6g65TuFuuCEQICAwNoR94Op2a.YfBhtXdhq3VJT6g4	
+
+
+
+
+
+Customer:
+test_1313362267_per@winnlederer.com
+password: Ilene913

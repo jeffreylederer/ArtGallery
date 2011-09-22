@@ -130,24 +130,38 @@
        
  
  <br />    <cc2:BuyNowButton ID="btnBuy" 
-                        BusinessEmailOrMerchantID="placeholder"
+                        BusinessEmailOrMerchantID="ilene@magiceyegallery.com"
                         runat="server" 
                         ImageUrl="~/Images/btn_buynowCC_LG.gif" 
                         Quantity="1" 
                         CurrencyCode="US_Dollar"
                         WeightUnit="Pounds"
-                       
-        onclick="btnBuy_Click" AlternateText="Buy now via PayPal"><PayPalDisplayPage 
-        ShippingAddress="ShippingAddressMust" /><PayPalIPN 
-        Custom_IPN_Url="~/PayPalNotification.aspx" 
-        EnablePageLoadEventInIPNSession="True" />
-        <PayPalReturn Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel" 
-            Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx" 
-            PDTAuthenticationToken="s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu" />
-        <EncryptedButtonGeneration CertificateId="P6PLGT4MQMKVY" 
-            PayPalCertPath="~/App_Data/paypal_cert_pem.txt" 
-            PKCS12CertPath="~/App_Data/ArtGallery.P12" PKCS12Password="Jeffrey17" />
-    </cc2:BuyNowButton>
+                        onclick="btnBuy_Click" 
+                        GenerateEncryptedButton = "true"
+                        AlternateText="Buy now via PayPal">
+        <PayPalDisplayPage 
+            ShippingAddress="ShippingAddressMust"/>
+
+        <PayPalIPN 
+            Custom_IPN_Url="~/PayPalNotification.aspx" 
+            EnablePageLoadEventInIPNSession="True" />
+
+         <paypalformsubmission 
+                        postactionurl="https://www.paypal.com/cgi-bin/webscr"
+                        postdestination="PayPal_Website" />
+
+         <EncryptedButtonGeneration
+                         CertificateId="XVERPTF7DGQXN"
+                         PayPalCertPath="~/App_Data/paypal_cert_pem.txt"
+                         PKCS12CertPath="~/App_Data/artgallery.p12"
+                         PKCS12Password="Jeffrey17" />
+
+        <PayPalReturn
+                          Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel"
+                          Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx"
+                          PDTAuthenticationToken="s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu" />
+     </cc2:BuyNowButton>
+
 </div>
          <asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
     <ContentTemplate>

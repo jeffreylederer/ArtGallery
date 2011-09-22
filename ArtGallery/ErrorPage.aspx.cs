@@ -13,14 +13,21 @@ namespace ArtGallery
         {
             try
             {
-                Exception ex = Server.GetLastError();
-                int id = ErrorLogDL.Insert( ex );
-                lblError.Text = id.ToString();
+
+                Exception ex1 = Server.GetLastError();
+                Server.ClearError();
+                if (ex1.Message == "File does not exist.")
+                    return;
+                if (ex1 != null)
+                {
+                    int id = ErrorLogDL.Insert( (Exception) ex1 );
+                    lblError.Text = id.ToString();
+                    return;
+                }
+
             }
-            catch
-            {
-                lblError.Text = "Unknown";
-            }
+            catch { }
+            lblError.Text = "Unknown";
         }
     }
 }

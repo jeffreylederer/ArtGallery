@@ -14,6 +14,17 @@
                 <asp:Parameter Name="copyrightholder" Type="String" />
             </UpdateParameters>
 </cc:TPMSObjectDataSource>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Get Logo File: <asp:FileUpload ID="FileUploadLogo" runat="server" />
+     <asp:Button runat="server" id="UploadLogoButton" text="Upload" 
+        onclick="UploadLogoButton_Click" ValidationGroup="none" /><br />
+Upload file to Images directory: <asp:FileUpload ID="FileUploadImages" runat="server" />
+     <asp:Button runat="server" id="Button1" text="Upload" 
+        onclick="UploadImagesButton_Click" ValidationGroup="none" />
+    <br />
+    <br />
+
+
    <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
     <ContentTemplate>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="site" />
@@ -21,21 +32,10 @@
         <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="odsSite" Width="100%"  UpdatePanelID="upPayPal"
             DefaultMode="Edit" InsertOrUpdateCheckField="None">
             <EditItemTemplate>
-             <table width="100%">
+             <table>
 
-            <tr>
-                <td >
-                Upload file to Images directory:
-                </td>
-                <td colspan="2" align="left">
-     <asp:FileUpload ID="FileUploadImages" runat="server" />
-     <asp:Button runat="server" id="Button1" text="Upload" 
-        onclick="UploadImagesButton_Click" ValidationGroup="none" />
-      </td>
-            </tr>
-
-                 <tr>
-                <td>
+                <tr>
+                <td  align="right">
                 Logo File Name:
                 </td>
                 <td>
@@ -48,21 +48,16 @@
                     ErrorMessage="Logo Path must be 100 characters or less" 
                     ValidationExpression=".{0,100}" ValidationGroup="Site">*</asp:RegularExpressionValidator>
                 </td>
-                <td >
-     <asp:FileUpload ID="FileUploadLogo" runat="server" />
-     <asp:Button runat="server" id="UploadLogoButton" text="Upload" 
-        onclick="UploadLogoButton_Click" ValidationGroup="none" />
-            </td>
-            </tr>
+              </tr>
 
             <tr>
-            <td>Home Page Metatags:</td>
-            <td colspan="2"> <asp:TextBox runat="server" ID="txtMetaTags" Text='<%# Bind("metatags") %>' TextMode="MultiLine" Rows="5" Width="80%" />
+            <td align="right">Home Page Metatags:</td>
+            <td> <asp:TextBox runat="server" ID="txtMetaTags" Text='<%# Bind("metatags") %>' TextMode="MultiLine" Rows="5" Width="450px" />
             </td>
             </tr>
              <tr>
-            <td>Copyright holder:</td>
-            <td colspan="2"> <asp:TextBox runat="server" ID="txtCopyrightholder" Text='<%# Bind("copyrightholder") %>'  Width="80%" />
+            <td align="right">Copyright holder:</td>
+            <td> <asp:TextBox runat="server" ID="txtCopyrightholder" Text='<%# Bind("copyrightholder") %>'  Width="200px" />
              <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="site"
                     ControlToValidate="txtCopyrightholder" ErrorMessage="Copyright holder is required">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" 

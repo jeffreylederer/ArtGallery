@@ -67,6 +67,8 @@ namespace ArtGallery
         [DataObjectMethod( DataObjectMethodType.Insert, true )]
         public static int Insert(Exception ex)
         {
+            if (ex == null)
+                return 0;
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
             ArtGalleryDS data = new ArtGalleryDS();
             StringBuilder str = new StringBuilder();
@@ -82,17 +84,17 @@ namespace ArtGallery
                 conn.Open();
                 SqlCommand selectCommand = new SqlCommand( "ErrorLog_Insert", conn );
                 selectCommand.CommandType = CommandType.StoredProcedure;
-                selectCommand.Parameters.AddWithValue( "@message", str.ToString() );
+                selectCommand.Parameters.AddWithValue( "@errormessage", str.ToString() );
                 SqlParameter id=selectCommand.Parameters.Add("@id", SqlDbType.Int, 4);
                 id.Direction = ParameterDirection.Output;
 
-                int retval =  selectCommand.ExecuteNonQuery();
-                if (retval != 1)
-                    throw new Exception("No record inserted");
+                selectCommand.ExecuteNonQuery();
                 return (int) id.Value;
+               
             }
-            catch 
+            catch(Exception ex1) 
             {
+                string message = ex1.Message;
                 throw ex;
             }
             finally
@@ -100,6 +102,7 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
+            return 0;
         }
 
     }

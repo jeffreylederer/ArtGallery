@@ -31,6 +31,42 @@ namespace ArtGallery.Admin {
         protected global::System.Web.UI.WebControls.DropDownList modeDropDownList;
         
         /// <summary>
+        /// FileUplPKCS12Cert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUplPKCS12Cert;
+        
+        /// <summary>
+        /// PKCS12CertButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PKCS12CertButton;
+        
+        /// <summary>
+        /// FileUpPayPal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpPayPal;
+        
+        /// <summary>
+        /// UploadPayPalButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadPayPalButton;
+        
+        /// <summary>
         /// upPayPal control.
         /// </summary>
         /// <remarks>

@@ -28,7 +28,7 @@ namespace ArtGallery.Admin
 
         protected void UploadPayPalButton_Click( object sender, EventArgs e )
         {
-            FileUpload FileUpPayPal = fmPayPal.FindControl( "FileUpPayPal" ) as FileUpload;
+            //FileUpload FileUpPayPal = fmPayPal.FindControl( "FileUpPayPal" ) as FileUpload;
             if (FileUpPayPal.HasFile)
             {
                 try
@@ -45,13 +45,13 @@ namespace ArtGallery.Admin
                 }
             }
             else
-                ErrorLabelPayPal.Text = "Count not find file";
+                ErrorLabelPayPal.Text = "Could not find file";
             upPayPal.Update();
         }
 
         protected void UploadPKCS12CertButton_Click( object sender, EventArgs e )
         {
-            FileUpload FileUplPKCS12Cert = fmPayPal.FindControl( "FileUplPKCS12Cert" ) as FileUpload;
+            //FileUpload FileUplPKCS12Cert = fmPayPal.FindControl( "FileUplPKCS12Cert" ) as FileUpload;
             if (FileUplPKCS12Cert.HasFile)
             {
                 try
@@ -68,7 +68,7 @@ namespace ArtGallery.Admin
                 }
             }
             else
-                ErrorLabelPayPal.Text = "Count not find file";
+                ErrorLabelPayPal.Text = "Could not find file";
             upPayPal.Update();
         }
     }

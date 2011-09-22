@@ -19,18 +19,20 @@ namespace ArtGallery.Admin
             {
                 try
                 {
-                    string filename = Path.GetFileName(FileUpload1.FileName);
-                    FileUpload1.SaveAs(Server.MapPath("~/App_Data/") + filename);
+                    string filename = Path.GetFileName( FileUpload1.FileName );
+                    FileUpload1.SaveAs( Server.MapPath( "~/App_Data/" ) + filename );
                     ErrorLabel.Text = "Upload status: File uploaded!";
-                    ((TextBox)FormView1.FindControl("lblPicturePath")).Text = filename;
+                    ((TextBox)FormView1.FindControl( "lblPicturePath" )).Text = filename;
                 }
                 catch (Exception ex)
                 {
                     ErrorLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
                 up1.Update();
-                
             }
+            else
+                ErrorLabel.Text = "Could not find file";
+
         }
 
         protected void FormView1_PreRender( object sender, EventArgs e )

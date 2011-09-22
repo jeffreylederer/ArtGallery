@@ -13,13 +13,22 @@ namespace ArtGallery
 
         void Application_Start(object sender, EventArgs e)
         {
-            ArtGalleryDS.SiteDataTable table = SiteDL.Get();
-            Application["logo"] = table[0].LogoPath;
-            Application["metatags"] = table[0].Metatags;
-            Application["email"] = table[0].email;
+            try
+            {
+                ArtGalleryDS.SiteDataTable table = SiteDL.Get();
+                if (table.Rows.Count != 1)
+                    throw new Exception( "Could not get site information" );
+                Application["logo"] = table[0].LogoPath;
+                Application["metatags"] = table[0].Metatags;
+                Application["email"] = table[0].email;
 
-            ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
-            Application["ppAccount"] = row.BusinessEmailOrMerchantID;
+                ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
+                Application["ppAccount"] = row.BusinessEmailOrMerchantID;
+            }
+            catch
+            {
+                Response.Redirect( "~/ErrorPage.aspx" );
+            }
             
         }
 
@@ -31,7 +40,6 @@ namespace ArtGallery
 
         void Application_Error(object sender, EventArgs e)
         {
-  
         }
 
         void Session_Start(object sender, EventArgs e)

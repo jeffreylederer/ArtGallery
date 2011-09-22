@@ -17,6 +17,27 @@ namespace ArtGallery
     public partial class InvoicePage : Page
     {
 
+        protected void SetupButton( SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy )
+        {
+            //ArtGalleryDS.PayPalRow row1 = PayPayDL.GetAcive();
+            //if (row1 == null)
+            //{
+            //    return;
+            //}
+            //btnBuy.PayPalReturn.Custom_CancelledReturnURL = "~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel";
+            //btnBuy.PayPalReturn.Custom_CompletedReturnURL = "~/DedicatedPayPalReturnHandler.aspx";
+            //btnBuy.PayPalReturn.PDTAuthenticationToken = row1.PDTAuthenticationToken;
+
+            //btnBuy.EncryptedButtonGeneration.PayPalCertPath = "~/App_Data/" + row1.PayPalCertPath;
+            //btnBuy.EncryptedButtonGeneration.PKCS12CertPath = "~/App.Data/" + row1.PKCS12CertFile;
+            //btnBuy.EncryptedButtonGeneration.PKCS12Password = row1.PKCS12Password;
+            //btnBuy.EncryptedButtonGeneration.CertificateId = row1.CertificateId;
+
+            //btnBuy.PayPalFormSubmission.PostDestination = row1.mode == "sandbox" ? FormSubmissionSettings.PostActionDestinations.PayPal_Sandbox :
+            //    FormSubmissionSettings.PostActionDestinations.PayPal_Website;
+            //btnBuy.PayPalFormSubmission.PostActionUrl = row1.buynowurl;
+        }
+
         protected bool GenerateInvoiceReproduction( int id, SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy )
         {
             ArtGalleryDS.ReproductionDataTable table = ReproductionDL.GetById( id );
@@ -33,16 +54,7 @@ namespace ArtGallery
             btnBuy.AdditionalDataItems["width"] = row.width.ToString();
             btnBuy.AdditionalDataItems["height"] = row.height.ToString();
             btnBuy.AdditionalDataItems["strongbox"] = "none needed";
-
-
-            ArtGalleryDS.PayPalRow row1 = ArtGallery.PayPayDL.GetAcive();
-            if (row1 == null)
-                return false;
-
-            btnBuy.PayPalFormSubmission.PostDestination = row1.mode == "sandbox" ? FormSubmissionSettings.PostActionDestinations.PayPal_Sandbox :
-                FormSubmissionSettings.PostActionDestinations.PayPal_Website;
-            btnBuy.PayPalFormSubmission.PostActionUrl = row1.buynowurl;
-            btnBuy.Submit();
+                       
             return true;
         }
 
@@ -68,18 +80,8 @@ namespace ArtGallery
             btnBuy.AdditionalDataItems["unframed"] = unframe.ToString();
             btnBuy.AdditionalDataItems["width"] = "0";
             btnBuy.AdditionalDataItems["height"] = "0";
-                 
-             
             btnBuy.Amount = (decimal) row.price;
 
-            ArtGalleryDS.PayPalRow row1 = ArtGallery.PayPayDL.GetAcive();
-            if (row1 == null)
-                return false;
-
-            btnBuy.PayPalFormSubmission.PostDestination = row1.mode == "sandbox" ? FormSubmissionSettings.PostActionDestinations.PayPal_Sandbox :
-                FormSubmissionSettings.PostActionDestinations.PayPal_Website;
-            btnBuy.PayPalFormSubmission.PostActionUrl = row1.buynowurl;
-            btnBuy.Submit();
             return true;
         }
 

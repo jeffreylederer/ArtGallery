@@ -14,8 +14,14 @@
                 <asp:Parameter Name="contact" Type="String" />
             </UpdateParameters>
 </cc:TPMSObjectDataSource>
+Get Artist Image File:   <asp:FileUpload ID="FileUploadArtistImage" runat="server" />
+    <asp:Button runat="server" id="UploadArtistImageButton" text="Upload" 
+        onclick="UploadArtistImageButton_Click" ValidationGroup="none" />
+    <br />
+    <br />
+
 <asp:Label runat="server" ID="lblErrorArtist" ForeColor="Red" EnableViewState="false" />
-         <asp:ValidationSummary ID="ValidationSummary2" runat="server" InsertOrUpdateCheckField="None"
+         <asp:ValidationSummary ID="ValidationSummary2" runat="server" 
             ValidationGroup="artist" />
    <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
     <ContentTemplate>
@@ -24,7 +30,7 @@
             <EditItemTemplate>
             <table width="100%">
             <tr>
-            <td width="200px">
+            <td width="150px" align="right">
             
                Artist Email:</td>
                 <td colspan="2">
@@ -43,7 +49,7 @@
                </td>
                 </tr>
                 <tr>
-                <td>
+                <td align="right" width="150px">
                 Artist Image File Name:
                 </td>
                 <td>
@@ -57,13 +63,7 @@
                     ErrorMessage="Artist Image Path must be 100 characters or less" 
                     ValidationExpression=".{0,100}" ValidationGroup="artist">*</asp:RegularExpressionValidator>
                 </td>
-                 <td>
-      <asp:FileUpload ID="FileUploadArtistImage" runat="server" />
-    <asp:Button runat="server" id="UploadArtistImageButton" text="Upload" 
-        onclick="UploadArtistImageButton_Click" ValidationGroup="none" />
-
-    </td>
-           </table>
+                </table>
                
                 Artist Page Text:<br />
                 <HTMLEditor:Editor runat="server" Height="300px" Width="90%"  

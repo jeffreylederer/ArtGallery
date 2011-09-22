@@ -37,6 +37,8 @@ namespace ArtGallery
                 }
                 up2.Update();
             }
+            else
+                ErrorLabel.Text = "Could not find file";
         }
 
         protected void btnPrevious_Command( object sender, CommandEventArgs e )

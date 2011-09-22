@@ -29,9 +29,21 @@
             onselectedindexchanged="modeDropDownList_SelectedIndexChanged" >
         <asp:ListItem Text="Sandbox" Value="SandBox" />
         <asp:ListItem Text="Real" Value="Real" selected="True" />
-       </asp:DropDownList>
-    <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
-    <ContentTemplate>
+       </asp:DropDownList><br />
+
+    
+     Get PKCS12 Cert File: <asp:FileUpload ID="FileUplPKCS12Cert" runat="server" />
+                    <asp:Button runat="server" id="PKCS12CertButton" text="Upload" 
+                        onclick="UploadPKCS12CertButton_Click" ValidationGroup="none" /><br />
+
+       &nbsp; Get PayPal Cert File: <asp:FileUpload ID="FileUpPayPal" runat="server" />
+                    <asp:Button runat="server" id="UploadPayPalButton" text="Upload" 
+                        onclick="UploadPayPalButton_Click" ValidationGroup="none" />
+ 
+       <br />
+       <br />
+ <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
+   <ContentTemplate>
     <asp:Label runat="server" ID="ErrorLabelPayPal" ForeColor="Red" EnableViewState="False" />
     <asp:ValidationSummary runat="server" ID="vsPayPal" ValidationGroup="paypal" />
       
@@ -75,7 +87,7 @@
 
                 <tr><td align="right">
                 PDT Authentication Token:</td><td>
-                <asp:TextBox ID="PDTAuthenticationTokenTextBox" runat="server" width="300px"
+                <asp:TextBox ID="PDTAuthenticationTokenTextBox" runat="server" width="500px"
                     Text='<%# Bind("PDTAuthenticationToken") %>' /><asp:RequiredFieldValidator ID="RequiredFieldValidator7" 
                         runat="server" ControlToValidate="PDTAuthenticationTokenTextBox" 
                         ErrorMessage="PDT Authentication Token is required" 
@@ -110,9 +122,7 @@
                         ID="RegularExpressionValidator10" runat="server" ControlToValidate="PayPalCertPathTextBox" 
                         ErrorMessage="PayPal Cert must be 100 characters or less" 
                         ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
-                    <asp:FileUpload ID="FileUpPayPal" runat="server" />
-                    <asp:Button runat="server" id="UploadPayPalButton" text="Upload" 
-                        onclick="UploadPayPalButton_Click" ValidationGroup="none" />
+                   
                  </td></tr>
 
                  <tr><td align="right">
@@ -126,9 +136,7 @@
                         ID="RegularExpressionValidator12" runat="server" ControlToValidate="PKCS12CertFileTextBox" 
                         ErrorMessage="PKCS12 Cert File must be 100 characters or less" 
                         ValidationExpression=".{0,100}" ValidationGroup="paypal">*</asp:RegularExpressionValidator>
-                    <asp:FileUpload ID="FileUplPKCS12Cert" runat="server" />
-                    <asp:Button runat="server" id="PKCS12CertButton" text="Upload" 
-                        onclick="UploadPKCS12CertButton_Click" ValidationGroup="none" />
+                   
                  </td></tr>
 
                 <tr><td align="right">

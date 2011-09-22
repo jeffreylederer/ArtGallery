@@ -28,6 +28,7 @@ namespace ArtGallery
                     Response.Redirect( "default.aspx" );
                 btnBuy.BusinessEmailOrMerchantID = (string)Application["ppAccount"];
                 ProcessPicture( id );
+                //SetupButton( btnBuy );
             }
         }
 

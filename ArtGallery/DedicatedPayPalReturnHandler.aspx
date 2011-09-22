@@ -30,8 +30,8 @@
              artist at <cc3:Email runat="server" ID="emai11" />.
              </asp:Panel>
              <p>
-             If you live in the Pittsburgh, PA area, you can email 
-             <cc3:Email runat="server" ID="emai12" /> me and arrange 
+             If you live in the Pittsburgh, PA area, you can email the artist at
+             <cc3:Email runat="server" ID="emai12" /> and arrange 
              to buy the art work locally without shipping or handling.
              </p>
             </asp:View>
