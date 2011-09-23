@@ -26,7 +26,6 @@ namespace ArtGallery
                 int id = 0;
                 if (!int.TryParse( idStr, out id ))
                     Response.Redirect( "default.aspx" );
-                btnBuy.BusinessEmailOrMerchantID = (string)Application["ppAccount"];
                 ProcessPicture( id );
                 //SetupButton( btnBuy );
             }

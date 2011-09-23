@@ -132,7 +132,7 @@
                         CurrencyCode="US_Dollar"
                         WeightUnit="Pounds"
                         onclick="btnBuy_Click" 
-                        GenerateEncryptedButton = "true"
+                        GenerateEncryptedButton="true"
                         AlternateText="Buy now via PayPal">
         <PayPalDisplayPage 
             ShippingAddress="ShippingAddressMust"/>

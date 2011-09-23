@@ -23,7 +23,7 @@ namespace ArtGallery
                 Application["email"] = table[0].email;
 
                 ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
-                Application["ppAccount"] = row.BusinessEmailOrMerchantID;
+                //Application["ppAccount"] = row.BusinessEmailOrMerchantID;
             }
             catch
             {

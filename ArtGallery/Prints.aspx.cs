@@ -21,7 +21,6 @@ namespace ArtGallery
         {
             if (e.CommandName == "Select")
             {
-                btnBuy.BusinessEmailOrMerchantID = (string)Application["ppAccount"];
                 int index = int.Parse( e.CommandArgument.ToString() );
                 int id = (int) GridView1.DataKeys[index].Value;
                 if (GenerateInvoiceReproduction( id, btnBuy ))

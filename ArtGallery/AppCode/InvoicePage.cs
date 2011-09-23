@@ -50,6 +50,8 @@ namespace ArtGallery
             btnBuy.ItemNumber = string.Format( "{0:0}:{1:0}", row.pictureid, id );
             btnBuy.Handling = 10;
             btnBuy.Amount = row.price;
+            btnBuy.Height = (int) Math.Min( row.width, row.height );
+            btnBuy.Width = 3;
             btnBuy.AdditionalDataItems["unframed"] = "true";
             btnBuy.AdditionalDataItems["width"] = row.width.ToString();
             btnBuy.AdditionalDataItems["height"] = row.height.ToString();
@@ -72,6 +74,8 @@ namespace ArtGallery
             }
             else
             {
+                btnBuy.Height = (int)Math.Ceiling( Math.Min( row.Width, row.Height ) );
+                btnBuy.Width = 3;
                 btnBuy.Handling = 10;
                 btnBuy.Weight = (decimal) 2.0;
                 btnBuy.AdditionalDataItems["strongbox"] = "none needed";
@@ -108,6 +112,8 @@ namespace ArtGallery
                     btnBuy.Weight = (decimal) weight + query.First().weight;
                     btnBuy.Handling = query.First().price;
                     btnBuy.AdditionalDataItems["strongbox"] = query.First().modelno;
+                    btnBuy.Height = query.First().height;
+                    btnBuy.Width = query.First().width;
                 }
             }
             else
@@ -125,6 +131,8 @@ namespace ArtGallery
                     btnBuy.Weight = (decimal)weight + query.First().weight;
                     btnBuy.Handling = query.First().price;
                     btnBuy.AdditionalDataItems["strongbox"] = query.First().modelno;
+                    btnBuy.Height = query.First().height;
+                    btnBuy.Width = query.First().width;
                 }
             }
 

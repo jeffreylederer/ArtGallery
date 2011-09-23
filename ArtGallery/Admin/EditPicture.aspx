@@ -10,7 +10,7 @@
     <br />
     <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server"
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
-        TypeName="ArtGallery.PictureDL" DeleteMethod="Delete" 
+        TypeName="ArtGallery.PictureDL" DeleteMethod="Delete"  ErrorLabelID="ErrorLabel"
         UpdateMethod="Update" AddDummyRow="True" 
         onupdated="ObjectDataSource1_Updated" UniqueConstaintMessage="" 
         onselected="ObjectDataSource1_Selected" >
