@@ -27,6 +27,7 @@ namespace ArtGallery
         protected void btnSearch_Click( object sender, EventArgs e )
         {
             string str = txtSearch.Text;
+            Session["search"] = null;
             Response.Redirect( "~/SearchResult.aspx?id="+ HttpUtility.UrlEncode(str));
         }
     }

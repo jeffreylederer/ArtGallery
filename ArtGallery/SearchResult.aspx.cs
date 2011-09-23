@@ -10,11 +10,10 @@ namespace ArtGallery
 {
     public partial class SearchResult : System.Web.UI.Page
     {
-        protected void Page_Load( object sender, EventArgs e )
+        protected void Page_PreRender( object sender, EventArgs e )
         {
-           
-            string qlist = Request.QueryString["list"];
-            if (!string.IsNullOrWhiteSpace( qlist ) && Session["search"] != null)
+
+             if (Session["search"] != null)
             {
                 List<int> list = Session["search"] as List<int>;
                 string strlist = "";
