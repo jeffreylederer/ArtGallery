@@ -9,21 +9,16 @@ namespace ArtGallery.Admin
 {
     public partial class AddGallery : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// If no error, sends user to edit gallery page in order the created db record.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ObjectDataSource1_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
         {
             if (e.Exception != null)
             {
-                Exception ex = e.Exception;
-                while (ex != null)
-                {
-                    ErrorLabel.Text = e.Exception.Message;
-                    ex = ex.InnerException;
-                }
+                ErrorLabel.Text = e.Exception.Message;
                 e.ExceptionHandled = true;
                 return;
             }

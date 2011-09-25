@@ -349,11 +349,9 @@ namespace ArtGallery
         /// <param name="e">ObjectDataSource Deleted Method Event Arguments</param>
         void ObjectDataSource_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
-            Label ELabel;
+            Label ELabel = (Label)Parent.FindControl( ErrorLabelID );;
             if ((e.ReturnValue == null) || ((int)e.ReturnValue < 1))
             {
-                ELabel = (Label)Parent.FindControl( ErrorLabelID );
-
                 if ((e.Exception != null) && e.Exception.InnerException is SqlException)
                 {
                     SqlException sqlException = (SqlException)e.Exception.InnerException;
@@ -411,7 +409,10 @@ namespace ArtGallery
                 }
             }
             else
+            {
                 e.AffectedRows = (int)e.ReturnValue;
+                ELabel.Text = "Update successfull";
+            }
         }
         #endregion
 

@@ -4,44 +4,43 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace ArtGallery.Account
 {
     public partial class RecoverPassword : System.Web.UI.Page
     {
        
-        protected void PasswordRecovery1_SendMailError( object sender, SendMailErrorEventArgs e )
-        {
-            if (e.Exception != null)
-            {
-                ErrorLabel.Text = "Send Mail Error " + e.Exception.Message;
-                e.Handled = true;
-            }
-            else
-                ErrorLabel.Text = "Unknown Send Mail Error";
-            up1.Update();
-        }
-
-        protected void PasswordRecovery1_UserLookupError( object sender, EventArgs e )
-        {
-            PasswordRecovery1.Visible = false;
-            CAPTCHA.Enabled = true;
-            pnlCap.Visible = true;
-            PasswordRecovery1.Enabled = false;
-            up1.Update();
-        }
-
         protected void btnSubmit_Click( object sender, EventArgs e )
         {
-            CAPTCHA.Validate();
-            if (CAPTCHA.UserValidated)
+            try
             {
-                PasswordRecovery1.Visible = true;
-                PasswordRecovery1.Enabled = true;
-                CAPTCHA.Enabled = false;
-                pnlCap.Visible = false;
-                up1.Update();
+                CAPTCHA.Validate();
+                if (CAPTCHA.UserValidated)
+                {
+                    MembershipUser user = Membership.GetUser( txtUserName.Text );
+                    if (user == null)
+                    {
+                        ErrorLabel.Text = "Unknown userid";
+                    }
+                    else
+                    {
+                        string password = user.ResetPassword();
+                        user.ChangePassword( password, "AGTest#$#" );
+                        SendMailDL.SendMail( user.Email, user.Email, "Reset password from Art Gallery Site",
+                            string.Format( "Your new password is {0}", "AGTest12#" ), false );
+                        ErrorLabel.Text = "Your new password has been emailed to you.";
+                    }
+                }
+                else
+                    ErrorLabel.Text = "The code you entered did not match up with the image provided; please try again with this new image.";
             }
+            catch (Exception ex)
+            {
+                ErrorLabel.Text = "Process Error";
+                ErrorLogDL.Insert( ex );
+            }
+            up1.Update();
         }
     }
 }

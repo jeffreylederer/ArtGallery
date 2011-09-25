@@ -11,7 +11,12 @@ namespace ArtGallery.Admin
 {
     public partial class ArtistPage : System.Web.UI.Page
     {
-        
+        /// <summary>
+        /// Event when user select upload picture button. It uploads the picture file to the
+        /// App_Data directory and writes the file name for the File Name text box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadArtistImageButton_Click( object sender, EventArgs e )
         {
             FileUpload FileUploadArtistImage = FormView2.FindControl( "FileUploadArtistImage" ) as FileUpload;
@@ -34,14 +39,6 @@ namespace ArtGallery.Admin
                 lblErrorArtist.Text = "Could not find file";
             upPayPal.Update();
         }
-
-        protected void odsArtist_Updated( object sender, ObjectDataSourceStatusEventArgs e )
-        {
-            if (e.Exception == null)
-            {
-                lblErrorArtist.Text = "Art Record Updated";
-            }
-            upPayPal.Update();
-        }
+      
     }
 }

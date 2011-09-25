@@ -12,6 +12,12 @@ namespace ArtGallery
 {
     public partial class SelectGallery : System.Web.UI.Page
     {
+        /// <summary>
+        /// Check to make sure user did not change the query string to point
+        /// to non-exist gallery.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void frmTop_PreRender(object sender, EventArgs e)
         {
             if (frmTop.DataKey.Value is int)

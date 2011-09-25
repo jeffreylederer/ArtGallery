@@ -13,12 +13,25 @@ namespace ArtGallery
 {
     public partial class EditPicture : System.Web.UI.Page
     {
+
+        /// <summary>
+        /// Do not why it is necessary, but most rebind the picture. Probably the picture handler
+        /// control does not support viewstate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
              FormView2.DataBind();
         }
 
- 
+        /// <summary>
+        /// Event when user select upload picture button. It uploads the picture file to the
+        /// App_Data directory and writes the file name inr the File Name text box and updates
+        /// that column in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadButton_Click( object sender, EventArgs e )
         {
             if (FileUpload1.HasFile)
@@ -41,6 +54,13 @@ namespace ArtGallery
                 ErrorLabel.Text = "Could not find file";
         }
 
+
+        /// <summary>
+        /// This event is fired when user selects the previous button. It takes the user
+        /// to previous record (alphabetically) in the current gallery.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnPrevious_Command( object sender, CommandEventArgs e )
         {
             int id = (int)FormView1.DataKey.Value;
@@ -52,6 +72,12 @@ namespace ArtGallery
             }
         }
 
+        /// <summary>
+        /// This event is fired when user selects the next button. It takes the user
+        /// to next record (alphabetically) in the current gallery.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnNext_Click( object sender, EventArgs e )
         {
             int id = (int)FormView1.DataKey.Value;
@@ -63,6 +89,11 @@ namespace ArtGallery
             }
         }
 
+        /// <summary>
+        /// Sets the column values (from the grid) for the insert stored procedure call.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void odsReproduction_Inserting( object sender, ObjectDataSourceMethodEventArgs e )
         {
             TextBox handling = (TextBox)GridView1.FooterRow.FindControl( "txtHandling" ) as TextBox;
@@ -75,15 +106,12 @@ namespace ArtGallery
             e.InputParameters["height"] = decimal.Parse( ((TextBox)GridView1.FooterRow.FindControl( "txtHeight" )).Text );
         }
 
-        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
-        {
-            if (e.Exception == null && (int)e.ReturnValue == 1)
-            {
-                ErrorLabel.Text = "Saved Successfully";
-                up1.Update();
-            }
-        }
-
+        /// <summary>
+        /// protects program against a user changing the query string to a nonexistance picture
+        /// record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ObjectDataSource1_Selected( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.ReturnValue == null || ((ArtGalleryDS.PictureDataTable)e.ReturnValue).Rows.Count == 0)

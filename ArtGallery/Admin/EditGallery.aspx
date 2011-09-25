@@ -7,10 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server" 
         AddDummyRow="True" OldValuesParameterFormatString="original_{0}"  IsFormView="True"
-        SelectMethod="GetById" TypeName="ArtGallery.GalleryDL" 
+        SelectMethod="GetById" TypeName="ArtGallery.GalleryDL"  ErrorLabelID="ErrorLabel"
         DeleteMethod="Delete" 
-        ErrorLabelID="" UpdateMethod="Update" 
-        onupdated="ObjectDataSource1_Updated" 
+        UpdateMethod="Update" 
         onselected="ObjectDataSource1_Selected">
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />

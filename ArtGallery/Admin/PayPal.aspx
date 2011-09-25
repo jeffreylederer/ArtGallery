@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
    <cc:TPMSObjectDataSource ID="odsPayPal" runat="server"  ErrorLabelID="ErrorLabelPayPal"
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetByMode" 
-            TypeName="ArtGallery.PayPayDL" UpdateMethod="Update" 
-            onupdated="odsPayPal_Updated" AddDummyRow="True" 
+            TypeName="ArtGallery.PayPayDL" UpdateMethod="Update" IsFormView="true" 
+            AddDummyRow="True" 
         UniqueConstaintMessage="">
             <SelectParameters>
                 <asp:ControlParameter ControlID="modeDropDownList" Name="mode" 

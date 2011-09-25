@@ -12,7 +12,7 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
         TypeName="ArtGallery.PictureDL" DeleteMethod="Delete"  ErrorLabelID="ErrorLabel"
         UpdateMethod="Update" AddDummyRow="True" 
-        onupdated="ObjectDataSource1_Updated" UniqueConstaintMessage="" 
+        UniqueConstaintMessage="" 
         onselected="ObjectDataSource1_Selected" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />

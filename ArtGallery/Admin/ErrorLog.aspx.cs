@@ -9,11 +9,11 @@ namespace ArtGallery.Admin
 {
     public partial class ErrorLog : System.Web.UI.Page
     {
-        protected void Page_Load( object sender, EventArgs e )
-        {
-
-        }
-
+        /// <summary>
+        /// Handles event when user selects the view detail button. This send user to the ErrorLogDetail page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click( object sender, EventArgs e )
         {
             Response.Redirect( "ErrorLogDetail.aspx?id=" + txtid.Text );

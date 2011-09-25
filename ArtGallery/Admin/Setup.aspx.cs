@@ -11,9 +11,15 @@ namespace ArtGallery.Admin
 {
     public partial class Setup : System.Web.UI.Page
     {
+        /// <summary>
+        /// Event when user select Upload Logo File  button. It uploads the picture file to the
+        /// Images directory and writes the file name for the File Name text box and updates that column
+        /// in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadLogoButton_Click( object sender, EventArgs e )
         {
-            //FileUpload FileUploadLogo = FormView1.FindControl( "FileUploadLogo" ) as FileUpload;
             if (FileUploadLogo.HasFile)
             {
                 try
@@ -34,9 +40,14 @@ namespace ArtGallery.Admin
             upPayPal.Update();
         }
 
+        /// <summary>
+        /// Event when user select upload File to Image Directory button. It uploads a file to the
+        /// Images directory. These image files can be used in the home, about artist, and contact pages.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadImagesButton_Click( object sender, EventArgs e )
         {
-            //FileUpload FileUploadImages = FormView1.FindControl( "FileUploadImages" ) as FileUpload;
             if (FileUploadImages.HasFile)
             {
                 try
@@ -55,12 +66,6 @@ namespace ArtGallery.Admin
             upPayPal.Update();
         }
 
-        protected void odsSite_Updated( object sender, ObjectDataSourceStatusEventArgs e )
-        {
-            if (e.Exception == null)
-            {
-                ErrorLabel.Text = "Site Information Updated";
-            }
-        }
+       
    }
 }

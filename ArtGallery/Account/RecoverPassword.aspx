@@ -5,21 +5,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
 <ContentTemplate>
-<asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" /><br />
- <asp:PasswordRecovery ID="PasswordRecovery1" Runat="server" 
-    SubmitButtonText="Get Password" SubmitButtonType="Link" 
-        onsendmailerror="PasswordRecovery1_SendMailError" 
-        onuserlookuperror="PasswordRecovery1_UserLookupError">
-     <MailDefinition From="administrator@Contoso.com" 
-    Subject="Your new password"
-    BodyFileName="PasswordMail.txt" />
-</asp:PasswordRecovery>
+<asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
+    <br />
 <br />
-<asp:Panel runat="server" ID="pnlCap"  Visible="false">
-Fill in below to continue:<br />
-<cc1:captchacontrol id="CAPTCHA" runat="server" CaptchaLineNoise="Low" CaptchaLength="7"  Enabled="false"></cc1:captchacontrol>
+Enter User Id: <asp:TextBox runat="server" ID="txtUserName" />
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+        ControlToValidate="txtUserName" ErrorMessage="Please enter User Id"></asp:RequiredFieldValidator>
+    <br />
+<cc1:captchacontrol id="CAPTCHA" runat="server" CaptchaLineNoise="Low" CaptchaLength="6"></cc1:captchacontrol>
+    <br />
+    <br />
+    <br />
 <asp:Button ID="btnSubmit" Text="Submit" runat="server" onclick="btnSubmit_Click" />
-</asp:Panel>
 </ContentTemplate>
 </asp:UpdatePanel>
 </asp:Content>

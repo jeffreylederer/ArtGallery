@@ -10,6 +10,12 @@ namespace ArtGallery.Account
 {
     public partial class ChangeEmail : System.Web.UI.Page
     {
+
+        /// <summary>
+        ///  Retrieve current logged on user's emai address and put in label on the page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load( object sender, EventArgs e )
         {
             if (!IsPostBack)
@@ -19,6 +25,11 @@ namespace ArtGallery.Account
             }
         }
 
+        /// <summary>
+        /// This event occurs when user selects submit button. This updates the membership database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click( object sender, EventArgs e )
         {
             MembershipUser user = Membership.GetUser();

@@ -22,8 +22,6 @@ namespace ArtGallery
                 Application["metatags"] = table[0].Metatags;
                 Application["email"] = table[0].email;
 
-                ArtGalleryDS.PayPalRow row = PayPayDL.GetAcive();
-                //Application["ppAccount"] = row.BusinessEmailOrMerchantID;
             }
             catch
             {

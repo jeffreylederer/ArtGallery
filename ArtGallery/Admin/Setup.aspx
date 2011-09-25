@@ -6,7 +6,7 @@
 <cc:TPMSObjectDataSource ID="odsSite" runat="server"  ErrorLabelID="ErrorLabel"
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetSite" 
             TypeName="ArtGallery.SiteDL" UpdateMethod="UpdateSite" 
-            onupdated="odsSite_Updated">
+            IsFormView="true">
             <UpdateParameters>
                 <asp:Parameter Name="LogoPath" Type="String" />
                 <asp:Parameter Name="HomePageText" Type="String" />
@@ -14,8 +14,9 @@
                 <asp:Parameter Name="copyrightholder" Type="String" />
             </UpdateParameters>
 </cc:TPMSObjectDataSource>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- Get Logo File: <asp:FileUpload ID="FileUploadLogo" runat="server" />
+ 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    Upload Logo File: <asp:FileUpload ID="FileUploadLogo" runat="server" />
      <asp:Button runat="server" id="UploadLogoButton" text="Upload" 
         onclick="UploadLogoButton_Click" ValidationGroup="none" /><br />
 Upload file to Images directory: <asp:FileUpload ID="FileUploadImages" runat="server" />

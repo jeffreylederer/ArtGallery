@@ -10,12 +10,12 @@ namespace ArtGallery.Admin
     public partial class SendMail : System.Web.UI.Page
     {
 
-        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
-        {
-            if (e.Exception == null)
-                ErrorLabel.Text = "Saved Successfully";
-        }
-
+        /// <summary>
+        /// Event triggered when user selects Send Test Email button. This method
+        /// sends a test message to the user from himself.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button1_Click( object sender, EventArgs e )
         {
             if (SendMailDL.SendMail( "Test Email from Art Gallery Site", "This is a test of the Art Gallery Site Email Method", false ))

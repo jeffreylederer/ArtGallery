@@ -42,7 +42,7 @@
                        <p>
                            
                            <p>
-                               &nbsp;<cc1:captchacontrol id="CAPTCHA" runat="server" CaptchaLineNoise="Low" CaptchaLength="7"></cc1:captchacontrol>
+                               <cc1:captchacontrol id="CAPTCHA" runat="server" CaptchaLineNoise="Low" CaptchaLength="6"></cc1:captchacontrol>
                                <p>
                                </p>
                                <p>

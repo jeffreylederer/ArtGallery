@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <div style="text-align:center;">
     <h1>Proccessing Error</h1><br />
-    An error has occurred when proccessing your request. Click <a href="Default.aspx">here</a> to return to the site.
+    An error has occurred when proccessing your request. Click <a href="~/Default.aspx">here</a> to return to the site.
     <br />Error ID: <asp:Label runat="server" ID="lblError" />
     </div>
     </form>

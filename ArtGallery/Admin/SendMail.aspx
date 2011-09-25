@@ -10,7 +10,7 @@
    <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server"  ErrorLabelID="ErrorLabel"
         OldValuesParameterFormatString="original_{0}" SelectMethod="Get" 
         TypeName="ArtGallery.SendMailDL" UpdateMethod="Update" 
-        onupdated="ObjectDataSource1_Updated" >
+         IsFormView="true" >
         <UpdateParameters>
             <asp:Parameter Name="EnableSSL" Type="Boolean" />
             <asp:Parameter Name="Port" Type="Int32" />
@@ -76,7 +76,7 @@
              <tr><td align="right">
             password:</td><td>
             <asp:TextBox ID="passwordTextBox" runat="server" Text='<%# Bind("password") %>' 
-                TextMode="Password" />
+                 />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                 ControlToValidate="passwordTextBox" ErrorMessage="Password is required">*</asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 

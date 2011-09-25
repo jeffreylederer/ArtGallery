@@ -6,7 +6,7 @@
 <cc:TPMSObjectDataSource ID="odsArtist" runat="server"  ErrorLabelID="lblErrorArtist"
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetArtist" 
             TypeName="ArtGallery.SiteDL" UpdateMethod="UpdateArtist" 
-            onupdated="odsArtist_Updated">
+             IsFormView="true">
             <UpdateParameters>
                 <asp:Parameter Name="email" Type="String" />
                 <asp:Parameter Name="ArtistImagePath" Type="String" />
@@ -19,12 +19,12 @@ Get Artist Image File:   <asp:FileUpload ID="FileUploadArtistImage" runat="serve
         onclick="UploadArtistImageButton_Click" ValidationGroup="none" />
     <br />
     <br />
-
+  <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
+    <ContentTemplate>
 <asp:Label runat="server" ID="lblErrorArtist" ForeColor="Red" EnableViewState="false" />
          <asp:ValidationSummary ID="ValidationSummary2" runat="server" 
             ValidationGroup="artist" />
-   <asp:UpdatePanel runat="server" ID="upPayPal" UpdateMode="Conditional">
-    <ContentTemplate>
+ 
         <cc:TPMSFormView ID="FormView2" runat="server" DataSourceID="odsArtist" Width="100%" 
             DefaultMode="Edit" UpdatePanelID="upPayPal" InsertOrUpdateCheckField="None">
             <EditItemTemplate>

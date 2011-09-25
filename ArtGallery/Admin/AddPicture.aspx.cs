@@ -12,7 +12,12 @@ namespace ArtGallery.Admin
     {
         
         
-
+        /// <summary>
+        /// Event when user select upload picture button. It uploads the picture file to the
+        /// App_Data directory and writes the file name in the File Name text box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadButton_Click(object sender, EventArgs e)
         {
             if (FileUpload1.HasFile)
@@ -35,11 +40,21 @@ namespace ArtGallery.Admin
 
         }
 
+        /// <summary>
+        /// See comments
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void FormView1_PreRender( object sender, EventArgs e )
         {
             if (!IsPostBack)
             {
+                // set available checkbox to true
                 ((CheckBox)FormView1.FindControl( "chkAvailble" )).Checked = true;
+
+                // check is user got her via picture edit page and user
+                // selected add new picture to same gallery. Then it selects
+                // in the gallery dropdown, the same gallery.
                 string idStr = Request.QueryString["id"];
                 if (string.IsNullOrWhiteSpace( idStr ))
                     return;
@@ -53,6 +68,12 @@ namespace ArtGallery.Admin
             }
         }
 
+        /// <summary>
+        /// Assuming no error, after the insert occurs, the user is sent to the picture edit
+        /// page for this newly inserted record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ObjectDataSource1_Inserted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             

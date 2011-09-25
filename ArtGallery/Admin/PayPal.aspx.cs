@@ -11,21 +11,26 @@ namespace ArtGallery.Admin
 {
     public partial class PayPal : System.Web.UI.Page
     {
-         protected void odsPayPal_Updated(object sender, ObjectDataSourceStatusEventArgs e)
-        {
-            if (e.Exception == null)
-            {
-                ErrorLabelPayPal.Text = "PayPal Record saved Successfully";
-            }
-         }
-
+       
+        /// <summary>
+        /// When user selects a different PayPal mode, this event method rebinds the Form View and
+        /// updates the panel the Form View is inside.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void modeDropDownList_SelectedIndexChanged( object sender, EventArgs e )
         {
             fmPayPal.DataBind();
             upPayPal.Update();
         }
- 
 
+        /// <summary>
+        /// Event when user select upload Get PayPal Cert File button. It uploads the  file to the
+        /// App_Data directory and writes the file name in the Get PayPal Cert File Name text box and updates
+        /// that column in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadPayPalButton_Click( object sender, EventArgs e )
         {
             //FileUpload FileUpPayPal = fmPayPal.FindControl( "FileUpPayPal" ) as FileUpload;
@@ -49,6 +54,13 @@ namespace ArtGallery.Admin
             upPayPal.Update();
         }
 
+        /// <summary>
+        /// Event when user select upload PKCS12 Cert File button. It uploads the  file to the
+        /// App_Data directory and writes the file name in the PKCS12 Cert File Name text box and updates
+        /// that column in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadPKCS12CertButton_Click( object sender, EventArgs e )
         {
             //FileUpload FileUplPKCS12Cert = fmPayPal.FindControl( "FileUplPKCS12Cert" ) as FileUpload;
