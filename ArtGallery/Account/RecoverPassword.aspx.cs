@@ -26,9 +26,8 @@ namespace ArtGallery.Account
                     else
                     {
                         string password = user.ResetPassword();
-                        user.ChangePassword( password, "AGTest#$#" );
                         SendMailDL.SendMail( user.Email, user.Email, "Reset password from Art Gallery Site",
-                            string.Format( "Your new password is {0}", "AGTest12#" ), false );
+                            string.Format( "Your new password is {0}", password ), false );
                         ErrorLabel.Text = "Your new password has been emailed to you.";
                     }
                 }

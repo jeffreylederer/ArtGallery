@@ -6,13 +6,16 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="Get" 
         TypeName="ArtGallery.ErrorLogDL"></asp:ObjectDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
-        AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="ObjectDataSource1" 
-        PageSize="10" EmptyDataText="No Errors">
+        AutoGenerateColumns="False" DataKeyNames="id" 
+        DataSourceID="ObjectDataSource1" EmptyDataText="No Errors">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" 
                 ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="errormessage" HeaderText="error message" 
-                SortExpression="errormessage" />
+            <asp:TemplateField HeaderText="error message" SortExpression="errormessage">
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Split(Eval("errormessage")) %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="lastupdated" HeaderText="Date/Time" 
                 SortExpression="lastupdated" />
         </Columns>

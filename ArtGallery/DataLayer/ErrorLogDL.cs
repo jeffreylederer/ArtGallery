@@ -14,11 +14,15 @@ using System.Text;
 namespace ArtGallery
 {
     /// <summary>
-    /// Summary description for PictureDL
+    /// Data Layer for ErrorLog table
     /// </summary>
     [DataObject( true )]
     public static class ErrorLogDL
     {
+        /// <summary>
+        /// Get a list of error in the ErrorLog table
+        /// </summary>
+        /// <returns>typed dataset of errors</returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.ErrorLogDataTable Get()
         {
@@ -41,6 +45,11 @@ namespace ArtGallery
             return data.ErrorLog;
         }
 
+        /// <summary>
+        /// Return one error
+        /// </summary>
+        /// <param name="id">the row number of the error</param>
+        /// <returns>typed dataset containing the error</returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.ErrorLogDataTable GetById(int id)
         {
@@ -64,6 +73,11 @@ namespace ArtGallery
             return data.ErrorLog;
         }
 
+        /// <summary>
+        /// Insert error into ErrorLog table
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns>number of rows inserted</returns>
         [DataObjectMethod( DataObjectMethodType.Insert, true )]
         public static int Insert(Exception ex)
         {

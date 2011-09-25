@@ -10,12 +10,15 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
-        DataKeyNames="id" DataSourceID="ObjectDataSource1" Height="50px" Width="125px">
+        DataKeyNames="id" DataSourceID="ObjectDataSource1" Height="50px" Width="100%">
         <Fields>
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" 
                 ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="errormessage" HeaderText="Error Message" 
-                SortExpression="errormessage" />
+                <asp:TemplateField HeaderText="Error Message">
+                    <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Split(Eval("errormessage")) %>'></asp:Label>
+                </ItemTemplate>
+                </asp:TemplateField>
             <asp:BoundField DataField="lastupdated" HeaderText="Date" 
                 SortExpression="lastupdated" />
         </Fields>
