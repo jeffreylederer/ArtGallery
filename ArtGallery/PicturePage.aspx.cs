@@ -35,8 +35,10 @@ namespace ArtGallery
         {
             ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
             FormView1.DataSource = table.Rows;
-            FormView2.DataSource = table.Rows;
             FormView1.DataBind();
+
+            ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
+            FormView2.DataSource = table1.Rows;
             FormView2.DataBind();
 
         }
@@ -91,14 +93,18 @@ namespace ArtGallery
             {
                 int id = (int)FormView1.DataKey.Values["id"];
                 Page.MetaKeywords = ((HiddenField)FormView1.FindControl( "metatags" )).Value;
-                Page.MetaDescription = ((Label)FormView2.FindControl( "lblTitle" )).Text;
-                Page.Title = ((Label)FormView2.FindControl( "lblTitle" )).Text;
                 RenderPicture( id );
             }
             else // no picture record found
                 Response.Redirect( "default.aspx" );
 
          }
+
+        protected void FormView2_PreRender( object sender, EventArgs e )
+        {
+            Page.MetaDescription = ((Label)FormView2.FindControl( "lblTitle" )).Text;
+            Page.Title = ((Label)FormView2.FindControl( "lblTitle" )).Text;
+        }
 
         #region navigation button events
         protected void btnPrevious_Click( object sender, ImageClickEventArgs e )
@@ -140,6 +146,8 @@ namespace ArtGallery
             btnBuy.CancelSubmission();
         }
         #endregion
+
+       
 
         
         

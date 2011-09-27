@@ -39,7 +39,7 @@ namespace ArtGallery
         /// <param name="e"></param>
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            frmTop.DataSource = PictureDL.GetByIdTable( PictureDL.Random() );
+            frmTop.DataSource = PictureDL.GetWithWaterMark( PictureDL.Random() );
             frmTop.DataBind();
             up1.Update();
         }

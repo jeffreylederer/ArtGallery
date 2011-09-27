@@ -37,8 +37,11 @@ namespace ArtGallery
         {
             ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
             FormView1.DataSource = table.Rows;
-            FormView2.DataSource = table.Rows;
             FormView1.DataBind();
+
+            ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
+            FormView2.DataSource = table1.Rows;
+
             FormView2.DataBind();
 
         }
@@ -115,7 +118,9 @@ namespace ArtGallery
                 ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
                 FormView1.DataSource = table.Rows;
                 FormView1.DataBind();
-                FormView2.DataSource = table.Rows;
+
+                ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
+                FormView2.DataSource = table1.Rows;
                 FormView2.DataBind();
                 up1.Update();
                 up2.Update();
@@ -139,7 +144,9 @@ namespace ArtGallery
                 ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
                 FormView1.DataSource = table.Rows;
                 FormView1.DataBind();
-                FormView2.DataSource = table.Rows;
+
+                ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
+                FormView2.DataSource = table1.Rows;
                 FormView2.DataBind();
                 up1.Update();
                 up2.Update();

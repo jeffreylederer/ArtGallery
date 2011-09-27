@@ -180,8 +180,10 @@
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />
                     <cc1:ImageParameter Name="Width" Value="450" />
-                    <cc1:ImageParameter Name="ActualHeight" Value='<%# Eval("Height") %>' />
-                    <cc1:ImageParameter Name="ActualWidth" Value='<%# Eval("Width") %>' />
+                    <cc1:ImageParameter Name="WatermarkText" Value='<%# Eval("WatermarkText") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontFamily" Value='<%# Eval("WatermarkFontFamily") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontColor" Value='<%# Eval("WatermarkFontColor") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontSize" Value='<%# Eval("WatermarkFontSize") %>' />
                  </Parameters>
               </cc1:GeneratedImage>
                </td>

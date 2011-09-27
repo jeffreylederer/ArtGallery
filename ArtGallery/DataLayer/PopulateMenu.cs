@@ -38,6 +38,7 @@ namespace ArtGallery
                 Setup.ChildItems.Add( new MenuItem( "Artist Information", null, null, "~/Admin/ArtistPage.aspx" ) );
                 Setup.ChildItems.Add( new MenuItem( "Mail Server Setup", null, null, "~/Admin/SendMail.aspx" ) );
                 Setup.ChildItems.Add( new MenuItem( "PayPal Setup", null, null, "~/Admin/PayPal.aspx" ) );
+                Setup.ChildItems.Add( new MenuItem( "WaterMark Setup", null, null, "~/Admin/WaterMarkPage.aspx" ) );
                 AdminItem.ChildItems.Add( Setup );
 
 

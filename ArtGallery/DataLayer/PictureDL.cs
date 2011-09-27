@@ -112,6 +112,33 @@ namespace ArtGallery
             return data.Picture;
         }
 
+        [DataObjectMethod( DataObjectMethodType.Select, false )]
+        public static ArtGalleryDS.Picture_GetWithWaterMarkDataTable GetWithWaterMark( int id )
+        {
+            SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand( "Picture_GetWithWaterMark", conn );
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@id", id );
+                SqlDataAdapter da = new SqlDataAdapter( selectCommand );
+                da.Fill( data, "Picture_GetWithWaterMark" );
+            }
+            catch (Exception ex)
+            {
+                string mess = ex.Message;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return data.Picture_GetWithWaterMark;
+        }
+
+
         public static ArtGalleryDS.PictureDataTable GetByIdTable( int id )
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );

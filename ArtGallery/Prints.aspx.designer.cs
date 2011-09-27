@@ -67,6 +67,15 @@ namespace ArtGallery {
         protected global::System.Web.UI.WebControls.FormView FormView2;
         
         /// <summary>
+        /// odsWaterMark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsWaterMark;
+        
+        /// <summary>
         /// odsPicture control.
         /// </summary>
         /// <remarks>

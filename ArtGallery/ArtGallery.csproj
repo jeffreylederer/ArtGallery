@@ -94,13 +94,13 @@
     <Content Include="Admin\EditPicture.aspx" />
     <Content Include="Admin\SendMail.aspx" />
     <Content Include="Admin\Setup.aspx" />
+    <Content Include="Admin\WaterMarkPage.aspx" />
     <Content Include="AppCode\Email.ascx" />
     <Content Include="AppCode\PopUp.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Contact.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
-    <Content Include="FormDataTester.aspx" />
     <Content Include="Images\btn_buynowCC_LG.gif" />
     <Content Include="Images\dot.jpg" />
     <Content Include="Images\email.png" />
@@ -291,6 +291,13 @@
     <Compile Include="Admin\Setup.aspx.designer.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\WaterMarkPage.aspx.cs">
+      <DependentUpon>WaterMarkPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WaterMarkPage.aspx.designer.cs">
+      <DependentUpon>WaterMarkPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AppCode\Email.ascx.cs">
       <DependentUpon>Email.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -324,19 +331,13 @@
     <Compile Include="DataLayer\ReproductionDL.cs" />
     <Compile Include="DataLayer\SendMailDL.cs" />
     <Compile Include="DataLayer\StrongBoxDL.cs" />
+    <Compile Include="DataLayer\WaterMarkDL.cs" />
     <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DedicatedPayPalReturnHandler.aspx.designer.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FormDataTester.aspx.cs">
-      <DependentUpon>FormDataTester.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormDataTester.aspx.designer.cs">
-      <DependentUpon>FormDataTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="PayPalNotification.aspx.cs">
       <DependentUpon>PayPalNotification.aspx</DependentUpon>

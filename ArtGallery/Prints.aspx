@@ -144,7 +144,7 @@
     
 </div>
 <div class="picture">
-         <asp:FormView ID="FormView2" runat="server" DataSourceID="odsPicture">
+         <asp:FormView ID="FormView2" runat="server" DataSourceID="odsWaterMark">
         <ItemTemplate>   
 
             <asp:Label runat="server" ID="lblTitle" Text='<%# Eval("Title") %>' Font-Size="X-Large" /> <br />
@@ -153,13 +153,22 @@
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />
                     <cc1:ImageParameter Name="Width" Value="450" />
-                    <cc1:ImageParameter Name="ActualHeight" Value='<%# Eval("Height") %>' />
-                    <cc1:ImageParameter Name="ActualWidth" Value='<%# Eval("Width") %>' />
+                    <cc1:ImageParameter Name="WatermarkText" Value='<%# Eval("WatermarkText") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontFamily" Value='<%# Eval("WatermarkFontFamily") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontColor" Value='<%# Eval("WatermarkFontColor") %>' />
+                    <cc1:ImageParameter Name="WatermarkFontSize" Value='<%# Eval("WatermarkFontSize") %>' />
                  </Parameters>
               </cc1:GeneratedImage><br />
                <asp:Label runat="server" ID="lblCopyright" Text='<%#"&#64; " + Eval("copyrightholder").ToString() + " " +  Eval("Date").ToString() %>' ></asp:Label>
         </ItemTemplate>
     </asp:FormView>
+         <asp:ObjectDataSource ID="odsWaterMark" runat="server" 
+             OldValuesParameterFormatString="original_{0}" SelectMethod="GetWithWaterMark" 
+             TypeName="ArtGallery.PictureDL">
+             <SelectParameters>
+                 <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
+             </SelectParameters>
+         </asp:ObjectDataSource>
 </div>
 
 <asp:ObjectDataSource ID="odsPicture" runat="server"  
