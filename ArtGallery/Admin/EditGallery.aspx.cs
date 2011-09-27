@@ -17,10 +17,22 @@ namespace ArtGallery.Admin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ObjectDataSource1_Selected( object sender, ObjectDataSourceStatusEventArgs e )
+        protected void FormView1_PreRender( object sender, EventArgs e )
         {
-            if(e.ReturnValue == null || (( ArtGalleryDS.GalleryDataTable) e.ReturnValue).Rows.Count == 0)
-                Response.Redirect( "~/default.aspx", true );
+            if (!(FormView1.DataKey["lastupdated"] is DateTime))
+                Response.Redirect( "~/Default.aspx" );
+        }
+
+        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+
+        protected void ObjectDataSource1_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
         }
     }
 }

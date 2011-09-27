@@ -27,7 +27,7 @@ Inherits="ArtGallery.GalleryPage" Codebehind="GalleryPage.aspx.cs" %>
          </UpdateParameters>
     </asp:ObjectDataSource>
    <asp:ListView runat="server" ID="ListView1" GroupItemCount="6" DataKeyNames="id" 
-        DataSourceID="ObjectDataSource1">
+        DataSourceID="ObjectDataSource1" onprerender="ListView1_PreRender">
      
       <LayoutTemplate>
         <table cellpadding="2" runat="server" id="tblProducts">

@@ -8,9 +8,12 @@
     <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server" 
         AddDummyRow="True" OldValuesParameterFormatString="original_{0}"  IsFormView="True"
         SelectMethod="GetById" TypeName="ArtGallery.GalleryDL"  ErrorLabelID="ErrorLabel"
-        DeleteMethod="Delete" 
+        DeleteMethod="Delete"  
+        FkErrorMessage="You must either delete or move to another gallery the pictures in this gallery before delete the gallery."
+
         UpdateMethod="Update" 
-        onselected="ObjectDataSource1_Selected">
+        onselected="ObjectDataSource1_Selected" 
+        ondeleted="ObjectDataSource1_Deleted" onupdated="ObjectDataSource1_Updated">
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
@@ -35,7 +38,8 @@
     </div>
     <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  InsertOrUpdateCheckField="lastupdated"
         UpdatePanelID="up1"  
-        DataKeyNames="id,lastupdated" DefaultMode="Edit">
+        DataKeyNames="id,lastupdated" DefaultMode="Edit" 
+            onprerender="FormView1_PreRender">
         <EditItemTemplate>
             <table cellpadding="2" cellspacing="2">
             <tr>

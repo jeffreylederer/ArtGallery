@@ -14,7 +14,7 @@ using System.IO;
 namespace ArtGallery
 {
     /// <summary>
-    /// Summary description for PictureDL
+    /// Data Layer for Picture table
     /// </summary>
     [DataObject(true)]
     public static class PictureDL

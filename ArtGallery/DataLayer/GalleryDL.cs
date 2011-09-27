@@ -13,11 +13,15 @@ using ArtGallery.DataLayer;
 namespace ArtGallery
 {
     /// <summary>
-    /// Summary description for PictureDL
+    /// Data Layer for Gallery Table
     /// </summary>
     [DataObject(true)]
     public static class GalleryDL
     {
+        /// <summary>
+        /// Get all the records in Gallery table as typed dataset
+        /// </summary>
+        /// <returns></returns>
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public static ArtGalleryDS.GalleryDataTable Get()
         {
@@ -40,6 +44,11 @@ namespace ArtGallery
             return data.Gallery;
         }
 
+        /// <summary>
+        /// Get all the records in Gallery table as typed dataset visible to public
+        /// i.e. avaiable and have picture that can be displayed
+        /// </summary>
+        /// <returns></returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.GalleryDataTable GetPublic()
         {
@@ -62,6 +71,11 @@ namespace ArtGallery
             return data.Gallery;
         }
 
+        /// <summary>
+        /// Get on particular gallery record as typed dataset
+        /// </summary>
+        /// <param name="id">row number of that record</param>
+        /// <returns></returns>
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public static ArtGalleryDS.GalleryDataTable GetById(int id)
         {
@@ -86,6 +100,13 @@ namespace ArtGallery
             return data.Gallery;
         }
 
+        /// <summary>
+        ///  Get on particular gallery record as typed dataset visible to public
+        ///   i.e. avaiable and have picture that can be displayed
+        ///   I don't think it is being used currectly
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.GalleryDataTable GetByIdPublic( int id )
         {
@@ -110,6 +131,16 @@ namespace ArtGallery
             return data.Gallery;
         }
 
+        /// <summary>
+        /// Update one record in Gallery table
+        /// </summary>
+        /// <param name="menutext">menu column</param>
+        /// <param name="gallerytitle">gallerytitle column</param>
+        /// <param name="active">determine if record is available to public</param>
+        /// <param name="original_id">id of record in formview</param>
+        /// <param name="original_lastupdated">last time record was updated, used
+        /// for concurrency detection</param>
+        /// <returns>number of records updated</returns>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
         public static int Update(
             string menutext,
@@ -144,6 +175,13 @@ namespace ArtGallery
             }
         }
 
+        /// <summary>
+        /// Insert new record in Gallery Table
+        /// </summary>
+        /// <param name="menutext">menu column</param>
+        /// <param name="gallerytitle">gallerytitle column</param>
+        /// <param name="active">determine if record is available to public</param>
+        /// <returns>the id for that record</returns>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
         public static int Insert(
             string menutext,
@@ -179,6 +217,14 @@ namespace ArtGallery
             }
         }
 
+        /// <summary>
+        /// Delete a recod from the Gallery Table
+        /// </summary>
+        /// <param name="original_id">id of record in formview</param>
+        /// <param name="original_lastupdated">last time record was updated, used
+        /// for concurrency detection</param>
+        /// <returns>number of records removed</returns>
+        /// <remarks>Will fail if there are pictures in the gallery</remarks>
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
         public static int Delete(int original_id, DateTime original_lastupdated)
         {

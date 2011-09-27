@@ -22,7 +22,7 @@ namespace ArtGallery
         #region PROPERTY:: InsertOrUpdateCheckField
         [Category( "Behavior" )]
         [Description( "Name of the field in the business object that will be used to set the form view in edit or insert mode" )]
-        [DefaultValue( "" )]
+        [DefaultValue( "None" )]
         [Bindable( false )]
         [Browsable( true )]
         public string InsertOrUpdateCheckField

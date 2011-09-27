@@ -11,11 +11,13 @@ namespace ArtGallery
 {
     public partial class DedicatedPayPalReturnHandler : System.Web.UI.Page
     {
-        protected void Page_Load( object sender, EventArgs e )
-        {
-
-        }
-
+  
+        /// <summary>
+        /// This event occurs when user returns from paypal page and either the user
+        /// has made a purchase or cancelled.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnBuy_PayPal_Returned( object sender, SpiceLogic.PayPalCtrlForWPS.DedicatedPayPalReturnedEventArgs e )
         {
             if (e.IsPaymentCancelled)

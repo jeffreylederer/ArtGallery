@@ -13,8 +13,9 @@
    
    
     <asp:ValidationSummary runat="server" ID="vs" /><asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
-    <asp:FormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  
-        DataKeyNames="id" DefaultMode="Insert" Width="100%" 
+    <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  
+        DataKeyNames="id, lastupdated" DefaultMode="Insert" Width="100%"  UpdatePanelID="up1"
+        InsertOrUpdateCheckField="lastupdated"
         onprerender="FormView1_PreRender" >
         <InsertItemTemplate>
              <table>
@@ -229,12 +230,13 @@
         </table>
            
  </InsertItemTemplate>
-    </asp:FormView>
+    </cc:TPMSFormView>
      </ContentTemplate>
     </asp:UpdatePanel>
    
-       <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert" 
+       <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById" 
+         ErrorLabelID="ErrorLabel" IsFormView="true"
         TypeName="ArtGallery.PictureDL" oninserted="ObjectDataSource1_Inserted">
           <InsertParameters>
             <asp:Parameter Name="Title" Type="String" />
@@ -256,7 +258,7 @@
         <SelectParameters>
             <asp:Parameter Name="id"  DefaultValue="0" Type="Int32" />
         </SelectParameters>
-     </asp:ObjectDataSource>
+     </cc:TPMSObjectDataSource>
     <asp:ObjectDataSource ID="odsGallery" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="Get" 
         TypeName="ArtGallery.GalleryDL"></asp:ObjectDataSource>

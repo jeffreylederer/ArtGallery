@@ -13,7 +13,8 @@
         TypeName="ArtGallery.PictureDL" DeleteMethod="Delete"  ErrorLabelID="ErrorLabel"
         UpdateMethod="Update" AddDummyRow="True" 
         UniqueConstaintMessage="" 
-        onselected="ObjectDataSource1_Selected" >
+        onselected="ObjectDataSource1_Selected" 
+        ondeleted="ObjectDataSource1_Deleted" onupdated="ObjectDataSource1_Updated" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
@@ -467,7 +468,9 @@
          DeleteMethod="Delete" ErrorLabelID="GridErroLabel" InsertMethod="Insert" 
          OldValuesParameterFormatString="original_{0}" SelectMethod="GetByPictureId" 
          TypeName="ArtGallery.ReproductionDL" UniqueConstaintMessage="" 
-         UpdateMethod="Update" oninserting="odsReproduction_Inserting" >
+         UpdateMethod="Update" oninserting="odsReproduction_Inserting" 
+         ondeleted="odsReproductions_Deleted" oninserted="odsReproductions_Inserted" 
+         onupdated="odsReproductions_Updated" >
      <DeleteParameters>
          <asp:Parameter Name="original_id" Type="Int32" />
          <asp:Parameter Name="original_lastupdated" Type="DateTime" />

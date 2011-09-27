@@ -117,5 +117,37 @@ namespace ArtGallery
             if (e.ReturnValue == null || ((ArtGalleryDS.PictureDataTable)e.ReturnValue).Rows.Count == 0)
                 Response.Redirect( "~/default.aspx", true );
         }
-   }
+
+        #region log errors on record updates, inserts, and deletes
+        protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+
+        protected void ObjectDataSource1_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+
+        protected void odsReproductions_Inserted( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+
+        protected void odsReproductions_Updated( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+
+        protected void odsReproductions_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
+        {
+            if (e.Exception != null)
+                ErrorLogDL.Insert( e.Exception );
+        }
+        #endregion
+    }
 }

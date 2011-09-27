@@ -98,9 +98,9 @@
     <Content Include="AppCode\PopUp.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Cancel.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
+    <Content Include="FormDataTester.aspx" />
     <Content Include="Images\btn_buynowCC_LG.gif" />
     <Content Include="Images\dot.jpg" />
     <Content Include="Images\email.png" />
@@ -313,13 +313,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HelpText.resx</DependentUpon>
     </Compile>
-    <Compile Include="Cancel.aspx.cs">
-      <DependentUpon>Cancel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cancel.aspx.designer.cs">
-      <DependentUpon>Cancel.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -337,6 +330,13 @@
     </Compile>
     <Compile Include="DedicatedPayPalReturnHandler.aspx.designer.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataTester.aspx.cs">
+      <DependentUpon>FormDataTester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormDataTester.aspx.designer.cs">
+      <DependentUpon>FormDataTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="PayPalNotification.aspx.cs">
       <DependentUpon>PayPalNotification.aspx</DependentUpon>
@@ -383,11 +383,6 @@
     </Compile>
     <Compile Include="ErrorPage.aspx.designer.cs">
       <DependentUpon>ErrorPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GalleryDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GalleryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GalleryPage.aspx.cs">
       <DependentUpon>GalleryPage.aspx</DependentUpon>
@@ -453,17 +448,6 @@
     </None>
     <Content Include="ImageHandlers\PageImageHandler.ashx" />
     <Content Include="ImageHandlers\ThumbnailImageHandler.ashx" />
-    <None Include="GalleryDataSet.xsc">
-      <DependentUpon>GalleryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GalleryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GalleryDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GalleryDataSet.xss">
-      <DependentUpon>GalleryDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Admin\Picture.rdlc" />

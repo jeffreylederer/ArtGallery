@@ -13,11 +13,16 @@ using ArtGallery.DataLayer;
 namespace ArtGallery
 {
     /// <summary>
-    /// Summary description for PictureDL
+    /// Data Layer for the PayPal Table
     /// </summary>
     [DataObject( true )]
     public static class PayPayDL
     {
+        /// <summary>
+        /// Get one record from PayPal table
+        /// </summary>
+        /// <param name="mode">either SandBox or Real</param>
+        /// <returns>PayPal typed dataset</returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.PayPalDataTable GetByMode(string mode)
         {
@@ -45,6 +50,10 @@ namespace ArtGallery
             return data.PayPal;
         }
 
+        /// <summary>
+        /// Get one record from PayPal Table, the one that is active
+        /// </summary>
+        /// <returns>PayPal typed dataset</returns>
         public static ArtGalleryDS.PayPalRow GetAcive()
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
@@ -72,6 +81,23 @@ namespace ArtGallery
             return null;
         }
 
+        /// <summary>
+        /// Update a PayPal table record
+        /// </summary>
+        /// <param name="buynowurl">PayPal URL, one used for SandBox, the other
+        /// for Real</param>
+        /// <param name="BusinessEmailOrMerchantID">PayPal account name</param>
+        /// <param name="active">Determine if active record</param>
+        /// <param name="PDTAuthenticationToken">Notification ID</param>
+        /// <param name="CertificateId"></param>
+        /// <param name="PKCS12CertFile">Name of Certification file name in App_Data
+        /// directory</param>
+        /// <param name="PKCS12Password">Password for the Certification File</param>
+        /// <param name="PayPalCertPath"></param>
+        /// <param name="original_lastupdated">last time record was updated, used
+        /// for concurrency detection</param>
+        /// <param name="original_mode">Mode of record being updated</param>
+        /// <returns></returns>
         [DataObjectMethod( DataObjectMethodType.Update, true )]
         public static int Update(
             string buynowurl,
@@ -116,6 +142,13 @@ namespace ArtGallery
             }
         }
 
+        /// <summary>
+        /// Update the filename of PayPal encrypt button file and upload the file to
+        /// App_Data directory
+        /// </summary>
+        /// <param name="PKCS12CertFile">File name</param>
+        /// <param name="mode">either SandBox or Real</param>
+        /// <returns></returns>
         public static int UpdatePKCS12CertPath(
             string PKCS12CertFile,
             string mode
@@ -143,7 +176,14 @@ namespace ArtGallery
             }
         }
 
-          public static int UpdatePayPalPath(
+       /// <summary>
+       /// Update the filename of PayPal encrypt button file and upload the file to
+       /// the App_Data diretory
+       /// </summary>
+       /// <param name="PayPalCertPath">file name</param>
+       /// <param name="mode">either SandBox or Real</param>
+       /// <returns></returns>
+       public static int UpdatePayPalPath(
             string PayPalCertPath,
             string mode
             )

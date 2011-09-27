@@ -12,31 +12,43 @@ namespace ArtGallery
     public partial class DefaultPage : System.Web.UI.Page
     {
         
+        /// <summary>
+        /// Just before the page is rendered, put in the metatags for the site on the page,
+        /// make the site name the Meta Description and the page title.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.Page.MetaKeywords = Application["metatags"].ToString();
-            this.Page.MetaDescription = ConfigurationManager.AppSettings["SiteName"].ToString();
-            this.Title = ConfigurationManager.AppSettings["SiteName"];
-            if(!IsPostBack)
+            if (!IsPostBack)
+            {
+                this.Page.MetaKeywords = Application["metatags"].ToString();
+                this.Page.MetaDescription = ConfigurationManager.AppSettings["SiteName"].ToString();
+                this.Title = ConfigurationManager.AppSettings["SiteName"];
                 Timer1_Tick( sender, e );
+            }
          }
 
 
-        protected int GetNext
-        {
-            get
-            {
-                return PictureDL.Random();
-            }
-        }
-
+        
+        /// <summary>
+        /// This event occurs when the timer fires. A random picture is displayed
+        /// in the right side of page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            frmTop.DataSource = PictureDL.GetByIdTable( GetNext );
+            frmTop.DataSource = PictureDL.GetByIdTable( PictureDL.Random() );
             frmTop.DataBind();
             up1.Update();
         }
 
+        /// <summary>
+        /// Start the timer that rotates the picture on the home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void frmTop_PreRender(object sender, EventArgs e)
         {
             if (!IsPostBack)

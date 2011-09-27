@@ -13,11 +13,15 @@ using ArtGallery.DataLayer;
 namespace ArtGallery
 {
     /// <summary>
-    /// Summary description for PictureDL
+    /// Data Layer for StrongBox table
     /// </summary>
     [DataObject( true )]
     public static class StrongBoxDL
     {
+        /// <summary>
+        /// Get all the records of the StrongBox table
+        /// </summary>
+        /// <returns>typed dataset</returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
         public static ArtGalleryDS.StrongBoxDataTable Get()
         {

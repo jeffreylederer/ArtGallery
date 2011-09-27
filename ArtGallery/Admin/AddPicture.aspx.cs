@@ -79,12 +79,7 @@ namespace ArtGallery.Admin
             
             if (e.Exception != null)
             {
-                Exception ex = e.Exception;
-                while (ex != null)
-                {
-                    ErrorLabel.Text = e.Exception.Message;
-                    ex = ex.InnerException;
-                }
+                ErrorLogDL.Insert( e.Exception );
                 e.ExceptionHandled = true;
                 return;
             }
