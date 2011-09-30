@@ -149,8 +149,8 @@
         <ItemTemplate>   
 
             <asp:Label runat="server" ID="lblTitle" Text='<%# Eval("Title") %>' Font-Size="X-Large" /> <br />
-            <a href="javascript:void(0)" >
-            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx">
+            <a href="javascript:void(0)" style="text-decoration:none;">
+            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx" BorderColor="White">
                 <Parameters>
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />

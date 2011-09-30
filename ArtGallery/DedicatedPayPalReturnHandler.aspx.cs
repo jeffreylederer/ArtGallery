@@ -25,10 +25,10 @@ namespace ArtGallery
                 MultiViewMyShop.SetActiveView( ViewPaymentCancelled );
                 if (e.AdditionalDataItems["unframed"] == "true")
                 {
-                    pnlCancelledFramed.Visible = true;
+                    pnlCancelUnframed.Visible = true;
                 }
                 else
-                    pnlCancelUnframed.Visible = true;
+                    pnlCancelledFramed.Visible = true;
 
             }
             else

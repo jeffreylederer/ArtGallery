@@ -176,8 +176,8 @@
             <td class="leftarrow"><asp:ImageButton runat="server" ID="btnPrevious" ImageUrl="~/Images/left.jpg" 
                     BorderStyle="None"  OnClick="btnPrevious_Click" Height="20px" Width="20px" /></td>
             <td class="picture">
-            <a href="javascript:void(0)" >
-            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx">
+            <a href="javascript:void(0)" style="text-decoration:none;">
+            <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx" BorderColor="White">
                 <Parameters>
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />

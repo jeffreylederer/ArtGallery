@@ -26,8 +26,8 @@
     <ContentTemplate>
         <asp:FormView runat="server" ID="frmTop" >
         <ItemTemplate> 
-            <asp:HyperLink runat="server" ID="hyp1" NavigateUrl='<%# "~/PicturePage.aspx?id=" + Eval("id").ToString() %>'  ForeColor="White">
-           <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx">
+            <asp:HyperLink runat="server" ID="hyp1"  CssClass="default" NavigateUrl='<%# "~/PicturePage.aspx?id=" + Eval("id").ToString() %>'   ForeColor="White">
+           <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx" BorderColor="White">
                 <Parameters>
                     <cc1:ImageParameter Name="ImageUrl" Value='<%#  "~/App_Data/" + Eval("PicturePath") %>' />
                     <cc1:ImageParameter Name="Height" Value="500" />

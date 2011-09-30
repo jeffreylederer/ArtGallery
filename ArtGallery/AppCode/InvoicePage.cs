@@ -81,7 +81,7 @@ namespace ArtGallery
                 btnBuy.AdditionalDataItems["strongbox"] = "none needed";
             }
             btnBuy.ItemNumber = id.ToString();
-            btnBuy.AdditionalDataItems["unframed"] = unframe.ToString();
+            btnBuy.AdditionalDataItems["unframed"] = unframe.ToString().ToLower();
             btnBuy.AdditionalDataItems["width"] = "0";
             btnBuy.AdditionalDataItems["height"] = "0";
             btnBuy.Amount = (decimal) row.price;

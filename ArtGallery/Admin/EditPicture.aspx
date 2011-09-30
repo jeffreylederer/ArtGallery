@@ -101,7 +101,7 @@
             <td align="right">
             Gallery<cc3:Popup runat="server" ID="puGallery" Key="GalleryName" />:
             </td>
-            <td>
+            <td align="left">
              <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="odsGallery" AppendDataBoundItems="true"
                       DataValueField="id" DataTextField="menutext" 
                     SelectedValue='<%# Bind("galleryid") %>'>
@@ -116,7 +116,7 @@
             <td align="right">
             Frame<cc3:Popup runat="server" ID="puFrame" Key="Frame" />:
             </td>
-            <td>
+            <td align="left">
             <asp:TextBox ID="lblFrame" runat="server" Text='<%# Bind("Frame") %>' />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="lblFrame" ErrorMessage="Frame is required">*</asp:RequiredFieldValidator>
@@ -130,7 +130,7 @@
             <td align="right">
             Surface:
             </td>
-            <td>
+            <td align="left">
             <asp:TextBox ID="lblSurface" runat="server" Text='<%# Bind("surface") %>' />
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="lblSurface" ErrorMessage="Surface must be 50 character or less" 
@@ -138,21 +138,12 @@
             </td>
             </tr>
 
-            <tr>
-            <td  align="right">
-            Width<cc3:Popup runat="server" ID="puWidth" Key="Width" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width","{0:0.000}") %>' 
-                    Width="50px" />"
-            </td>
-            </tr>
-
+           
             <tr>
             <td align="right">
             Height<cc3:Popup runat="server" ID="puHeight" Key="Height" />:
             </td>
-            <td>
+            <td align="left">
             <asp:TextBox ID="lblHeight" runat="server" Text='<%# Bind("Height","{0:0.000}") %>' 
                     Width="50px" />"
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
@@ -162,11 +153,21 @@
             </td>
             </tr>
 
+             <tr>
+            <td  align="right">
+            Width<cc3:Popup runat="server" ID="puWidth" Key="Width" />:
+            </td>
+            <td align="left">
+            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width","{0:0.000}") %>' 
+                    Width="50px" />"
+            </td>
+            </tr>
+
             <tr>
             <td  align="right">
             Weight<cc3:Popup runat="server" ID="puWeight" Key="Weight" />:
             </td>
-            <td>
+            <td align="left">
             <asp:TextBox ID="lblWeight" runat="server" Text='<%# Bind("Weight","{0:0.000}") %>' 
                     Width="50px" /> lbs
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
@@ -181,7 +182,7 @@
             <td  align="right">
             Year<cc3:Popup runat="server" ID="puYear" Key="Year" />:
             </td>
-            <td>
+            <td align="left">
             <asp:TextBox ID="lblDate" runat="server" Text='<%# Bind("Date") %>' Width="50px" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                     ControlToValidate="lblDate" ErrorMessage="Year is required">*</asp:RequiredFieldValidator>
@@ -241,7 +242,7 @@
             <td align="right">
             Price<cc3:Popup runat="server" ID="puPrice" Key="Price" />:
             </td>
-            <td>
+            <td align="left">
             $<asp:TextBox ID="lblPrice" runat="server" Text='<%# Bind("price","{0:0.00}") %>' 
                     Width="75px" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
@@ -256,7 +257,7 @@
             <td align="right">
             Original Available for Sale<cc3:Popup runat="server" ID="puAvailable" Key="Available" />:
             </td>
-            <td>
+            <td align="left">
             <asp:CheckBox runat="server" ID="chkAvailble" Checked='<%# Bind("Available") %>' />
             
             </td>
@@ -465,7 +466,7 @@
  </ContentTemplate>
  </asp:UpdatePanel>
  <cc:TPMSObjectDataSource ID="odsReproductions" runat="server" AddDummyRow="True" 
-         DeleteMethod="Delete" ErrorLabelID="GridErroLabel" InsertMethod="Insert" 
+         DeleteMethod="Delete" ErrorLabelID="GridErrorLabel" InsertMethod="Insert" 
          OldValuesParameterFormatString="original_{0}" SelectMethod="GetByPictureId" 
          TypeName="ArtGallery.ReproductionDL" UniqueConstaintMessage="" 
          UpdateMethod="Update" oninserting="odsReproduction_Inserting" 

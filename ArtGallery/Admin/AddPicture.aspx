@@ -94,16 +94,7 @@
             </td>
             </tr>
 
-            <tr>
-            <td  align="right">
-            Width<cc3:Popup runat="server" ID="puWidth" Key="Width" />:
-            </td>
-            <td>
-            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width") %>' 
-                    Width="50px" />"
-            </td>
-            </tr>
-
+            
             <tr>
             <td align="right">
             Height<cc3:Popup runat="server" ID="puHeight" Key="Height" />:
@@ -115,6 +106,16 @@
                     ControlToValidate="lblHeight" ErrorMessage="Height is required">*</asp:RequiredFieldValidator>
              <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="lblHeight" MinimumValue="0.0" 
                MaximumValue="32000" Type="Double" Text="*" ErrorMessage="Height must be a positive number" />
+            </td>
+            </tr>
+
+            <tr>
+            <td  align="right">
+            Width<cc3:Popup runat="server" ID="puWidth" Key="Width" />:
+            </td>
+            <td>
+            <asp:TextBox ID="lblWidth" runat="server" Text='<%# Bind("Width") %>' 
+                    Width="50px" />"
             </td>
             </tr>
 
