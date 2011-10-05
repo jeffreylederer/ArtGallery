@@ -7,15 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace ArtGallery
 {
-    public partial class Prints : InvoicePage
+    public partial class Prints : Page
     {
-
-        //protected void Page_Load( object sender, EventArgs e )
-        //{
-        //    if (!IsPostBack)
-        //        SetupButton( btnBuy );
-        //}
-
 
         protected void GridView1_RowCommand( object sender, GridViewCommandEventArgs e )
         {
@@ -23,16 +16,8 @@ namespace ArtGallery
             {
                 int index = int.Parse( e.CommandArgument.ToString() );
                 int id = (int) GridView1.DataKeys[index].Value;
-                if (GenerateInvoiceReproduction( id, btnBuy ))
-                {
-                    FormView1.Visible = false;
-                    FormView2.Visible = false;
-                    GridView1.Visible = false;
-                    divBack.Visible = false;
-                    pnlProcessing.Visible = true;
-                    btnBuy.Submit();
-                    return;
-                }
+                Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}&repro=true",
+                id) );
             }
         }
 

@@ -197,6 +197,9 @@
     <value>Selecting this link saves the new reproduction record.</value>
     <comment>reproduction grid on edit picture page</comment>
   </data>
+  <data name="LocalPickup" xml:space="preserve">
+    <value>You can select Local Pickup if you reside or visiting the Pittsburgh, PA area and wish to come to the artist studio to pickup the art work. In this case there would be no shipping or handling charges.</value>
+  </data>
   <data name="Media" xml:space="preserve">
     <value>Enter the media used to created this art work here. This information will be displayed on the Picture and Search pages.&lt;br/&gt;&lt;br/&gt;Changes made on this screen will not be permanent until you select the Update link (or Insert Link for a new picture) below.</value>
     <comment>On picture edit/add page</comment>

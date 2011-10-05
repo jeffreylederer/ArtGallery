@@ -73,15 +73,16 @@ namespace ArtGallery
                     invoice.AppendLine( string.Format( "unframed : {0}", e.AdditionalDataItems["unframed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"] ) );
                     invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" : e.AdditionalDataItems["width"] ) );
                     invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" : e.AdditionalDataItems["height"] ) );
-                    invoice.AppendLine( string.Format( " strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"] ) );
+                    invoice.AppendLine( string.Format( "strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"] ) );
+                    invoice.AppendLine( string.Format( "Shipping Method: {0}", e.AdditionalDataItems["shipping method"] == null ? "Unknown" : e.AdditionalDataItems["shipping method"] ) );
 
                     invoice.AppendLine();
-                    invoice.AppendLine( string.Format( "Buyer : {0}", e.BuyerInfo.FirstName + " " + e.BuyerInfo.LastName ) );
+                    invoice.AppendLine( string.Format( "Buyer :  {0}", e.BuyerInfo.FirstName + " " + e.BuyerInfo.LastName ) );
                     invoice.AppendLine( string.Format( "Ship To: {0}", e.BuyerInfo.ShippingAddress.AddressName ) );
-                    invoice.AppendLine( string.Format( "        {0}", e.BuyerInfo.ShippingAddress.Street ) );
-                    invoice.AppendLine( string.Format( "        {0}, {1} {2}", e.BuyerInfo.ShippingAddress.City, e.BuyerInfo.ShippingAddress.State, e.BuyerInfo.ShippingAddress.Zip ) );
-                    invoice.AppendLine( string.Format( "        {0}", e.BuyerInfo.ShippingAddress.Country ) );
-                    invoice.AppendLine( string.Format( "Email : {0}", e.BuyerInfo.PayerEmail ) );
+                    invoice.AppendLine( string.Format( "         {0}", e.BuyerInfo.ShippingAddress.Street ) );
+                    invoice.AppendLine( string.Format( "         {0}, {1} {2}", e.BuyerInfo.ShippingAddress.City, e.BuyerInfo.ShippingAddress.State, e.BuyerInfo.ShippingAddress.Zip ) );
+                    invoice.AppendLine( string.Format( "Country: {0}", e.BuyerInfo.ShippingAddress.Country ) );
+                    invoice.AppendLine( string.Format( "Email :  {0}", e.BuyerInfo.PayerEmail ) );
                     invoice.AppendLine( string.Format( "phone #: {0}", e.BuyerInfo.ContactPhone ) );
 
                     invoice.AppendLine();

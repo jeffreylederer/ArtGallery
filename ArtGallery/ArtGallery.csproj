@@ -60,6 +60,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -102,6 +103,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
     <Content Include="Images\btn_buynowCC_LG.gif" />
+    <Content Include="Images\buynow.gif" />
     <Content Include="Images\dot.jpg" />
     <Content Include="Images\email.png" />
     <Content Include="Images\facebook.png" />
@@ -126,6 +128,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\Truncate.js" />
     <Content Include="SearchResult.aspx" />
+    <Content Include="ShippingPage.aspx" />
     <Content Include="slPPWPSICtrlForm4357.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -315,6 +318,8 @@
     <Compile Include="AppCode\PopUp.ascx.designer.cs">
       <DependentUpon>PopUp.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\Reference.cs" />
+    <Compile Include="AppCode\TrustAllCertificatePolicy.cs" />
     <Compile Include="App_GlobalResources\HelpText.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,8 +334,11 @@
     </Compile>
     <Compile Include="DataLayer\ErrorLogDL.cs" />
     <Compile Include="DataLayer\ReproductionDL.cs" />
+    <Compile Include="DataLayer\SalesTaxDL.cs" />
     <Compile Include="DataLayer\SendMailDL.cs" />
+    <Compile Include="DataLayer\StateNameDL.cs" />
     <Compile Include="DataLayer\StrongBoxDL.cs" />
+    <Compile Include="DataLayer\UPSDL.cs" />
     <Compile Include="DataLayer\WaterMarkDL.cs" />
     <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
@@ -417,6 +425,13 @@
     <Compile Include="SearchResult.aspx.designer.cs">
       <DependentUpon>SearchResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShippingPage.aspx.cs">
+      <DependentUpon>ShippingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShippingPage.aspx.designer.cs">
+      <DependentUpon>ShippingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,6 +481,12 @@
       <Project>{03D1C790-162A-4AC0-B33B-634B263C0A63}</Project>
       <Name>WebControlCaptcha</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

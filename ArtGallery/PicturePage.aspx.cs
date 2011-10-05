@@ -14,7 +14,7 @@ using SpiceLogic.PayPalCtrlForWPS.Core;
 
 namespace ArtGallery
 {
-    public partial class PicturePage : InvoicePage
+    public partial class PicturePage : Page
     {
         protected void Page_Load( object sender, EventArgs e )
         {
@@ -27,7 +27,6 @@ namespace ArtGallery
                 if (!int.TryParse( idStr, out id ))
                     Response.Redirect( "default.aspx" );
                 ProcessPicture( id );
-                //SetupButton( btnBuy );
             }
         }
 
@@ -53,8 +52,8 @@ namespace ArtGallery
             HiddenField Available = FormView1.FindControl( "Available" ) as HiddenField;
 
             ArtGalleryDS.ReproductionDataTable rpt = ReproductionDL.GetByPictureId( id );
-            
-            
+
+            Button btnBuy = FormView1.FindControl( "btnBuy" ) as Button;
             // no originals left, but there are prints
             if(rpt.Rows.Count > 0 && Available.Value == "False")
             {
@@ -67,6 +66,7 @@ namespace ArtGallery
             else if (Available.Value == "True" && rpt.Rows.Count == 0)
             {
                 lblSold.Visible = false;
+                btnBuy.Visible = true;
                 row.Visible = false;
   
             }
@@ -74,17 +74,12 @@ namespace ArtGallery
             else if (Available.Value == "True" && rpt.Rows.Count > 0)
             {
                 lblSold.Visible = false;
+                btnBuy.Visible = true;
                 lblPrints.Text = rpt[0].description;
             }
             up1.Update();
-            up2.Update();
 
-            Label frame = FormView1.FindControl( "lblFrame" ) as Label;
-            Panel pnlFramed = FormView1.FindControl( "pnlFramed" ) as Panel;
-            CheckBox chkUnframed = FormView1.FindControl("chkUnframed") as CheckBox;
-            pnlFramed.Visible = Available.Value == "True" && !frame.Text.ToUpper().Contains( "UNFRAMED" );
-            chkUnframed.Checked = !pnlFramed.Visible;
-        }
+         }
         
         protected void FormView1_PreRender(object sender, EventArgs e)
         {
@@ -132,24 +127,15 @@ namespace ArtGallery
         #endregion
 
         #region PayPal Events
-        protected void btnBuy_Click( object sender, ImageClickEventArgs e )
+        protected void btnBuy_Click( object sender, EventArgs e )
         {
             int id = (int) FormView1.DataKey.Values["id"];
-            CheckBox chkUnframed = FormView1.FindControl( "chkUnframed" ) as CheckBox;
-            if (GenerateInvoice( id, btnBuy, chkUnframed.Checked ))
-            {
-                FormView1.Visible = false;
-                FormView2.Visible = false;
-                pnlProcessing.Visible = true;
-                return;
-            }
-            btnBuy.CancelSubmission();
+           
+
+            Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}&repro=false",
+                id) );
         }
         #endregion
-
-       
-
-        
         
     }
 }

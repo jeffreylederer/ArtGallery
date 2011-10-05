@@ -13,15 +13,6 @@ namespace ArtGallery {
     public partial class SearchPicturePage {
         
         /// <summary>
-        /// pnlProcessing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProcessing;
-        
-        /// <summary>
         /// up1 control.
         /// </summary>
         /// <remarks>
@@ -38,24 +29,6 @@ namespace ArtGallery {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView FormView1;
-        
-        /// <summary>
-        /// btnBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy;
-        
-        /// <summary>
-        /// up2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up2;
         
         /// <summary>
         /// FormView2 control.

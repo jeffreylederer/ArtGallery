@@ -21,14 +21,9 @@
     }
 -->
 </script>
-
-<div class="standardtext"> 
     <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
     <ContentTemplate>
-    <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
-    <h1>Processing your order</h1>
-    </asp:Panel>
-
+<div class="standardtext"> 
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="id,lastupdated" 
         onprerender="FormView1_PreRender">
         <ItemTemplate>
@@ -114,52 +109,17 @@
 
             </table>
 
-             <asp:Panel runat="server" ID="pnlFramed" >
-              <br />    
-             <asp:CheckBox runat="server" ID="chkUnframed" Text="Ship Unframed" /><cc3:Popup runat="server" Key="unframed" ID="puUnframed" /><br />
-             </asp:Panel>
+            
+             <br />
+                <asp:Button runat="server" ID="btnBuy" Text="Buy" OnClick="btnBuy_Click"/>
             </ItemTemplate>
     </asp:FormView>
-    </ContentTemplate>
-    </asp:UpdatePanel>
+   
      
  
- <br />
-    <cc2:BuyNowButton ID="btnBuy" 
-                        BusinessEmailOrMerchantID="ilene@magiceyegallery.com"
-                        runat="server" 
-                        ImageUrl="~/Images/btn_buynowCC_LG.gif" 
-                        Quantity="1" 
-                        CurrencyCode="US_Dollar"
-                        WeightUnit="Pounds"
-                        onclick="btnBuy_Click" 
-                        GenerateEncryptedButton="true"
-                        AlternateText="Buy now via PayPal">
-        <PayPalDisplayPage 
-            ShippingAddress="ShippingAddressMust"/>
-
-        <PayPalIPN 
-            Custom_IPN_Url="~/PayPalNotification.aspx" 
-            EnablePageLoadEventInIPNSession="True" />
-
-         <paypalformsubmission 
-                        postactionurl="https://www.paypal.com/cgi-bin/webscr"
-                        postdestination="PayPal_Website" />
-
-         <EncryptedButtonGeneration
-                         CertificateId="XVERPTF7DGQXN"
-                         PayPalCertPath="~/App_Data/paypal_cert_pem.txt"
-                         PKCS12CertPath="~/App_Data/artgallery.p12"
-                         PKCS12Password="Jeffrey17" />
-
-        <PayPalReturn
-                          Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel"
-                          Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx"
-                          PDTAuthenticationToken="s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu" />
-     </cc2:BuyNowButton>
+ 
+    
 </div>
-<asp:UpdatePanel runat="server" ID="up2" UpdateMode="Conditional">
-    <ContentTemplate>
 
  <div class="picture">
          <asp:FormView ID="FormView2" runat="server" onprerender="FormView2_PreRender">

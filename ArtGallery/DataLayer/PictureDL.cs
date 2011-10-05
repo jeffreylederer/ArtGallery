@@ -501,5 +501,29 @@ namespace ArtGallery
             return missing;
         }
 
+        [DataObjectMethod( DataObjectMethodType.Select, false )]
+        public static ArtGalleryDS.Picture_GetInfoDataTable GetInfo( int id, bool repro )
+        {
+            SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand( "Picture_GetInfo", conn );
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@id", id );
+                selectCommand.Parameters.AddWithValue( "@repro", repro );
+                SqlDataAdapter da = new SqlDataAdapter( selectCommand );
+                da.Fill( data, "Picture_GetInfo" );
+            }
+            catch { }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return data.Picture_GetInfo;
+        }
+
     }
 }

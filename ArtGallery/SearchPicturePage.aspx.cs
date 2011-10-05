@@ -15,7 +15,7 @@ using SpiceLogic.PayPalCtrlForWPS.Core;
 
 namespace ArtGallery
 {
-    public partial class SearchPicturePage : InvoicePage
+    public partial class SearchPicturePage : Page
     {
 
         protected void Page_Load( object sender, EventArgs e )
@@ -29,7 +29,6 @@ namespace ArtGallery
                 if (!int.TryParse( idStr, out id ))
                     Response.Redirect( "default.aspx" );
                 ProcessPicture( id );
-                //SetupButton( btnBuy );
             }
         }
 
@@ -41,9 +40,7 @@ namespace ArtGallery
 
             ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
             FormView2.DataSource = table1.Rows;
-
             FormView2.DataBind();
-
         }
 
         private void RenderPicture( int id )
@@ -56,7 +53,7 @@ namespace ArtGallery
 
             ArtGalleryDS.ReproductionDataTable rpt = ReproductionDL.GetByPictureId( id );
 
-
+            Button btnBuy = FormView1.FindControl( "btnBuy" ) as Button;
             // no originals left, but there are prints
             if (rpt.Rows.Count > 0 && Available.Value == "False")
             {
@@ -69,6 +66,7 @@ namespace ArtGallery
             else if (Available.Value == "True" && rpt.Rows.Count == 0)
             {
                 lblSold.Visible = false;
+                btnBuy.Visible = true;
                 row.Visible = false;
 
             }
@@ -76,14 +74,11 @@ namespace ArtGallery
             else if (Available.Value == "True" && rpt.Rows.Count > 0)
             {
                 lblSold.Visible = false;
+                btnBuy.Visible = true;
                 lblPrints.Text = rpt[0].description;
             }
 
-            Label frame = FormView1.FindControl( "lblFrame" ) as Label;
-            Panel pnlFramed = FormView1.FindControl( "pnlFramed" ) as Panel;
-            pnlFramed.Visible = Available.Value == "True" && !frame.Text.ToUpper().Contains( "UNFRAMED" );
-            up1.Update();
-            up2.Update();
+           up1.Update();
         }
         
         protected void FormView1_PreRender(object sender, EventArgs e)
@@ -115,15 +110,7 @@ namespace ArtGallery
                 else
                     index = index - 1;
                 id = list[index];
-                ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
-                FormView1.DataSource = table.Rows;
-                FormView1.DataBind();
-
-                ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
-                FormView2.DataSource = table1.Rows;
-                FormView2.DataBind();
-                up1.Update();
-                up2.Update();
+                ProcessPicture( id );
             }
         }
 
@@ -141,33 +128,16 @@ namespace ArtGallery
                     index = index + 1;
 
                 id = list[index];
-                ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
-                FormView1.DataSource = table.Rows;
-                FormView1.DataBind();
-
-                ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = PictureDL.GetWithWaterMark( id );
-                FormView2.DataSource = table1.Rows;
-                FormView2.DataBind();
-                up1.Update();
-                up2.Update();
+                ProcessPicture( id );
             }
         }
         #endregion
 
-        
-
-        protected void btnBuy_Click( object sender, ImageClickEventArgs e )
+        protected void btnBuy_Click( object sender,EventArgs e )
         {
-            int id = (int) FormView1.DataKey.Values["id"];
-            CheckBox chkUnframed = FormView1.FindControl( "chkUnframed" ) as CheckBox;
-            if (GenerateInvoice( id, btnBuy, chkUnframed.Checked ))
-            {
-                FormView1.Visible = false;
-                FormView2.Visible = false;
-                pnlProcessing.Visible = true;
-                return;
-            }
-            btnBuy.CancelSubmission();
+            int id = (int)FormView1.DataKey.Values["id"];
+            Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}&repro=false",
+                id) );
         }
     }
 }

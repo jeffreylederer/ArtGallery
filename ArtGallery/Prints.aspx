@@ -20,9 +20,6 @@
 -->
 </script>
 
-<asp:Panel runat="server" ID="pnlProcessing" Visible="false">
-    <h1>Processing your order</h1>
-    </asp:Panel>
 <div class="standardtext"> 
     <asp:FormView ID="FormView1" runat="server"  
          DataKeyNames="id" 
@@ -81,44 +78,16 @@
 
      
  <br />    
-   <cc2:BuyNowButton ID="btnBuy" 
-                        BusinessEmailOrMerchantID="ilene@magiceyegallery.com"
-                        runat="server" 
-                        ImageUrl="~/Images/dot.jpg"
-                        Quantity="1" 
-                        CurrencyCode="US_Dollar"
-                        WeightUnit="Pounds"
-                        GenerateEncryptedButton = "true"
-                        AlternateText="Buy now via PayPal">
-        <PayPalDisplayPage 
-            ShippingAddress="ShippingAddressMust"/>
-
-        <PayPalIPN 
-            Custom_IPN_Url="~/PayPalNotification.aspx" 
-            EnablePageLoadEventInIPNSession="True" />
-
-         <paypalformsubmission 
-                        postactionurl="https://www.paypal.com/cgi-bin/webscr"
-                        postdestination="PayPal_Website" />
-
-         <EncryptedButtonGeneration
-                         CertificateId="XVERPTF7DGQXN"
-                         PayPalCertPath="~/App_Data/paypal_cert_pem.txt"
-                         PKCS12CertPath="~/App_Data/artgallery.p12"
-                         PKCS12Password="Jeffrey17" />
-
-        <PayPalReturn
-                          Custom_CancelledReturnURL="~/DedicatedPayPalReturnHandler.aspx?sLPPCStatus=cancel"
-                          Custom_CompletedReturnURL="~/DedicatedPayPalReturnHandler.aspx"
-                          PDTAuthenticationToken="s2xIb5KB3iOEY9GLnpnmIRe3-uvwPEySuIHDdCeDjmxOyZWz1i-2wJKnpLu" />
-    </cc2:BuyNowButton>
-    
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" Width="90%"
+      
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+        BorderStyle="None" Width="90%"
         DataKeyNames="id" DataSourceID="odsReproduction" 
         onrowcommand="GridView1_RowCommand">
         <Columns>
-            <asp:CommandField ButtonType="Button" CausesValidation="False" 
-                SelectText="Buy Now" ShowCancelButton="False" ShowSelectButton="True" />
+            
+            <asp:CommandField ButtonType="Button" SelectText="Buy" ShowCancelButton="False" 
+                ShowSelectButton="True" />
+            
             <asp:TemplateField HeaderText="Description" >
                 <ItemTemplate>
                     <div style="text-align:left;" >

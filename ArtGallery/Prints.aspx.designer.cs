@@ -13,15 +13,6 @@ namespace ArtGallery {
     public partial class Prints {
         
         /// <summary>
-        /// pnlProcessing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProcessing;
-        
-        /// <summary>
         /// FormView1 control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace ArtGallery {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView FormView1;
-        
-        /// <summary>
-        /// btnBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy;
         
         /// <summary>
         /// GridView1 control.
