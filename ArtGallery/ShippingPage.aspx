@@ -59,13 +59,13 @@ Shipping Method<cc3:Popup runat="server" ID="puShipping" Key="LocalPickup" />:
 </td>
 </tr>
 
-<tr runat="server" id="cellUnframed">
+<tr runat="server" id="cellFramed">
 <td align="right">
-Ship unframed<cc3:Popup runat="server" ID="puunframed" Key="Unframed" />:
+Ship in frame<cc3:Popup runat="server" ID="puunframed" Key="Unframed" />:
 </td>
 <td>
 
-   <asp:CheckBox runat="server" ID="chkUnframed" Checked="false" />
+   <asp:CheckBox runat="server" ID="chkFramed" Checked="false" />
 
 </td>
 </tr>

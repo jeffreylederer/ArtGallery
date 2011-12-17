@@ -116,7 +116,7 @@
             </tr>
             </table>
             <br />
-                 <asp:Button runat="server" ID="btnBuy" Text="Buy" OnClick="bntBuy_Click"/>
+                 <asp:Button runat="server" ID="btnBuy" Text="Buy" OnClick="btnBuy_Click"/>
             </ItemTemplate>
     </asp:FormView>
    

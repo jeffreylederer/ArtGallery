@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" Inherits="ArtGallery.DefaultPage" EnableViewState="false"  Codebehind="Default.aspx.cs" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" Inherits="ArtGallery.DefaultPage" EnableViewState="false"  Codebehind="Default.aspx.cs" %>
 <%@ OutputCache Duration="1" VaryByParam="id" %>
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 

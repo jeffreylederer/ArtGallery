@@ -16,7 +16,7 @@
     <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  
         DataKeyNames="id, lastupdated" DefaultMode="Insert" Width="100%"  UpdatePanelID="up1"
         InsertOrUpdateCheckField="lastupdated"
-        onprerender="FormView1_PreRender" >
+        onprerender="FormView1_PreRender" oniteminserted="FormView1_ItemInserted" >
         <InsertItemTemplate>
              <table>
             <tr>

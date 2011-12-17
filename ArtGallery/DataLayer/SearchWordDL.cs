@@ -32,16 +32,14 @@ namespace ArtGallery
             if (mc.Count == 0)
                 return new ArtGalleryDS.PictureDataTable();
             StringBuilder query = new StringBuilder();
-            query.Append( "select distinct pictureid as id, title, picturepath " );
-            query.Append( "from PictureSearchWord ");
-            query.Append( "inner join SearchWord on SearchWord.id = PictureSearchWord.searchwordid ");
-            query.Append( "inner join Picture on picture.id = PictureSearchWord.pictureid where ");
-            for (int i = 0; i < mc.Count; i++)
+            query.Append( "select distinct id, title, picturepath " );
+            query.Append( "from Picture where ");
+           for (int i = 0; i < mc.Count; i++)
             {
                 if (i == mc.Count - 1)
-                    query.AppendFormat( "Contains(searchterm, '{0}')", mc[i].Value );
+                    query.AppendFormat( "Contains(metatags, '{0}') or Contains(title, '{0}') or Contains(description, '{0}')", mc[i].Value );
                 else
-                    query.AppendFormat( "Contains(searchterm, '{0}') or ", mc[i].Value );
+                    query.AppendFormat( "Contains(metatags, '{0}')  or Contains(title, '{0}') or Contains(description, '{0}') or ", mc[i].Value );
             }
             string commandtext = query.ToString();
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );

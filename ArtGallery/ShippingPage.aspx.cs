@@ -26,17 +26,20 @@ namespace ArtGallery
                     bool repro = bool.Parse( Request.QueryString["repro"] );
                     if (repro)
                     {
-                        cellUnframed.Visible = false;
+                        cellFramed.Visible = false;
                     }
                     else
                     {
                         ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
                         if (table == null || table.Rows.Count != 1)
                         {
-                            cellUnframed.Visible = false;
+                            cellFramed.Visible = false;
                         }
                         else
-                            cellUnframed.Visible = !table[0].Frame.ToUpper().Contains( "UNFRAMED" );
+                        {
+                             cellFramed.Visible = !table[0].Frame.ToUpper().Contains( "UNFRAMED" ) && table[0].Available;
+                             chkFramed.Checked =  !table[0].Frame.ToUpper().Contains( "UNFRAMED" );
+                        }
                     }
                     ArtGalleryDS.Picture_GetInfoDataTable ptable = PictureDL.GetInfo( id, repro );
                     if (ptable != null && ptable.Rows.Count == 1)
@@ -106,7 +109,7 @@ namespace ArtGallery
             }
             else
             {
-                if (!GenerateInvoice( id, chkUnframed.Checked, pictureInfo ))
+                if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
                 {
                     btnBuy.CancelSubmission();
                     return;
@@ -141,18 +144,18 @@ namespace ArtGallery
 
         }
 
-        private bool GenerateInvoice( int id, bool unframe, PictureInfo pictureInfo )
+        private bool GenerateInvoice( int id, bool framed, PictureInfo pictureInfo )
         {
             
             ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
             if (table == null || table.Rows.Count != 1)
                 return false;
             ArtGalleryDS.PictureRow row = table[0];
-            btnBuy.ItemName = row.Title + (unframe ? " (unframed)" : "");
+            btnBuy.ItemName = row.Title + (framed ? "": " (unframed)" );
             btnBuy.ItemNumber = id.ToString();
             if (ddlShipping.SelectedValue != "00")
             {
-                if (!unframe)
+                if (framed)
                 {
                     Calculate( row.Width, row.Height, row.Frame, row.weight, pictureInfo );
                 }
@@ -170,7 +173,7 @@ namespace ArtGallery
             }
             pictureInfo.amount = (decimal)row.price;
             btnBuy.ItemNumber = id.ToString();
-            btnBuy.AdditionalDataItems["unframed"] = unframe.ToString().ToLower();
+            btnBuy.AdditionalDataItems["framed"] = framed.ToString().ToLower();
             btnBuy.AdditionalDataItems["width"] = table[0].Width.ToString();
             btnBuy.AdditionalDataItems["height"] = table[0].Height.ToString();
             return true;
@@ -491,7 +494,7 @@ namespace ArtGallery
             }
             else
             {
-                if (!GenerateInvoice( id, chkUnframed.Checked, pictureInfo ))
+                if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
                 {
                     btnBuy.CancelSubmission();
                     return;

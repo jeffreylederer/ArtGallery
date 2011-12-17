@@ -10,16 +10,33 @@
     <br />
     <cc:TPMSObjectDataSource ID="ObjectDataSource1" runat="server"
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetById"   IsFormView="True"
-        TypeName="ArtGallery.PictureDL" DeleteMethod="Delete"  ErrorLabelID="ErrorLabel"
+        TypeName="ArtGallery.PictureDL" DeleteMethod="Delete" ErrorLabelID="ErrorLabel"
         UpdateMethod="Update" AddDummyRow="True" 
         UniqueConstaintMessage="" 
         onselected="ObjectDataSource1_Selected" 
-        ondeleted="ObjectDataSource1_Deleted" onupdated="ObjectDataSource1_Updated" >
+        ondeleted="ObjectDataSource1_Deleted" 
+        onupdated="ObjectDataSource1_Updated" InsertMethod="Insert" >
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
-            <asp:Parameter Name="original_metatags" Type="String" />
         </DeleteParameters>
+         <InsertParameters>
+             <asp:Parameter Name="Title" Type="String" />
+             <asp:Parameter Name="Frame" Type="String" />
+             <asp:Parameter Name="Width" Type="Single" />
+             <asp:Parameter Name="Height" Type="Single" />
+             <asp:Parameter Name="Date" Type="Int16" />
+             <asp:Parameter Name="MetaTags" Type="String" />
+             <asp:Parameter Name="Notes" Type="String" />
+             <asp:Parameter Name="Media" Type="String" />
+             <asp:Parameter Name="GalleryId" Type="Int32" />
+             <asp:Parameter Name="PicturePath" Type="String" />
+             <asp:Parameter Name="surface" Type="String" />
+             <asp:Parameter Name="price" Type="Double" />
+             <asp:Parameter Name="weight" Type="Decimal" />
+             <asp:Parameter Name="description" Type="String" />
+             <asp:Parameter Name="Available" Type="Boolean" />
+        </InsertParameters>
          <SelectParameters>
             <asp:QueryStringParameter Name="id" QueryStringField="id" 
                 Type="Int32" />
@@ -41,7 +58,6 @@
             <asp:Parameter Name="description" Type="String" />
             <asp:Parameter Name="Available" Type="Boolean" />
             <asp:Parameter Name="original_id" Type="Int32" />
-            <asp:Parameter Name="original_metatags" Type="String" />
             <asp:Parameter Name="original_lastupdated" Type="DateTime" />
         </UpdateParameters>
     </cc:TPMSObjectDataSource>
@@ -59,7 +75,7 @@
 </div>
  
     <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"  UpdatePanelID="up2"
-        DataKeyNames="id,lastupdated,metatags" DefaultMode="Edit" Width="100%" 
+        DataKeyNames="id,lastupdated" DefaultMode="Edit" Width="100%" 
             InsertOrUpdateCheckField="lastupdated">
         <EditItemTemplate>
          <table>

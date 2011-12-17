@@ -102,6 +102,7 @@
     </Content>
     <Content Include="Contact.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Images\btn_buynowCC_LG.gif" />
     <Content Include="Images\buynow.gif" />
     <Content Include="Images\dot.jpg" />
@@ -338,7 +339,6 @@
     <Compile Include="DataLayer\SendMailDL.cs" />
     <Compile Include="DataLayer\StateNameDL.cs" />
     <Compile Include="DataLayer\StrongBoxDL.cs" />
-    <Compile Include="DataLayer\UPSDL.cs" />
     <Compile Include="DataLayer\WaterMarkDL.cs" />
     <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
       <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>

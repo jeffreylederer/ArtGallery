@@ -179,7 +179,6 @@ namespace ArtGallery
             string description,
             bool Available, 
             int original_id,
-            string original_metatags,
             DateTime original_lastupdated
             )
         {
@@ -206,7 +205,6 @@ namespace ArtGallery
                 selectCommand.Parameters.AddWithValue("@description", description);
                 selectCommand.Parameters.AddWithValue( "@Available", Available );
                 selectCommand.Parameters.AddWithValue("@original_id", original_id);
-                selectCommand.Parameters.AddWithValue("@original_metatags",original_metatags);
                 selectCommand.Parameters.AddWithValue( "@original_lastupdated", original_lastupdated );
                 return selectCommand.ExecuteNonQuery();
              }
@@ -282,7 +280,7 @@ namespace ArtGallery
 
 
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public static int Delete(int original_id, DateTime original_lastupdated, string original_metatags)
+        public static int Delete(int original_id, DateTime original_lastupdated)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
             ArtGalleryDS data = new ArtGalleryDS();

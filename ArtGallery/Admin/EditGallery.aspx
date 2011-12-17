@@ -12,7 +12,6 @@
         FkErrorMessage="You must either delete or move to another gallery the pictures in this gallery before delete the gallery."
 
         UpdateMethod="Update" 
-        onselected="ObjectDataSource1_Selected" 
         ondeleted="ObjectDataSource1_Deleted" onupdated="ObjectDataSource1_Updated">
         <DeleteParameters>
             <asp:Parameter Name="original_id" Type="Int32" />

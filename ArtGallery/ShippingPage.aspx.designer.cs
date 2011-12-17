@@ -85,13 +85,13 @@ namespace ArtGallery {
         protected global::System.Web.UI.WebControls.DropDownList ddlShipping;
         
         /// <summary>
-        /// cellUnframed control.
+        /// cellFramed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow cellUnframed;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow cellFramed;
         
         /// <summary>
         /// puunframed control.
@@ -103,13 +103,13 @@ namespace ArtGallery {
         protected global::ArtGallery.PopUp puunframed;
         
         /// <summary>
-        /// chkUnframed control.
+        /// chkFramed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkUnframed;
+        protected global::System.Web.UI.WebControls.CheckBox chkFramed;
         
         /// <summary>
         /// txtFirstName control.
