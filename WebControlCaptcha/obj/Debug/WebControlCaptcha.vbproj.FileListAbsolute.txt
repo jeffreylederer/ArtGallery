@@ -1,0 +1,13 @@
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\bin\WebControlCaptcha.dll
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\bin\WebControlCaptcha.pdb
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\bin\WebControlCaptcha.xml
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\obj\Debug\WebControlCaptcha.dll
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\obj\Debug\WebControlCaptcha.xml
+C:\Users\jeff\Downloads\captcha\WebControlCaptcha\obj\Debug\WebControlCaptcha.pdb
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.dll
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.pdb
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.xml
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.dll
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.xml
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.pdb
