@@ -1,5 +1,4 @@
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.xml
-C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\ResolveAssemblyReference.cache
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.xml

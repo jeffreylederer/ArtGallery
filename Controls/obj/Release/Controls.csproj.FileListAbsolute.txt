@@ -1,5 +1,5 @@
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\Release\Controls.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\Release\Controls.pdb
-C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\ResolveAssemblyReference.cache
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.pdb
+C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.csprojResolveAssemblyReference.cache
