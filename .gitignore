@@ -189,5 +189,4 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /ArtGallery.zip
-/bin
-/obj
+/ArtGallery/obj/*.*
