@@ -188,6 +188,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/ArtGallery.zip
-/ArtGallery/obj/*.*
-/ArtGallery/
+ArtGallery.zip
+ArtGallery/obj/
+ArtGallery/App_Data/*.jpg
