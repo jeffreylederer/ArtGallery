@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEC60A24-7C65-4A4A-9646-592557FB9516}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtGallery</RootNamespace>
+    <AssemblyName>ArtGallery</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>false</PublishDatabases>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.50731.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Web.GeneratedImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WebSites\Gallery\Bin\Microsoft.Web.GeneratedImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpiceLogicPayPalStd, Version=3.6.0.6, Culture=neutral, PublicKeyToken=e444157244638e02, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SpiceLogicPayPalStd.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangeEmail.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\RecoverPassword.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RemoveUser.aspx" />
+    <Content Include="Admin\AddGallery.aspx" />
+    <Content Include="Admin\AddPicture.aspx" />
+    <Content Include="Admin\ArtistPage.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\EditGallery.aspx" />
+    <Content Include="Admin\ErrorLog.aspx" />
+    <Content Include="Admin\ErrorLogDetail.aspx" />
+    <Content Include="Admin\OrphanPictures.aspx" />
+    <Content Include="Admin\PayPal.aspx" />
+    <Content Include="Admin\ReportPage.aspx" />
+    <Content Include="Admin\SelectGallery.aspx" />
+    <Content Include="Admin\EditPicture.aspx" />
+    <Content Include="Admin\SendMail.aspx" />
+    <Content Include="Admin\Setup.aspx" />
+    <Content Include="Admin\WaterMarkPage.aspx" />
+    <Content Include="AppCode\Email.ascx" />
+    <Content Include="AppCode\PopUp.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="App_Data\AbundanceAlefbet.jpg" />
+    <Content Include="App_Data\AcanthusAlefbet.jpg" />
+    <Content Include="App_Data\Adam&amp;Lillith.jpg" />
+    <Content Include="App_Data\ADisabilityOfSpirit.jpg" />
+    <Content Include="App_Data\ADivinationOfSnailsRGB.jpg" />
+    <Content Include="App_Data\ADreamOfParadise.jpg" />
+    <Content Include="App_Data\ADreamOfPursuit.jpg" />
+    <Content Include="App_Data\AeolianAntiphon.jpg" />
+    <Content Include="App_Data\AgathasCafe.jpg" />
+    <Content Include="App_Data\airdance.jpg" />
+    <Content Include="App_Data\Akedah%28ChronicleCover-1988%29.jpg" />
+    <Content Include="App_Data\Akedah-AdonaiJireh.jpg" />
+    <Content Include="App_Data\Akedah.jpg" />
+    <Content Include="App_Data\AllegoryOfTheRock1.jpg" />
+    <Content Include="App_Data\AmishInMcDonaldLand.jpg" />
+    <Content Include="App_Data\AngelRam.jpg" />
+    <Content Include="App_Data\AngelsDepot.jpg" />
+    <Content Include="App_Data\AntiqueBook+HandClasps-70%25.jpg" />
+    <Content Include="App_Data\Aquarius.jpg" />
+    <Content Include="App_Data\Aries.jpg" />
+    <Content Include="App_Data\ArkadiaAlphabet.jpg" />
+    <Content Include="App_Data\Arketype.jpg" />
+    <Content Include="App_Data\ASByatt.jpg" />
+    <Content Include="App_Data\AsherYatzerRGB2 copy.jpg" />
+    <Content Include="App_Data\AtTheFoothillsOfEden.jpg" />
+    <Content Include="App_Data\BabelUnplugged.jpg" />
+    <Content Include="App_Data\BabyBlessingRGB3.jpg" />
+    <Content Include="App_Data\Badchan-WeddingJester.jpg" />
+    <Content Include="App_Data\Balehbosteh.jpg" />
+    <Content Include="App_Data\BallPaper.jpg" />
+    <Content Include="App_Data\BeatrixRabbit1.jpg" />
+    <Content Include="App_Data\Beruriah.jpg" />
+    <Content Include="App_Data\between.jpg" />
+    <Content Include="App_Data\Bezalel-KiThissa1.jpg" />
+    <Content Include="App_Data\BezalelsVision.jpg" />
+    <Content Include="App_Data\BirkatHaChamahGS+RGB6.jpg" />
+    <Content Include="App_Data\BirkatHamazonRGB50%25.jpg" />
+    <Content Include="App_Data\BirkatKohanim12RGB+Tribes.jpg" />
+    <Content Include="App_Data\BlessingForBeautifulBirds+TreesRGB.jpg" />
+    <Content Include="App_Data\BlessingForBreads+Cakes.jpg" />
+    <Content Include="App_Data\BlessingForFruit+Vegetables8.jpg" />
+    <Content Include="App_Data\BlessingforHandWashing.jpg" />
+    <Content Include="App_Data\BlessingForKindnessRGB4.jpg" />
+    <Content Include="App_Data\BlessingForNewClothesRGB50%25.jpg" />
+    <Content Include="App_Data\BlessingForSeas+OceansRGB15.jpg" />
+    <Content Include="App_Data\BlessingOfTheTreesModel3A.jpg" />
+    <Content Include="App_Data\BlessingOfWisdom-Day+Night.jpg" />
+    <Content Include="App_Data\Blessings-StrangeAnimals.jpg" />
+    <Content Include="App_Data\Bokher1.jpg" />
+    <Content Include="App_Data\BreadOfAffliction.jpg" />
+    <Content Include="App_Data\CamberwellBeauty-GhanaWoman50%25.jpg" />
+    <Content Include="App_Data\Cancer.jpg" />
+    <Content Include="App_Data\Capricorn.jpg" />
+    <Content Include="App_Data\Ceremony%29fTheSenses300.jpg" />
+    <Content Include="App_Data\CeremonyOfTheSenses.jpg" />
+    <Content Include="App_Data\Chessmates2.jpg" />
+    <Content Include="App_Data\Chimera.jpg" />
+    <Content Include="App_Data\CityOfLight-HandColorSerigraph.jpg" />
+    <Content Include="App_Data\Cleo%40Crockfosters--50%25.jpg" />
+    <Content Include="App_Data\CodexGastropoda-TheTimeSnails.jpg" />
+    <Content Include="App_Data\CodexGastropoda50%25.jpg" />
+    <Content Include="App_Data\Connoisseur%40TheTate.jpg" />
+    <Content Include="App_Data\CrepeduJour300.jpg" />
+    <Content Include="App_Data\CrucicutionA.jpg" />
+    <Content Include="App_Data\Dancer copy.jpg" />
+    <Content Include="App_Data\DancingWithTheBeast copy.jpg" />
+    <Content Include="App_Data\DandelionFairy+WeedQuote copy.jpg" />
+    <Content Include="App_Data\Daydreams-1981.jpg" />
+    <Content Include="App_Data\DeborahTheSphinx.jpg" />
+    <Content Include="App_Data\DecoDog1987.jpg" />
+    <Content Include="App_Data\Degelim-Flags-Flat-Yellow.jpg" />
+    <Content Include="App_Data\DomesticViolence2.jpg" />
+    <Content Include="App_Data\DragonShipForTheSnailQueen copy.jpg" />
+    <Content Include="App_Data\DUI-SerpentiniRecipeArt72-50%25.jpg" />
+    <Content Include="App_Data\E2CBestiary-Small.jpg" />
+    <Content Include="App_Data\Emanations-TreeOfLight.jpg" />
+    <Content Include="App_Data\Emanations.Cordovero%27sKabbalah.jpg" />
+    <Content Include="App_Data\Emanations.HiddenConcealedRevealed.jpg" />
+    <Content Include="App_Data\EmperorOfTheSea.jpg" />
+    <Content Include="App_Data\Encountering2ndCommandment.jpg" />
+    <Content Include="App_Data\EndGame.jpg" />
+    <Content Include="App_Data\Enya.jpg" />
+    <Content Include="App_Data\Escape.jpg" />
+    <Content Include="App_Data\Esther&amp;ThePurimPlayer.jpg" />
+    <Content Include="App_Data\Eve%40ECourt300.jpg" />
+    <Content Include="App_Data\Ezekiel%27sArtifact.jpg" />
+    <Content Include="App_Data\Ezekiel%27sVision.jpg" />
+    <Content Include="App_Data\FairyTaleInABottle1 copy.jpg" />
+    <Content Include="App_Data\Fancifuls copy.jpg" />
+    <Content Include="App_Data\Fate1.jpg" />
+    <Content Include="App_Data\FeatherBet50%25-150dpi.jpg" />
+    <Content Include="App_Data\Floriae50%2572dpi.jpg" />
+    <Content Include="App_Data\Footstool1.jpg" />
+    <Content Include="App_Data\Foremothers.jpg" />
+    <Content Include="App_Data\Gambit.jpg" />
+    <Content Include="App_Data\GameOfCreation1.jpg" />
+    <Content Include="App_Data\GamingTheMinotaur1.jpg" />
+    <Content Include="App_Data\GarrulousGothic3.jpg" />
+    <Content Include="App_Data\GatesOfHeaven1998.jpg" />
+    <Content Include="App_Data\Gefen.jpg" />
+    <Content Include="App_Data\Gemini.jpg" />
+    <Content Include="App_Data\Generations.jpg" />
+    <Content Include="App_Data\Gomel+AcanthusLeafFrameRGB copy.jpg" />
+    <Content Include="App_Data\Gossip1.jpg" />
+    <Content Include="App_Data\GrandmaSarah&amp;ZaydeIzzy-1977.jpg" />
+    <Content Include="App_Data\GuardGoyle.jpg" />
+    <Content Include="App_Data\Hadassah-Compassion.jpg" />
+    <Content Include="App_Data\Hadassah-Heart.jpg" />
+    <Content Include="App_Data\Hadassah-Inspiration.jpg" />
+    <Content Include="App_Data\Hadassah-Love.jpg" />
+    <Content Include="App_Data\Hadassah-Spirit.jpg" />
+    <Content Include="App_Data\Hadassah-Wisdom.jpg" />
+    <Content Include="App_Data\HadassahCertificatesGroup.jpg" />
+    <Content Include="App_Data\HaMapil300.jpg" />
+    <Content Include="App_Data\Handimals1.jpg" />
+    <Content Include="App_Data\Hannah.jpg" />
+    <Content Include="App_Data\HavdalahTapestry.jpg" />
+    <Content Include="App_Data\Hermina-1949.jpg" />
+    <Content Include="App_Data\HomeBlessing7RGB.jpg" />
+    <Content Include="App_Data\Hypnos+Morpheus.jpg" />
+    <Content Include="App_Data\IAmATeapot1.jpg" />
+    <Content Include="App_Data\IffTheWaterGenieFromHarounAndTheSeaOfStories.jpg" />
+    <Content Include="App_Data\IleneAndJeff.jpg" />
+    <Content Include="App_Data\Illumination-Perek136.jpg" />
+    <Content Include="App_Data\IllustratedOde-No8.jpg" />
+    <Content Include="App_Data\IllustratedOde13.jpg" />
+    <Content Include="App_Data\IllustratedOde5.jpg" />
+    <Content Include="App_Data\IllustratedOde6.jpg" />
+    <Content Include="App_Data\IllustratedOdes5and6.jpg" />
+    <Content Include="App_Data\InfoBabel.jpg" />
+    <Content Include="App_Data\InnovasionRGB.jpg" />
+    <Content Include="App_Data\IPPNWDove.jpg" />
+    <Content Include="App_Data\Isaac%27sLegacy.jpg" />
+    <Content Include="App_Data\IsisIslington300.jpg" />
+    <Content Include="App_Data\Jacob-Jabbok.jpg" />
+    <Content Include="App_Data\JCC-ResponseResponsa.jpg" />
+    <Content Include="App_Data\JerusalemDiary-TheRebbe.jpg" />
+    <Content Include="App_Data\JerusalemDiary-TiratBatShevaHotel.jpg" />
+    <Content Include="App_Data\Jonah.jpg" />
+    <Content Include="App_Data\JourneyOfLife.jpg" />
+    <Content Include="App_Data\JudahHaLevi.jpg" />
+    <Content Include="App_Data\Kabbalah.jpg" />
+    <Content Include="App_Data\KaddishRGB5.jpg" />
+    <Content Include="App_Data\Kalligraphie.jpg" />
+    <Content Include="App_Data\KedushahHands.jpg" />
+    <Content Include="App_Data\KedushahTapestry.jpg" />
+    <Content Include="App_Data\KensingtonCreperieRGB.jpg" />
+    <Content Include="App_Data\Ketubah-12TribesCovenant50%25.jpg" />
+    <Content Include="App_Data\Ketubah-Renaissance.jpg" />
+    <Content Include="App_Data\Kiddush.jpg" />
+    <Content Include="App_Data\KingsOfNY.jpg" />
+    <Content Include="App_Data\Klompen.jpg" />
+    <Content Include="App_Data\L%27Chaim.jpg" />
+    <Content Include="App_Data\LaDanseDeLaLicorne.jpg" />
+    <Content Include="App_Data\LAMinstrel.jpg" />
+    <Content Include="App_Data\LandOfYad.jpg" />
+    <Content Include="App_Data\Latkeland-HandColorSerigraph.jpg" />
+    <Content Include="App_Data\Latkeland.jpg" />
+    <Content Include="App_Data\Latte.jpg" />
+    <Content Include="App_Data\LeCirqueBizarre.jpg" />
+    <Content Include="App_Data\Leo.jpg" />
+    <Content Include="App_Data\LePetitDejeuner .jpg" />
+    <Content Include="App_Data\LetterFromANewLand copy.jpg" />
+    <Content Include="App_Data\Liberation.jpg" />
+    <Content Include="App_Data\Libra.jpg" />
+    <Content Include="App_Data\LillithOfShoreditch.jpg" />
+    <Content Include="App_Data\LillithShoreditch300.jpg" />
+    <Content Include="App_Data\Longchamps1946.jpg" />
+    <Content Include="App_Data\Lorenzo300.jpg" />
+    <Content Include="App_Data\LouisTheFaker300.jpg" />
+    <Content Include="App_Data\MadnessAndThePassingOfTime.jpg" />
+    <Content Include="App_Data\Maimonides%27Dream.jpg" />
+    <Content Include="App_Data\Mannequins300.jpg" />
+    <Content Include="App_Data\Memories.jpg" />
+    <Content Include="App_Data\MetamorphosisOfASong.jpg" />
+    <Content Include="App_Data\MezuzahBlessing.jpg" />
+    <Content Include="App_Data\MidLifeCrisiInBlueChenille.jpg" />
+    <Content Include="App_Data\MikvehBlessingRGB.jpg" />
+    <Content Include="App_Data\MindTheGap300.jpg" />
+    <Content Include="App_Data\MinotaurBoy300.jpg" />
+    <Content Include="App_Data\Minotauress1.jpg" />
+    <Content Include="App_Data\MiShebeirach300.jpg" />
+    <Content Include="App_Data\Missing.jpg" />
+    <Content Include="App_Data\Mme.Peacock.jpg" />
+    <Content Include="App_Data\MobileVirgins.jpg" />
+    <Content Include="App_Data\ModehAni-Blessing copy.jpg" />
+    <Content Include="App_Data\moon.jpg" />
+    <Content Include="App_Data\Morning.jpg" />
+    <Content Include="App_Data\NeoMedievalOnThe343-300dpi.jpg" />
+    <Content Include="App_Data\NetilasYadai%27imBlessingRGB5.jpg" />
+    <Content Include="App_Data\NewEndeavorBlessingRGB.jpg" />
+    <Content Include="App_Data\NoahNaamah.jpg" />
+    <Content Include="App_Data\OddsOfMarch2 copy.jpg" />
+    <Content Include="App_Data\OLAMDeceitofVision2.jpg" />
+    <Content Include="App_Data\OLAMKingoftheBlind.jpg" />
+    <Content Include="App_Data\OneMomBand2.jpg" />
+    <Content Include="App_Data\OnTheRoad1889.jpg" />
+    <Content Include="App_Data\OrhanPamuk.jpg" />
+    <Content Include="App_Data\OriginOfTheSeasons 2.jpg" />
+    <Content Include="App_Data\Ottoman Emperor1987-TurquoiseRaffia.jpg" />
+    <Content Include="App_Data\Ouroboros.jpg" />
+    <Content Include="App_Data\OwlAndPussycat1.jpg" />
+    <Content Include="App_Data\PapaIsHome.jpg" />
+    <Content Include="App_Data\PartyAnimal72dpi.jpg" />
+    <Content Include="App_Data\paypal_cert_pem.txt" />
+    <Content Include="App_Data\paypal_cert_pem_testsite.txt" />
+    <Content Include="App_Data\Pendemonium.jpg" />
+    <Content Include="App_Data\PerceptionIsIllusory1.jpg" />
+    <Content Include="App_Data\Pisces.jpg" />
+    <Content Include="App_Data\PlayerPostcard-Front.jpg" />
+    <Content Include="App_Data\PleasuresOfTheSenses.jpg" />
+    <Content Include="App_Data\PolishBeauties copy.jpg" />
+    <Content Include="App_Data\Poochbook copy.jpg" />
+    <Content Include="App_Data\Princess3.jpg" />
+    <Content Include="App_Data\PunkChic1.jpg" />
+    <Content Include="App_Data\PunkChic1GS.jpg" />
+    <Content Include="App_Data\PygmalionAndGalatea.jpg" />
+    <Content Include="App_Data\RainbowBlessing.jpg" />
+    <Content Include="App_Data\ReconstructingHBL.jpg" />
+    <Content Include="App_Data\RegretsWithCrocusesAndCroissants.jpg" />
+    <Content Include="App_Data\ReignOfChaos.jpg" />
+    <Content Include="App_Data\RembrandtsCat1.jpg" />
+    <Content Include="App_Data\Renaissance3b.jpg" />
+    <Content Include="App_Data\RitualsOfAtonementKapparot.jpg" />
+    <Content Include="App_Data\RitualsOfAtonementMikveh.jpg" />
+    <Content Include="App_Data\RitualsOfAtonementTashlikh.jpg" />
+    <Content Include="App_Data\RitualsOfAtonementThePenitents.jpg" />
+    <Content Include="App_Data\RoshHodesh-MoonBlessing50%25.jpg" />
+    <Content Include="App_Data\Sagittarius.jpg" />
+    <Content Include="App_Data\SarahOmeinu.jpg" />
+    <Content Include="App_Data\Savouries.jpg" />
+    <Content Include="App_Data\Scorpio.jpg" />
+    <Content Include="App_Data\Scribe.jpg" />
+    <Content Include="App_Data\ScrollAlefbet+Dragons.jpg" />
+    <Content Include="App_Data\SelfPortraitInLaceBlouse1974.jpg" />
+    <Content Include="App_Data\Senses.jpg" />
+    <Content Include="App_Data\ShabbosCandleBlessing2+Shekhinah.jpg" />
+    <Content Include="App_Data\ShampanCurryWaitersRGB.jpg" />
+    <Content Include="App_Data\ShehakolBlessing10.jpg" />
+    <Content Include="App_Data\Shehekhiyanu300.jpg" />
+    <Content Include="App_Data\Shema+BorderRGB.jpg" />
+    <Content Include="App_Data\ShevaBerachot10-Final.jpg" />
+    <Content Include="App_Data\ShtetlAtShabbos.jpg" />
+    <Content Include="App_Data\slppcADISesID_634597340454567691_ctl00MainContentbtnBuy.xml" />
+    <Content Include="App_Data\SnailQueen.jpg" />
+    <Content Include="App_Data\Soufflé1.jpg" />
+    <Content Include="App_Data\SpaceKnightJoelLederer.jpg" />
+    <Content Include="App_Data\StateOfTheArtsss copy.jpg" />
+    <Content Include="App_Data\Stuffed1.jpg" />
+    <Content Include="App_Data\Sultans.jpg" />
+    <Content Include="App_Data\sun.jpg" />
+    <Content Include="App_Data\SushiByTheSeaOfTea.jpg" />
+    <Content Include="App_Data\T%27filatHaDerechRGB.jpg" />
+    <Content Include="App_Data\TabernacleTrilogy-Mishkan.jpg" />
+    <Content Include="App_Data\TabernacleTrilogyBezalel.jpg" />
+    <Content Include="App_Data\TabernacleTrilogyTribes.jpg" />
+    <Content Include="App_Data\Taurus.jpg" />
+    <Content Include="App_Data\TeaWithWilliam copy.jpg" />
+    <Content Include="App_Data\The FourWhoEnteredParadise.jpg" />
+    <Content Include="App_Data\The InnocenceOfIcarus.jpg" />
+    <Content Include="App_Data\The Land Of Yad.jpg" />
+    <Content Include="App_Data\The Player-ResolveAmidstChaos.jpg" />
+    <Content Include="App_Data\The Rebbes Chair.jpg" />
+    <Content Include="App_Data\TheAlephOfTorah1998.jpg" />
+    <Content Include="App_Data\TheBagelPeddlar.jpg" />
+    <Content Include="App_Data\TheBurdenOfKnowledge.jpg" />
+    <Content Include="App_Data\TheCluckfostersStepOut150px copy.jpg" />
+    <Content Include="App_Data\TheConversation.jpg" />
+    <Content Include="App_Data\TheDraughtsmansDream.jpg" />
+    <Content Include="App_Data\TheDuet1.jpg" />
+    <Content Include="App_Data\TheEggBuyers.jpg" />
+    <Content Include="App_Data\TheEggBuyers2.jpg" />
+    <Content Include="App_Data\TheEggceteras1.jpg" />
+    <Content Include="App_Data\TheElectricSphinx.jpg" />
+    <Content Include="App_Data\TheEnchantedTureen.jpg" />
+    <Content Include="App_Data\TheEvilMagicOfCaffeine copy.jpg" />
+    <Content Include="App_Data\TheEvolutionOfIdeals.jpg" />
+    <Content Include="App_Data\TheGift.jpg" />
+    <Content Include="App_Data\TheJewishBride copy.jpg" />
+    <Content Include="App_Data\TheLaceMakers copy.jpg" />
+    <Content Include="App_Data\TheLastTrystOfApolloAndDaphne1974.jpg" />
+    <Content Include="App_Data\TheMagicSonata1.jpg" />
+    <Content Include="App_Data\TheMemoirsOf Icarus.jpg" />
+    <Content Include="App_Data\TheMemoirsOfMadameChat1.jpg" />
+    <Content Include="App_Data\TheMessiahStone 1.jpg" />
+    <Content Include="App_Data\ThePaleontologistsLunch1.jpg" />
+    <Content Include="App_Data\TheRedemptionOfSisyphus.jpg" />
+    <Content Include="App_Data\TheSabbathKedushah.jpg" />
+    <Content Include="App_Data\TheShopkeeper.jpg" />
+    <Content Include="App_Data\TheSirenCafe1.jpg" />
+    <Content Include="App_Data\TheWaterDaughter%27sDreamRGB2.jpg" />
+    <Content Include="App_Data\TheWonderfulBrocade.jpg" />
+    <Content Include="App_Data\Thumbelina.jpg" />
+    <Content Include="App_Data\Thunder+LightningBlessingRGB5.jpg" />
+    <Content Include="App_Data\Tikkun.jpg" />
+    <Content Include="App_Data\ToadsAndDiamonds.jpg" />
+    <Content Include="App_Data\TongueIsPenOfHeart.jpg" />
+    <Content Include="App_Data\TopiaryIsles.jpg" />
+    <Content Include="App_Data\TorahBlessingCreationRGBv5.jpg" />
+    <Content Include="App_Data\Transformation.jpg" />
+    <Content Include="App_Data\TreeOfMemories.jpg" />
+    <Content Include="App_Data\TwoSisters2.jpg" />
+    <Content Include="App_Data\UncleFrankInTheSweatshop.jpg" />
+    <Content Include="App_Data\UncleShloimeh.jpg" />
+    <Content Include="App_Data\UncleToad.jpg" />
+    <Content Include="App_Data\Virgo.jpg" />
+    <Content Include="App_Data\VisualFiction1985.jpg" />
+    <Content Include="App_Data\VoicesAreLikeBirds.jpg" />
+    <Content Include="App_Data\VolutaMusica-SnailSongRGB.jpg" />
+    <Content Include="App_Data\VoyageSnailQueen.jpg" />
+    <Content Include="App_Data\W+JCover-Topic41-1988.jpg" />
+    <Content Include="App_Data\WagamamaMan300.jpg" />
+    <Content Include="App_Data\Waiting copy.jpg" />
+    <Content Include="App_Data\Waiting-VisualPoem.jpg" />
+    <Content Include="App_Data\WildTurkey.jpg" />
+    <Content Include="App_Data\winds.jpg" />
+    <Content Include="App_Data\WisdomOfSolomon.jpg" />
+    <Content Include="App_Data\WomanWithBlowDryer1.jpg" />
+    <Content Include="App_Data\WomenOfValor.jpg" />
+    <Content Include="App_Data\xanthos.jpg" />
+    <Content Include="App_Data\Yggradrasil.jpg" />
+    <Content Include="App_Data\YosefGolem copy.jpg" />
+    <Content Include="App_Data\ZoodiacTiny.jpg" />
+    <Content Include="App_Data\Zugzwang-TheLastMove.jpg" />
+    <Content Include="BookViewPage.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="DedicatedPayPalReturnHandler.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="google341f7300da3105de.html" />
+    <Content Include="Images\btn_buynowCC_LG.gif" />
+    <Content Include="Images\buynow.gif" />
+    <Content Include="Images\dot.jpg" />
+    <Content Include="Images\email.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\IleneMagicEye2.jpg" />
+    <Content Include="Images\IleneSignature.MagicEye.jpg" />
+    <Content Include="Images\IWLMagicEyeGalleryHeader2.jpg" />
+    <Content Include="Images\linkedin.png" />
+    <Content Include="Images\MagicEyelene.jpg" />
+    <Content Include="Images\question.jpg" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\wordpress.png" />
+    <Content Include="InsideBookPage.aspx" />
+    <Content Include="PayPalNotification.aspx" />
+    <Content Include="BookPage.aspx" />
+    <Content Include="Prints.aspx" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.touchwipe.js" />
+    <Content Include="SearchPicturePage.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="GalleryPage.aspx" />
+    <Content Include="Images\left.jpg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\Missing.jpg" />
+    <Content Include="Images\right.jpg" />
+    <Content Include="PicturePage.aspx" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\Truncate.js" />
+    <Content Include="SearchResult.aspx" />
+    <Content Include="ShippingBookPage.aspx" />
+    <Content Include="ShippingPage.aspx" />
+    <Content Include="slPPWPSICtrlForm4357.aspx" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangeEmail.aspx.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangeEmail.aspx.designer.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.designer.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RemoveUser.aspx.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RemoveUser.aspx.designer.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddGallery.aspx.cs">
+      <DependentUpon>AddGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddGallery.aspx.designer.cs">
+      <DependentUpon>AddGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddPicture.aspx.cs">
+      <DependentUpon>AddPicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddPicture.aspx.designer.cs">
+      <DependentUpon>AddPicture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ArtistPage.aspx.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArtistPage.aspx.designer.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditGallery.aspx.cs">
+      <DependentUpon>EditGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditGallery.aspx.designer.cs">
+      <DependentUpon>EditGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ErrorLog.aspx.cs">
+      <DependentUpon>ErrorLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ErrorLog.aspx.designer.cs">
+      <DependentUpon>ErrorLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ErrorLogDetail.aspx.cs">
+      <DependentUpon>ErrorLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ErrorLogDetail.aspx.designer.cs">
+      <DependentUpon>ErrorLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OrphanPictures.aspx.cs">
+      <DependentUpon>OrphanPictures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\OrphanPictures.aspx.designer.cs">
+      <DependentUpon>OrphanPictures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PayPal.aspx.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PayPal.aspx.designer.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ReportPage.aspx.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ReportPage.aspx.designer.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SelectGallery.aspx.cs">
+      <DependentUpon>SelectGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SelectGallery.aspx.designer.cs">
+      <DependentUpon>SelectGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditPicture.aspx.cs">
+      <DependentUpon>EditPicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditPicture.aspx.designer.cs">
+      <DependentUpon>EditPicture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Setup.aspx.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Setup.aspx.designer.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WaterMarkPage.aspx.cs">
+      <DependentUpon>WaterMarkPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WaterMarkPage.aspx.designer.cs">
+      <DependentUpon>WaterMarkPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\Email.ascx.cs">
+      <DependentUpon>Email.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\Email.ascx.designer.cs">
+      <DependentUpon>Email.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\InvoicePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\PopUp.ascx.cs">
+      <DependentUpon>PopUp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\PopUp.ascx.designer.cs">
+      <DependentUpon>PopUp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\Reference.cs" />
+    <Compile Include="AppCode\TrustAllCertificatePolicy.cs" />
+    <Compile Include="App_GlobalResources\HelpText.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs" />
+    <Compile Include="BookController.cs" />
+    <Compile Include="BookViewPage.aspx.cs">
+      <DependentUpon>BookViewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookViewPage.aspx.designer.cs">
+      <DependentUpon>BookViewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\BookDL.cs" />
+    <Compile Include="DataLayer\BookPageDL.cs" />
+    <Compile Include="DataLayer\ErrorLogDL.cs" />
+    <Compile Include="DataLayer\ReproductionDL.cs" />
+    <Compile Include="DataLayer\SalesTaxDL.cs" />
+    <Compile Include="DataLayer\SendMailDL.cs" />
+    <Compile Include="DataLayer\StateNameDL.cs" />
+    <Compile Include="DataLayer\StrongBoxDL.cs" />
+    <Compile Include="DataLayer\WaterMarkDL.cs" />
+    <Compile Include="DedicatedPayPalReturnHandler.aspx.cs">
+      <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DedicatedPayPalReturnHandler.aspx.designer.cs">
+      <DependentUpon>DedicatedPayPalReturnHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery.cs" />
+    <Compile Include="GalleryController.cs" />
+    <Compile Include="ImageHandlers\Captcha.cs" />
+    <Compile Include="ImageHandlers\CaptchaHandler.ashx.cs">
+      <DependentUpon>CaptchaHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="InsideBookPage.aspx.cs">
+      <DependentUpon>InsideBookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsideBookPage.aspx.designer.cs">
+      <DependentUpon>InsideBookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPalNotification.aspx.cs">
+      <DependentUpon>PayPalNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPalNotification.aspx.designer.cs">
+      <DependentUpon>PayPalNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookPage.aspx.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookPage.aspx.designer.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prints.aspx.cs">
+      <DependentUpon>Prints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prints.aspx.designer.cs">
+      <DependentUpon>Prints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchPicturePage.aspx.cs">
+      <DependentUpon>SearchPicturePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchPicturePage.aspx.designer.cs">
+      <DependentUpon>SearchPicturePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\ArtGalleryDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\GalleryDL.cs" />
+    <Compile Include="DataLayer\PayPalDL.cs" />
+    <Compile Include="DataLayer\PopulateMenu.cs" />
+    <Compile Include="DataLayer\SearchWordDL.cs" />
+    <Compile Include="DataLayer\SiteDL.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\PictureDL.cs" />
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GalleryPage.aspx.cs">
+      <DependentUpon>GalleryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GalleryPage.aspx.designer.cs">
+      <DependentUpon>GalleryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ImageHandlers\ImageWatermarkTransform.cs" />
+    <Compile Include="ImageHandlers\PageImageHandler.ashx.cs">
+      <DependentUpon>PageImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageHandlers\ThumbnailImageHandler.ashx.cs">
+      <DependentUpon>ThumbnailImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PicturePage.aspx.cs">
+      <DependentUpon>PicturePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PicturePage.aspx.designer.cs">
+      <DependentUpon>PicturePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingBookPage.aspx.cs">
+      <DependentUpon>ShippingBookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShippingBookPage.aspx.designer.cs">
+      <DependentUpon>ShippingBookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShippingPage.aspx.cs">
+      <DependentUpon>ShippingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShippingPage.aspx.designer.cs">
+      <DependentUpon>ShippingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BaseTheme\ValidationSummary.skin" />
+    <Content Include="App_Themes\BaseTheme\RegularExpressionValidator.skin" />
+    <Content Include="App_Themes\BaseTheme\RangeValidator.skin" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="App_Data\artgallery.p12" />
+    <Content Include="App_Data\testsite.p12" />
+    <None Include="DataLayer\ArtGalleryDS.xsc">
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </None>
+    <None Include="DataLayer\ArtGalleryDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ArtGalleryDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataLayer\ArtGalleryDS.xss">
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </None>
+    <Content Include="ImageHandlers\PageImageHandler.ashx" />
+    <Content Include="ImageHandlers\ThumbnailImageHandler.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="ImageHandlers\CaptchaHandler.ashx" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <None Include="Properties\PublishProfiles\remote.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Admin\Picture.rdlc" />
+    <Content Include="App_GlobalResources\HelpText.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>HelpText.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\Controls.csproj">
+      <Project>{A6FBD0F3-F370-41E7-BE1C-7133349938A4}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebControlCaptcha\WebControlCaptcha.vbproj">
+      <Project>{03D1C790-162A-4AC0-B33B-634B263C0A63}</Project>
+      <Name>WebControlCaptcha</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39472</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:39472/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

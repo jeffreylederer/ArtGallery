@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="ArtGallery.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="../Styles/bootstrap.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <form runat="server" id="masterForm">
+        <ajax:ToolkitScriptManager runat="server" ID="asm" />
+        <div class="row">
+            <div class="col-md-6 col-xs-12" style="display: block">
+                <asp:HyperLink runat="server" ID="hypHome" NavigateUrl="~/Default.aspx" ForeColor="Black">
+                    <asp:Image runat="server" ID="logo" AlternateText="Return to home page" />
+                </asp:HyperLink>
+            </div>
+            <div class="loginDisplay col-md-6 col-xs-12">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a> ] &nbsp; &nbsp; &nbsp;
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!
+                        [
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                        ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8" style="border: 0px none transparent">
+
+                <ul class="nav nav-tabs">
+                    <li><a href="../default.aspx">Home</a></li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setup Site <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Setup.aspx">Basic Site Setup</a></li>
+                            <li><a href="ArtistPage.aspx">Artist Information</a></li>
+                            <li><a href="SendMail.aspx">Mail Server Setup</a></li>
+                            <li><a href="PayPal.aspx">PayPal Setup</a></li>
+                            <li><a href="WaterMarkPage.aspx">WaterMark Setup</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Select Gallery to Edit Pictures <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="SelectGalleries">
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit Gallery Info <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="EditGalleries">
+                            <li><a href="AddGallery.aspx">Add Gallery</a></li>
+                            <li class="divider" />
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Select Book to Edit Inside Pages <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="SelectBooks">
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit Book Info<span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="EditBooks">
+                            <li><a href="AddBook.aspx">Add Book</a></li>
+                            <li class="divider" />
+                        </ul>
+                    </li>
+
+
+                    <li><a href="AddPicture.aspx">Add Picture</a></li>
+                    <li><a href="OrphanPictures.aspx">Remove Orphan Pictures</a></li>
+                    <li><a href="ReportPage.aspx">Report</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administator Accounts <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ChangePassword.aspx">Change Password</a></li>
+                            <li><a href="ChangeEmail.aspx">Change Email Address</a></li>
+                            <li><a href="Register.aspx">Add New Administator</a></li>
+                            <li><a href="RemoveUser.aspx">Remove Administator</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4" style="border: 0px none transparent; text-align: right;">
+                Search:
+                <asp:TextBox runat="server" AutoPostBack="true" OnTextChanged="btnSearch_Click"
+                    ID="txtSearch" /><asp:RequiredFieldValidator
+                        runat="server" ID="vdSearch" Text="*" ValidationGroup="search" ControlToValidate="txtSearch" />
+                &nbsp; &nbsp;
+            </div>
+
+        </div>
+        <div class="main" runat="server" id="dvMain">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <p id="test"></p>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.getJSON("../api/Gallery",
+                function (data) {
+                    $.each(data, function (index, elem) {
+                        $("#SelectGalleries").append($("<li><a href='SelectGallery.aspx?id=" + elem.id + "'>" + elem.menutext + "</a></li>"));
+                        $("#EditGalleries").append($("<li><a href='EditGallery.aspx?id=" + elem.id + "'>" + elem.menutext + "</a></li>"));
+                    }
+                    )
+                }
+                )
+
+            $.getJSON("../api/Book/0",
+                function (data) {
+                    $.each(data, function (index, elem) {
+                        $("#SelectBooks").append($("<li><a href='SelectBook.aspx?id=" + elem.id + "'>" + elem.menutext + "</a></li>"));
+                        $("#EditBooks").append($("<li><a href='EditBook.aspx?id=" + elem.id + "'>" + elem.menutext + "</a></li>"));
+                    }
+                    )
+                }
+                )
+        });
+
+
+    </script>
+</body>
+</html>
+
