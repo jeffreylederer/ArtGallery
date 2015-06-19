@@ -18,25 +18,19 @@ namespace ArtGallery
                 try
                 {
                     int id = int.Parse( Request.QueryString["id"] );
-                    bool repro = bool.Parse( Request.QueryString["repro"] );
-                    if (repro)
+   
+                    ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
+                    if (table == null || table.Rows.Count != 1)
                     {
                         cellFramed.Visible = false;
                     }
                     else
                     {
-                        ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
-                        if (table == null || table.Rows.Count != 1)
-                        {
-                            cellFramed.Visible = false;
-                        }
-                        else
-                        {
-                             cellFramed.Visible = !table[0].Frame.ToUpper().Contains( "UNFRAMED" ) && table[0].Available;
-                             chkFramed.Checked =  !table[0].Frame.ToUpper().Contains( "UNFRAMED" );
-                        }
+                            cellFramed.Visible = !table[0].Frame.ToUpper().Contains( "UNFRAMED" ) && table[0].Available;
+                            chkFramed.Checked =  !table[0].Frame.ToUpper().Contains( "UNFRAMED" );
                     }
-                    ArtGalleryDS.Picture_GetInfoDataTable ptable = PictureDL.GetInfo( id, repro );
+
+                    ArtGalleryDS.Picture_GetInfoDataTable ptable = PictureDL.GetInfo( id, false );
                     if (ptable != null && ptable.Rows.Count == 1)
                     {
                         lblTitle.Text = ptable[0].title;
@@ -55,7 +49,6 @@ namespace ArtGallery
         protected void btnBuy_Click( object sender, ImageClickEventArgs e )
         {
             int id = int.Parse(Request.QueryString["id"]);
-            bool repro = bool.Parse(Request.QueryString["repro"]);
 
             PictureInfo pictureInfo = new PictureInfo();
 
@@ -94,21 +87,12 @@ namespace ArtGallery
 
             #endregion
 
-            if (repro)
+            
+   
+            if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
             {
-                if (!GenerateInvoiceReproduction( id, pictureInfo))
-                {
-                    btnBuy.CancelSubmission();
-                    return;
-                }
-            }
-            else
-            {
-                if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
-                {
-                    btnBuy.CancelSubmission();
-                    return;
-                }
+                btnBuy.CancelSubmission();
+                return;
             }
 
             btnBuy.Amount = pictureInfo.amount;
@@ -174,41 +158,7 @@ namespace ArtGallery
             return true;
         }
 
-        private bool GenerateInvoiceReproduction( int id, PictureInfo pictureInfo)
-        {
-            
-            ArtGalleryDS.ReproductionDataTable table = ReproductionDL.GetById( id );
-            if (table == null || table.Rows.Count != 1)
-                return false;
-            ArtGalleryDS.ReproductionRow row = table[0];
-
-            ArtGalleryDS.PictureDataTable table1 = PictureDL.GetById( table[0].pictureid );
-            if (table1 == null || table1.Rows.Count != 1)
-                return false;
-
-            btnBuy.ItemName = string.Format("{0}: Print {1:0.00} by {2:0.00}", row.Title, row.height, row.width);
-            btnBuy.ItemNumber = row.pictureid.ToString();
-
-            if (ddlShipping.SelectedValue != "00")
-            {
-                pictureInfo.handling = 10;
-                pictureInfo.packagingWeight = 1.5m;
-                pictureInfo.pictureWeight = .5m;
-                pictureInfo.amount = row.price;
-                pictureInfo.height = (decimal)Math.Ceiling( Math.Min( row.width, row.height ) );
-                pictureInfo.width = 3;
-                pictureInfo.tall = 3;
-            }
-            pictureInfo.amount = row.price;
-
-
-            btnBuy.AdditionalDataItems["unframed"] = "true";
-            btnBuy.AdditionalDataItems["width"] = row.width.ToString();
-            btnBuy.AdditionalDataItems["height"] = row.height.ToString();
-            btnBuy.AdditionalDataItems["strongbox"] = "none needed";
-                       
-            return true;
-        }
+        
 
         private decimal Calculate( double width, double length, string frame, decimal weight, PictureInfo pictureInfo )
         {
@@ -476,24 +426,13 @@ namespace ArtGallery
         protected void btnCalculate_Click( object sender, EventArgs e )
         {
             int id = int.Parse( Request.QueryString["id"] );
-            bool repro = bool.Parse( Request.QueryString["repro"] );
-
+ 
             PictureInfo pictureInfo = new PictureInfo();
-            if (repro)
+ 
+            if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
             {
-                if (!GenerateInvoiceReproduction( id, pictureInfo ))
-                {
-                    btnBuy.CancelSubmission();
-                    return;
-                }
-            }
-            else
-            {
-                if (!GenerateInvoice( id, chkFramed.Checked, pictureInfo ))
-                {
-                    btnBuy.CancelSubmission();
-                    return;
-                }
+                btnBuy.CancelSubmission();
+                return;
             }
             if(ddlShipping.SelectedValue == "00")
                 pictureInfo.tax = SalesTaxDL.Get( "15217" ) * pictureInfo.amount; // needs to be changed shipfrom address

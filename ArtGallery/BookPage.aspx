@@ -27,23 +27,22 @@
                         OnPreRender="FormView1_PreRender">
                         <ItemTemplate>
                             <asp:HiddenField runat="server" Value='<%# Eval("Metatags") %>' ID="metatags" />
-                            <asp:HiddenField runat="server" Value='<%# Eval("Available") %>' ID="Available" />
-                            <div class="table-responsive">
+                             <div class="table-responsive">
                                 <table cellpadding="2" cellspacing="2">
                                     
                                     <tr>
                                         <td align="left">Title:
                                         </td>
                                         <td>
-                                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("booktitle") %>' />
+                                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("title") %>' />
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td align="left">Type:
+                                        <td align="left">Style:
                                         </td>
                                         <td>
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("bookstyle") %>' />
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("style") %>' />
                                         </td>
                                     </tr>
                                 
@@ -57,6 +56,13 @@
                                         </td>
                                     </tr>
 
+                                     <tr>
+                                        <td align="left">Size:
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Width") +" x " + Eval("Height") +" inches" %>' />
+                                        </td>
+                                    </tr>
                                    
                                     <tr>
                                         <td align="left">Price:
@@ -66,9 +72,6 @@
                                         </td>
                                     </tr>
 
-
-                                    
-
                                 </table>
                                 <br />
                                 <asp:Button runat="server" ID="btnBuy" Text="Buy" OnClick="btnBuy_Click" />
@@ -77,8 +80,8 @@
 
                         </ItemTemplate>
                     </asp:FormView>
-                    <asp:LinkButton ID="btnInside" runat="server">See inside the book</asp:LinkButton>
-                </div>
+                    <%--<asp:LinkButton ID="btnInside" runat="server">See inside the book</asp:LinkButton>
+                --%></div>
 
                 <div class="col-xs-12 col-sm-8  col-md-6 col-lg-4">
                     <asp:FormView ID="FormView2" runat="server" OnPreRender="FormView2_PreRender">
@@ -89,6 +92,10 @@
                             <br />
                             <table> 
                                 <tr>
+                                    <td class="leftarrow">
+                                        <asp:ImageButton runat="server" ID="btnPrevious" ImageUrl="~/Images/left.jpg"
+                                            BorderStyle="None" OnClick="btnPrevious_Click" Height="20px" Width="20px" /></td>
+                                    <td class="picture">
                                         <a href="javascript:void(0)" style="text-decoration: none;">
                                             <cc1:GeneratedImage ID="WatermarkedImageGenerator" runat="server" ImageHandlerUrl="~/ImageHandlers/PageImageHandler.ashx" BorderColor="White">
                                                 <Parameters>
@@ -104,7 +111,11 @@
                                         </a>
 
                                     </td>
-                                    
+                                     <td class="rightarrow">
+                                        <asp:ImageButton runat="server" ID="btnNext" ImageUrl="~/Images/right.jpg"
+                                            BorderStyle="None" OnClick="btnNext_Click" Height="20px" Width="20px" /></td>
+
+
                                 </tr>
                             </table>
                             <div class="copyright">

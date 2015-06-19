@@ -113,10 +113,12 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RemoveUser.aspx" />
     <Content Include="Admin\AddGallery.aspx" />
+    <Content Include="Admin\AddBook.aspx" />
     <Content Include="Admin\AddPicture.aspx" />
     <Content Include="Admin\ArtistPage.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\EditGallery.aspx" />
+    <Content Include="Admin\EditBook.aspx" />
     <Content Include="Admin\ErrorLog.aspx" />
     <Content Include="Admin\ErrorLogDetail.aspx" />
     <Content Include="Admin\OrphanPictures.aspx" />
@@ -490,6 +492,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\Truncate.js" />
     <Content Include="SearchResult.aspx" />
+    <Content Include="ShippingReproductionPage.aspx" />
     <Content Include="ShippingBookPage.aspx" />
     <Content Include="ShippingPage.aspx" />
     <Content Include="slPPWPSICtrlForm4357.aspx" />
@@ -574,6 +577,13 @@
     <Compile Include="Admin\AddGallery.aspx.designer.cs">
       <DependentUpon>AddGallery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddBook.aspx.cs">
+      <DependentUpon>AddBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddBook.aspx.designer.cs">
+      <DependentUpon>AddBook.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddPicture.aspx.cs">
       <DependentUpon>AddPicture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -608,6 +618,13 @@
     </Compile>
     <Compile Include="Admin\EditGallery.aspx.designer.cs">
       <DependentUpon>EditGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditBook.aspx.cs">
+      <DependentUpon>EditBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditBook.aspx.designer.cs">
+      <DependentUpon>EditBook.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ErrorLog.aspx.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
@@ -833,6 +850,13 @@
     <Compile Include="SearchResult.aspx.designer.cs">
       <DependentUpon>SearchResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShippingReproductionPage.aspx.cs">
+      <DependentUpon>ShippingReproductionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShippingReproductionPage.aspx.designer.cs">
+      <DependentUpon>ShippingReproductionPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShippingBookPage.aspx.cs">
       <DependentUpon>ShippingBookPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -873,7 +897,6 @@
     <None Include="DataLayer\ArtGalleryDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ArtGalleryDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataLayer\ArtGalleryDS.xss">
       <DependentUpon>ArtGalleryDS.xsd</DependentUpon>

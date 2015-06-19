@@ -124,7 +124,7 @@ namespace ArtGallery
             int id = (int) FormView1.DataKey.Values["id"];
            
 
-            Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}&repro=false",
+            Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}",
                 id) );
         }
         #endregion

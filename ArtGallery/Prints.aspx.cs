@@ -16,7 +16,7 @@ namespace ArtGallery
             {
                 int index = int.Parse( e.CommandArgument.ToString() );
                 int id = (int) GridView1.DataKeys[index].Value;
-                Response.Redirect( string.Format( "ShippingPage.aspx?id={0:0}&repro=true",
+                Response.Redirect(string.Format("ShippingReproductionPage.aspx?id={0:0}",
                 id) );
             }
         }

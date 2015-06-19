@@ -36,7 +36,7 @@ namespace ArtGallery
             FormView1.DataSource = table.Rows;
             FormView1.DataBind();
 
-            ArtGalleryDS.Picture_GetWithWaterMarkDataTable table1 = BookDL.GetWithWaterMark(id);
+            var table1 = BookDL.GetWithWaterMark(id);
             FormView2.DataSource = table1.Rows;
             FormView2.DataBind();
 
@@ -74,6 +74,33 @@ namespace ArtGallery
 
             Response.Redirect( string.Format( "ShippingBookPage.aspx?id={0:0}", id) );
         }
+        #endregion
+
+        #region navigation button events
+        protected void btnPrevious_Click(object sender, ImageClickEventArgs e)
+        {
+            int id = (int)FormView1.DataKey.Values["id"];
+            int newId = BookDL.PreviousPublic(id);
+            if (newId > 0)
+            {
+                ProcessBook(newId);
+            }
+
+        }
+
+        protected void btnNext_Click(object sender, ImageClickEventArgs e)
+        {
+            int id = (int)FormView1.DataKey.Values["id"];
+            {
+                int newId = BookDL.NextPublic(id);
+                if (newId > 0)
+                {
+                    ProcessBook(newId);
+                }
+            }
+        }
+
+        
         #endregion
         
     }

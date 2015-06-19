@@ -41,7 +41,8 @@ namespace ArtGallery
             return data.Reproduction;
         }
 
-        public static ArtGalleryDS.ReproductionDataTable GetById( int id )
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public static ArtGalleryDS.Reproduction_GetByIdDataTable GetById( int id )
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
             ArtGalleryDS data = new ArtGalleryDS();
@@ -52,7 +53,7 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue( "@id", id );
                 SqlDataAdapter da = new SqlDataAdapter( selectCommand );
-                da.Fill( data, "Reproduction" );
+                da.Fill(data, "Reproduction_GetById");
             }
             catch (Exception ex)
             {
@@ -63,7 +64,7 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            return data.Reproduction;
+            return data.Reproduction_GetById;
         }
 
 

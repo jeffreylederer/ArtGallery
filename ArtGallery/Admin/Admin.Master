@@ -70,12 +70,6 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Select Book to Edit Inside Pages <span class="caret"></span></a>
-                        <ul class="dropdown-menu" id="SelectBooks">
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit Book Info<span class="caret"></span></a>
                         <ul class="dropdown-menu" id="EditBooks">
                             <li><a href="AddBook.aspx">Add Book</a></li>

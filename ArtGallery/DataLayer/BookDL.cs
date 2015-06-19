@@ -99,7 +99,7 @@ namespace ArtGallery
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public static ArtGalleryDS.Picture_GetWithWaterMarkDataTable GetWithWaterMark(int id)
+        public static ArtGalleryDS.Book_GetWithWaterMarkDataTable GetWithWaterMark(int id)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
             ArtGalleryDS data = new ArtGalleryDS();
@@ -110,7 +110,7 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@id", id);
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
-                da.Fill(data, "Picture_GetWithWaterMark");
+                da.Fill(data, "Book_GetWithWaterMark");
             }
             catch (Exception ex)
             {
@@ -121,7 +121,7 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            return data.Picture_GetWithWaterMark;
+            return data.Book_GetWithWaterMark;
         }
         
 
@@ -138,14 +138,18 @@ namespace ArtGallery
         [DataObjectMethod(DataObjectMethodType.Update, true)]
         public static int Update(
             string menutext,
-            string booktitle,
-            string bookstyle,
+            string title,
+            string style,
             double price,
-            decimal packingweight,
+            decimal weight,
             string description,
             string PicturePath,
             short Date,
             bool active,
+            float height,
+            float width,
+            string metatags,
+            string notes,
             int original_id,
             DateTime original_lastupdated
             )
@@ -158,10 +162,14 @@ namespace ArtGallery
                 SqlCommand selectCommand = new SqlCommand("Book_Update", conn);
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@menutext", menutext);
-                selectCommand.Parameters.AddWithValue("@booktitle", booktitle);
-                selectCommand.Parameters.AddWithValue("@bookstyle", bookstyle);
+                selectCommand.Parameters.AddWithValue("@title", title);
+                selectCommand.Parameters.AddWithValue("@style", style);
                 selectCommand.Parameters.AddWithValue("@price", price);
-                selectCommand.Parameters.AddWithValue("@packingweight", packingweight);
+                selectCommand.Parameters.AddWithValue("@weight", weight);
+                selectCommand.Parameters.AddWithValue("@MetaTags", CheckNull(metatags));
+                selectCommand.Parameters.AddWithValue("@Notes", CheckNull(notes));
+                selectCommand.Parameters.AddWithValue("@Width", width);
+                selectCommand.Parameters.AddWithValue("@Height", height);
                 selectCommand.Parameters.AddWithValue("@description", description);
                 selectCommand.Parameters.AddWithValue("@PicturePath", PicturePath);
                 selectCommand.Parameters.AddWithValue("@Date", Date);
@@ -191,14 +199,18 @@ namespace ArtGallery
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
         public static int Insert(
             string menutext,
-            string booktitle,
-            string bookstyle,
+            string title,
+            string style,
             double price,
-            decimal packingweight,
+            decimal weight,
             string description,
             string PicturePath,
             short Date,
-            bool active)
+            bool active,
+            float height,
+            float width,
+            string metatags,
+            string notes)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
             ArtGalleryDS data = new ArtGalleryDS();
@@ -208,10 +220,14 @@ namespace ArtGallery
                 SqlCommand selectCommand = new SqlCommand("Book_Insert", conn);
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@menutext", menutext);
-                selectCommand.Parameters.AddWithValue("@booktitle", booktitle);
-                selectCommand.Parameters.AddWithValue("@bookstyle", bookstyle);
+                selectCommand.Parameters.AddWithValue("@title", title);
+                selectCommand.Parameters.AddWithValue("@style", style);
                 selectCommand.Parameters.AddWithValue("@price", price);
-                selectCommand.Parameters.AddWithValue("@packingweight", packingweight);
+                selectCommand.Parameters.AddWithValue("@weight", weight);
+                selectCommand.Parameters.AddWithValue("@MetaTags", CheckNull(metatags));
+                selectCommand.Parameters.AddWithValue("@Notes", CheckNull(notes));
+                selectCommand.Parameters.AddWithValue("@Width", width);
+                selectCommand.Parameters.AddWithValue("@Height", height);
                 selectCommand.Parameters.AddWithValue("@description", description);
                 selectCommand.Parameters.AddWithValue("@PicturePath", PicturePath);
                 selectCommand.Parameters.AddWithValue("@Date", Date);
@@ -266,6 +282,138 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
+        }
+
+        public static int UpdatePicturePath( int id, string PicturePath )
+        {
+            SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand( "Book_UpdatePicturePath", conn );
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue( "@id", id );
+                selectCommand.Parameters.AddWithValue( "@PicturePath", PicturePath);
+                return selectCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+        public static int Next(int id)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand("Book_Next", conn);
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@id", id);
+                return (int)selectCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+        public static int Previous(int id)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand("Book_Previous", conn);
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@id", id);
+                return (int)selectCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+        public static int NextPublic(int id)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand("Book_NextPublic", conn);
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@id", id);
+                return (int)selectCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+        public static int PreviousPublic(int id)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
+            ArtGalleryDS data = new ArtGalleryDS();
+            try
+            {
+                conn.Open();
+                SqlCommand selectCommand = new SqlCommand("Book_PreviousPublic", conn);
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@id", id);
+                return (int)selectCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
+
+
+        private static object CheckNull(string val)
+        {
+            if (string.IsNullOrEmpty(val))
+                return null;
+            return val;
+        }
+
+        private static object CheckNull(decimal? val)
+        {
+            if (!val.HasValue)
+                return null;
+            return val;
         }
     }
 }

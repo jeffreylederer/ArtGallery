@@ -14,7 +14,7 @@ namespace ArtGallery
             {
                 dvMain.Attributes["class"] = "mainAdmin";
             }
-            Admin.Visible = Roles.IsUserInRole("Admin");
+            Admin.Visible = true; // Roles.IsUserInRole("Admin");
         }
 
         

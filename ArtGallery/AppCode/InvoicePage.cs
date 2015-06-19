@@ -40,10 +40,10 @@ namespace ArtGallery
 
         protected bool GenerateInvoiceReproduction( int id, SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy )
         {
-            ArtGalleryDS.ReproductionDataTable table = ReproductionDL.GetById( id );
+            var table = ReproductionDL.GetById( id );
             if (table == null || table.Rows.Count != 1)
                 return false;
-            ArtGalleryDS.ReproductionRow row = table[0];
+            var row = table[0];
             btnBuy.ItemName = string.Format("{0}: Print {1:0.00} by {2:0.00}", row.Title, row.height, row.width);
             btnBuy.ItemNumber = row.pictureid.ToString();
             btnBuy.Weight = 1;

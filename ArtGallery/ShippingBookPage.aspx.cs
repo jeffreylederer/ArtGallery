@@ -19,7 +19,7 @@ namespace ArtGallery
                 {
                     int id = int.Parse( Request.QueryString["id"] );
                     ArtGalleryDS.BookDataTable table = BookDL.GetById( id );
-                    lblTitle.Text = table[0].BookTitle;
+                    lblTitle.Text = table[0].title;
                     lblDescription.Text = table[0].description;
 
                 }
@@ -82,8 +82,8 @@ namespace ArtGallery
             
             btnBuy.Amount = row.price;
             if(ddlShipping.SelectedValue != "00")
-                btnBuy.Handling = (decimal) 5.0;
-            btnBuy.ItemName = "Book: " + row.BookTitle;
+                btnBuy.Handling = (decimal) 3.0;
+            btnBuy.ItemName = "Book: " + row.title;
             btnBuy.ItemNumber = id.ToString();
             btnBuy.BuyerInfo.FirstName = txtFirstName.Text;
             btnBuy.BuyerInfo.LastName = txtLastName.Text;
@@ -160,10 +160,11 @@ namespace ArtGallery
 
                 ddlShipping.Items.Clear();
                 ddlShipping.Items.Add( new ListItem( "Local Pickup", "00" ) );
-                ddlShipping.Items.Add( new ListItem( "US Post", "10" ) );
-                ddlShipping.Items.Add( new ListItem( "Next Day Air", "01" ) );
-                ddlShipping.Items.Add( new ListItem( "Second Day Air", "02" ) );
-                ddlShipping.Items.Add( new ListItem( "Ground", "03" ) );
+                ddlShipping.Items.Add( new ListItem( "Media Mail", "10" ) );
+                ddlShipping.Items.Add( new ListItem( "Priority Mail", "20"));
+                ddlShipping.Items.Add( new ListItem( "UPS Next Day Air", "01" ) );
+                ddlShipping.Items.Add( new ListItem( "UPS Second Day Air", "02" ) );
+                ddlShipping.Items.Add( new ListItem( "UPS Ground", "03" ) );
                 ddlShipping.SelectedIndex = 1;
 
 
@@ -176,7 +177,16 @@ namespace ArtGallery
             if (ddlShipping.SelectedValue == "00")
                 return 0;
             else if (ddlShipping.SelectedValue == "10")
-                return (decimal) ((double)Math.Ceiling((double) row.packingweight) * 2.69);
+            {
+                int wght = (int) Math.Ceiling((double) row.weight);
+                if(wght==1)
+                    return (decimal) 2.69;
+                else
+                    return (decimal)(2.69 + (wght - 1)*.8);
+                
+            }
+            else if (ddlShipping.SelectedValue == "20")
+                return (decimal) 8.0;
             try
             {
                 RateService rate = new RateService();
@@ -262,15 +272,15 @@ namespace ArtGallery
                 uom.Code = "LBS";
                 uom.Description = "pounds";
                 packageWeight.UnitOfMeasurement = uom;
-                packageWeight.Weight = Math.Ceiling( row.packingweight ).ToString( "#" );
+                packageWeight.Weight = Math.Ceiling( row.weight ).ToString( "#" );
                 package.PackageWeight = packageWeight;
 
                 // package size
                 CodeDescriptionType uomDimension = new CodeDescriptionType();
                 DimensionsType dimensionType = new DimensionsType();
-                dimensionType.Height = 8.ToString( "#" );
-                dimensionType.Width = 1.ToString( "#" );
-                dimensionType.Length = 10.ToString( "#" );
+                dimensionType.Height = Math.Ceiling(row.height).ToString("#");
+                dimensionType.Width = "1";
+                dimensionType.Length = Math.Ceiling(row.width).ToString("#");
                 uomDimension.Code = "IN";
                 dimensionType.UnitOfMeasurement = uomDimension;
                 package.Dimensions = dimensionType;
@@ -334,7 +344,7 @@ namespace ArtGallery
             ArtGalleryDS.BookRow row = BookDL.GetById( id )[0];
             
             
-            bookInfo.handling = 5;
+            bookInfo.handling = 3;
             if(ddlShipping.SelectedValue == "00")
             {
                 bookInfo.tax = SalesTaxDL.Get( "15217" ) * row.price; // needs to be changed shipfrom address
@@ -344,6 +354,7 @@ namespace ArtGallery
                 bookInfo.tax = SalesTaxDL.Get(txtZipCode.Text) * row.price;
             else
                 bookInfo.tax = 0;
+            bookInfo.price = row.price;
             bookInfo.shipping = ShippingCost(row);
             bookInfo.total = row.price + bookInfo.handling + bookInfo.shipping + bookInfo.tax;
             BookInfo[] list = { bookInfo };
