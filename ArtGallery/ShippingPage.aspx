@@ -10,8 +10,10 @@
     <asp:Panel runat="server" ID="pnlForm">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                Please fill out the form below with information matching your credit card you intend to use to make the purchase. After selecting
-the buy button, you will be taken to a secure PayPal page to obtain you credit card information.<br /><br />
+                Please fill out the form below with the information on the credit card that you 
+                intend to use for your purchase. After selecting
+                the buy button, you will be taken to a secure PayPal page to obtain 
+                additional credit card information.<br />
             </div>
 
             <table class="table">
