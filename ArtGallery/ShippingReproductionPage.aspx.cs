@@ -98,11 +98,12 @@ namespace ArtGallery
             decimal salesTax = 0;
             if (ddlShipping.SelectedValue == "00")
                 salesTax = SalesTaxDL.Get( "15217" );  // change to ship from address
-            if(ddlCountry.SelectedValue == "US")
+            else if(ddlCountry.SelectedValue == "US")
                 salesTax = SalesTaxDL.Get( txtZipCode.Text );
             if (salesTax > 0)
                 btnBuy.Tax = salesTax*btnBuy.Amount;
             btnBuy.AdditionalDataItems["shipping method"] = ddlShipping.SelectedItem.Text;
+            btnBuy.AdditionalDataItems["mechandize"] = "reproduction";
             pnlForm.Visible = false;
             pnlProcessing.Visible = true;
             btnBuy.ImageUrl = "Images/dot.jpg";

@@ -36,11 +36,14 @@ namespace ArtGallery
                 invoice.AppendLine( string.Format( "Transaction ID: {0}", e.TransactionID ) );
                 invoice.AppendLine( string.Format( "Title: {0}", e.ItemInfo.ItemName ) );
                 invoice.AppendLine( string.Format( "Item #: {0}", e.ItemInfo.ItemNumber ) );
-                invoice.AppendLine( string.Format( "Framed : {0}", e.AdditionalDataItems["framed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"] ) );
-                invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" :  e.AdditionalDataItems["width"] ) );
-                invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" :  e.AdditionalDataItems["height"] ) );
-                invoice.AppendLine( string.Format(" strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" :  e.AdditionalDataItems["strongbox"]));
-
+                invoice.AppendLine(string.Format("product type: {0}", e.AdditionalDataItems["mechandize"]==null ? "Unknown" : e.AdditionalDataItems["mechandize"]));
+                if (e.AdditionalDataItems["mechandize"] !=null && e.AdditionalDataItems["mechandize"] == "picture")
+                {
+                    invoice.AppendLine(string.Format("Framed : {0}", e.AdditionalDataItems["framed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"]));
+                    invoice.AppendLine(string.Format("width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" : e.AdditionalDataItems["width"]));
+                    invoice.AppendLine(string.Format("height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" : e.AdditionalDataItems["height"]));
+                    invoice.AppendLine(string.Format(" strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"]));
+                }
                 invoice.AppendLine();
                 invoice.AppendLine( string.Format( "Buyer : {0}", e.BuyerInfo.FirstName + " " + e.BuyerInfo.LastName ) );
                 invoice.AppendLine( string.Format( "Ship To: {0}", e.BuyerInfo.ShippingAddress.AddressName ) );
@@ -70,10 +73,15 @@ namespace ArtGallery
                     invoice.AppendLine( string.Format( "Transaction ID: {0}", e.TransactionID ) );
                     invoice.AppendLine( string.Format( "Title: {0}", e.ItemInfo.ItemName ) );
                     invoice.AppendLine( string.Format( "Item #: {0}", e.ItemInfo.ItemNumber ) );
-                    invoice.AppendLine( string.Format( "framed : {0}", e.AdditionalDataItems["framed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"] ) );
-                    invoice.AppendLine( string.Format( "width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" : e.AdditionalDataItems["width"] ) );
-                    invoice.AppendLine( string.Format( "height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" : e.AdditionalDataItems["height"] ) );
-                    invoice.AppendLine( string.Format( "strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"] ) );
+                    invoice.AppendLine(string.Format("product type: {0}", e.AdditionalDataItems["mechandize"]==null ? "Unknown" : e.AdditionalDataItems["mechandize"]));
+                    if (e.AdditionalDataItems["mechandize"] !=null && e.AdditionalDataItems["mechandize"] == "picture")
+                    {
+                        invoice.AppendLine(string.Format("framed : {0}", e.AdditionalDataItems["framed"] == null ? "Unknown" : e.AdditionalDataItems["unframed"]));
+                        invoice.AppendLine(string.Format("width: {0}", e.AdditionalDataItems["width"] == null ? "Unknown" : e.AdditionalDataItems["width"]));
+                        invoice.AppendLine(string.Format("height: {0}", e.AdditionalDataItems["height"] == null ? "Unknown" : e.AdditionalDataItems["height"]));
+                        invoice.AppendLine(string.Format("strongbox model: {0}", e.AdditionalDataItems["strongbox"] == null ? "Unknown" : e.AdditionalDataItems["strongbox"]));
+                    }
+                    
                     invoice.AppendLine( string.Format( "Shipping Method: {0}", e.AdditionalDataItems["shipping method"] == null ? "Unknown" : e.AdditionalDataItems["shipping method"] ) );
 
                     invoice.AppendLine();
