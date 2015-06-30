@@ -10,7 +10,18 @@ namespace ArtGallery.Admin
 {
     public partial class AddBook : System.Web.UI.Page
     {
-        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                string idStr = Request.QueryString["id"];
+                if (string.IsNullOrWhiteSpace(idStr))
+                    Response.Redirect("default.aspx");
+                int id = 0;
+                if (!int.TryParse(idStr, out id))
+                    Response.Redirect("default.aspx");
+            }
+        }
         
         /// <summary>
         /// Event when user select upload picture button. It uploads the picture file to the
@@ -90,6 +101,7 @@ namespace ArtGallery.Admin
             {
                 ErrorLogDL.Insert( e.Exception );
                 e.ExceptionHandled = true;
+                ErrorLabel.Text = "Insert failed";
                 return;
             }
             string id = (string)ViewState["id"];

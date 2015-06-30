@@ -26,34 +26,57 @@ namespace ArtGallery
                 int id = 0;
                 if (!int.TryParse( idStr, out id ))
                     Response.Redirect( "default.aspx" );
-                ProcessBook( id );
+                ArtGalleryDS.BookDataTable table = BookDL.GetById(id);
+                FormView1.DataSource = table.Rows;
+                FormView1.DataBind();
+
+                var table1 = BookDL.GetWithWaterMark(id);
+                FormView2.DataSource = table1.Rows;
+                FormView2.DataBind();
+
+
+                frmSingleImage.DataBind();
+                ListView1.DataBind();
+                upList.Update();
+            }
+            if (Request.Form["__EVENTTARGET"] != null && Request.Form["__EVENTTARGET"].Contains("refImage"))
+            {
+                hdSingle.Value = Request.Form["__EVENTARGUMENT"];
+                frmSingleImage.DataBind();
+                ListView1.DataBind();
+                upList.Update();
             }
         }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if(!IsPostBack)
+            {
+                var id = int.Parse(Request.QueryString["id"]);
+                var table = BookPageDL.GetByBookIdPublic(id);
+                btnInside.Visible = table != null && table.Rows.Count > 0;
+                if (btnInside.Visible)
+                {
+                    ArtGalleryDS.BookPageRow row = (ArtGalleryDS.BookPageRow)table.Rows[0];
+                    hdSingle.Value = row.id.ToString();
+                    frmSingleImage.DataBind();
+                }
+                else
+                    pnlPopup.Visible = false;
+
+            }
+        }
+
 
         private void ProcessBook(int id)
         {
-            ArtGalleryDS.BookDataTable table = BookDL.GetById( id );
-            FormView1.DataSource = table.Rows;
-            FormView1.DataBind();
-
-            var table1 = BookDL.GetWithWaterMark(id);
-            FormView2.DataSource = table1.Rows;
-            FormView2.DataBind();
-
+            Response.Redirect("BookPage.aspx?id=" + id.ToString());
         }
-
-
-        
-        
+       
         protected void FormView1_PreRender(object sender, EventArgs e)
         {
             
-            if(FormView1.DataKey.Values["lastupdated"] is DateTime)
-            {
-                int id = (int)FormView1.DataKey.Values["id"];
-                              
-            }
-            else // no picture record found
+            if(!(FormView1.DataKey.Values["lastupdated"] is DateTime))
                 Response.Redirect( "default.aspx" );
 
          }
@@ -102,6 +125,17 @@ namespace ArtGallery
 
         
         #endregion
+
+       
+        #region Popup
+          protected void odsSingleImage_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+            e.InputParameters["id"] = int.Parse(hdSingle.Value);
+            upPage.Update();
+        }
+
         
+        #endregion
+
     }
 }

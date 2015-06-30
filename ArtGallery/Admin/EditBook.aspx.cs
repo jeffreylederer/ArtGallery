@@ -105,16 +105,45 @@ namespace ArtGallery
         protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Update failed";
+            }
+            else
+                ErrorLabel.Text = "Update successful";
         }
 
         protected void ObjectDataSource1_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Delete failed";
+            }
+            Response.Redirect("Default.aspx");
         }
 
        
         #endregion
+
+        protected void btnAddPageView_Click(object sender, EventArgs e)
+        {
+            int index = (int)FormView1.DataKey.Values[0];
+            Response.Redirect("AddBookPage.aspx?id=" + index.ToString());
+        }
+
+        protected void odsPages_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                lblErrorGrid.Text = "Delete failed";
+            }
+            else
+                lblErrorGrid.Text = "Delete successful";
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace ArtGallery
         /// <param name="id">row number of that record</param>
         /// <returns></returns>
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public static ArtGalleryDS.BookPageDataTable GetById(int id)
+        public static ArtGalleryDS.BookPage_GetByIdDataTable GetById(int id)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
             ArtGalleryDS data = new ArtGalleryDS();
@@ -31,15 +31,17 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@id", id);
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
-                da.Fill(data, "BookPage");
+                da.Fill(data, "BookPage_GetById");
             }
-            catch { }
+            catch (Exception ex)
+            { 
+            }
             finally
             {
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            return data.BookPage;
+            return data.BookPage_GetById;
         }
 
          [DataObjectMethod(DataObjectMethodType.Select, false)]
@@ -109,13 +111,15 @@ namespace ArtGallery
             try
             {
                 conn.Open();
-                SqlCommand selectCommand = new SqlCommand("BookPage_GetById", conn);
+                SqlCommand selectCommand = new SqlCommand("BookPage_GetByBookId", conn);
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@bookid", bookid);
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
                 da.Fill(data, "BookPage");
             }
-            catch { }
+            catch(Exception ex) 
+            { 
+            }
             finally
             {
                 if (conn != null && conn.State == ConnectionState.Open)
@@ -136,13 +140,15 @@ namespace ArtGallery
             try
             {
                 conn.Open();
-                SqlCommand selectCommand = new SqlCommand("BookPage_GetByIdPublic", conn);
+                SqlCommand selectCommand = new SqlCommand("BookPage_GetByBookIdPublic", conn);
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@bookid", bookid);
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
                 da.Fill(data, "BookPage");
             }
-            catch { }
+            catch (Exception ex)
+            {
+            }
             finally
             {
                 if (conn != null && conn.State == ConnectionState.Open)
@@ -296,7 +302,7 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-        }
+         }
 
         public static int Next(int id)
         {

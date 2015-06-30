@@ -17,7 +17,7 @@ namespace ArtGallery
                 gallery.active = row.active;
                 gallery.menutext = row.menutext;
                 gallery.id = row.id;
-                gallery.lastupdated = row.LastUpdated;
+                gallery.lastupdated = row.lastupdated;
                 gallery.gallerytitle = row.gallerytitle;
                 list.Add(gallery);
             }

@@ -56,13 +56,33 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Microsoft.Web.GeneratedImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\WebSites\Gallery\Bin\Microsoft.Web.GeneratedImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.1.0.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.3\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -75,6 +95,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
     </Reference>
@@ -85,6 +106,9 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
@@ -112,6 +136,7 @@
     <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RemoveUser.aspx" />
+    <Content Include="Admin\AddBookPage.aspx" />
     <Content Include="Admin\AddGallery.aspx" />
     <Content Include="Admin\AddBook.aspx" />
     <Content Include="Admin\AddPicture.aspx" />
@@ -130,6 +155,7 @@
     <Content Include="Admin\Setup.aspx" />
     <Content Include="Admin\WaterMarkPage.aspx" />
     <Content Include="AppCode\Email.ascx" />
+    <Content Include="AppCode\InsideBook.ascx" />
     <Content Include="AppCode\PopUp.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -456,8 +482,8 @@
     <Content Include="App_Data\YosefGolem copy.jpg" />
     <Content Include="App_Data\ZoodiacTiny.jpg" />
     <Content Include="App_Data\Zugzwang-TheLastMove.jpg" />
-    <Content Include="BookViewPage.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Admin\EditBookPage.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="google341f7300da3105de.html" />
@@ -568,6 +594,13 @@
     </Compile>
     <Compile Include="Account\RemoveUser.aspx.designer.cs">
       <DependentUpon>RemoveUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddBookPage.aspx.cs">
+      <DependentUpon>AddBookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddBookPage.aspx.designer.cs">
+      <DependentUpon>AddBookPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddGallery.aspx.cs">
       <DependentUpon>AddGallery.aspx</DependentUpon>
@@ -702,6 +735,13 @@
     <Compile Include="AppCode\Email.ascx.designer.cs">
       <DependentUpon>Email.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\InsideBook.ascx.cs">
+      <DependentUpon>InsideBook.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\InsideBook.ascx.designer.cs">
+      <DependentUpon>InsideBook.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AppCode\InvoicePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -721,13 +761,6 @@
     </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="BookController.cs" />
-    <Compile Include="BookViewPage.aspx.cs">
-      <DependentUpon>BookViewPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BookViewPage.aspx.designer.cs">
-      <DependentUpon>BookViewPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -735,8 +768,20 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\ArtGalleryDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\BookDL.cs" />
     <Compile Include="DataLayer\BookPageDL.cs" />
+    <Compile Include="Admin\EditBookPage.aspx.cs">
+      <DependentUpon>EditBookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditBookPage.aspx.designer.cs">
+      <DependentUpon>EditBookPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\ErrorLogDL.cs" />
     <Compile Include="DataLayer\ReproductionDL.cs" />
     <Compile Include="DataLayer\SalesTaxDL.cs" />
@@ -791,11 +836,6 @@
     </Compile>
     <Compile Include="SearchPicturePage.aspx.designer.cs">
       <DependentUpon>SearchPicturePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DataLayer\ArtGalleryDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\GalleryDL.cs" />
     <Compile Include="DataLayer\PayPalDL.cs" />
@@ -890,20 +930,21 @@
     <Content Include="Admin\Admin.Master" />
     <Content Include="App_Data\artgallery.p12" />
     <Content Include="App_Data\testsite.p12" />
-    <None Include="DataLayer\ArtGalleryDS.xsc">
-      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
-    </None>
-    <None Include="DataLayer\ArtGalleryDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-    </None>
-    <None Include="DataLayer\ArtGalleryDS.xss">
-      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
-    </None>
     <Content Include="ImageHandlers\PageImageHandler.ashx" />
     <Content Include="ImageHandlers\ThumbnailImageHandler.ashx" />
     <Content Include="packages.config" />
     <Content Include="ImageHandlers\CaptchaHandler.ashx" />
+    <Content Include="DataLayer\ArtGalleryDS.xsc">
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </Content>
+    <None Include="DataLayer\ArtGalleryDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ArtGalleryDS.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataLayer\ArtGalleryDS.xss">
+      <DependentUpon>ArtGalleryDS.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\remote.pubxml" />
   </ItemGroup>

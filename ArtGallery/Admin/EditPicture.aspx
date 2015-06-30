@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Admin.master" AutoEventWireup="true" Inherits="ArtGallery.EditPicture"  Codebehind="EditPicture.aspx.cs" %>
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 <%@ Register  Assembly="Controls" TagPrefix="cc" Namespace="ArtGallery"  %>
+<%@ Register  Assembly="Controls" TagPrefix="cc3" Namespace="ArtGallery"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">

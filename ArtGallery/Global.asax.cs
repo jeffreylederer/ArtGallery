@@ -17,7 +17,7 @@ namespace ArtGallery
                 if (table.Rows.Count != 1)
                     throw new Exception( "Could not get site information" );
                 Application["logo"] = table[0].LogoPath;
-                Application["metatags"] = table[0].Metatags;
+                Application["metatags"] = table[0].metatags;
                 Application["email"] = table[0].email;
 
                 //// Add Administrator.
