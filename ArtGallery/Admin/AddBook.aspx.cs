@@ -10,18 +10,7 @@ namespace ArtGallery.Admin
 {
     public partial class AddBook : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                string idStr = Request.QueryString["id"];
-                if (string.IsNullOrWhiteSpace(idStr))
-                    Response.Redirect("default.aspx");
-                int id = 0;
-                if (!int.TryParse(idStr, out id))
-                    Response.Redirect("default.aspx");
-            }
-        }
+        
         
         /// <summary>
         /// Event when user select upload picture button. It uploads the picture file to the
@@ -56,25 +45,7 @@ namespace ArtGallery.Admin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void FormView1_PreRender( object sender, EventArgs e )
-        {
-            if (!IsPostBack)
-            {
-                  // check is user got her via picture edit page and user
-                // selected add new picture to same gallery. Then it selects
-                // in the gallery dropdown, the same gallery.
-                string idStr = Request.QueryString["id"];
-                if (string.IsNullOrWhiteSpace( idStr ))
-                    return;
-                int id;
-                if (!int.TryParse( idStr, out id ))
-                    return;
-                DropDownList DropDownList1 = FormView1.FindControl("DropDownList1") as DropDownList;
-                if (id < 0 || id > DropDownList1.Items.Count - 1)
-                    return;
-                DropDownList1.SelectedIndex = id;
-            }
-        }
+        
 
         /// <summary>
         /// Assuming no error, after the insert occurs, the user is sent to the picture edit
@@ -89,27 +60,17 @@ namespace ArtGallery.Admin
             {
                 ErrorLogDL.Insert( e.Exception );
                 e.ExceptionHandled = true;
-                return;
-            }
-            string id = e.ReturnValue.ToString();
-            ViewState["id"] = id;
-        }
-
-        protected void FormView1_ItemInserted( object sender, FormViewInsertedEventArgs e )
-        {
-            if (e.Exception != null)
-            {
-                ErrorLogDL.Insert( e.Exception );
-                e.ExceptionHandled = true;
                 ErrorLabel.Text = "Insert failed";
                 return;
             }
-            string id = (string)ViewState["id"];
-            Response.Redirect( "EditBook.aspx?id=" + id, true );
+            string id = e.ReturnValue.ToString();
+            Response.Redirect("EditBook.aspx?id=" + id);
         }
 
-               
         
-
+        protected void LinkCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("default.aspx");
+        }
    }
 }

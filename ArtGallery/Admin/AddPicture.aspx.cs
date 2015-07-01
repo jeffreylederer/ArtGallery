@@ -81,23 +81,19 @@ namespace ArtGallery.Admin
             {
                 ErrorLogDL.Insert( e.Exception );
                 e.ExceptionHandled = true;
+                ErrorLabel.Text = "Insert failed";
                 return;
             }
             string id = e.ReturnValue.ToString();
             ViewState["id"] = id;
         }
 
-        protected void FormView1_ItemInserted( object sender, FormViewInsertedEventArgs e )
+        protected void LinkCancel_Click(object sender, EventArgs e)
         {
-            if (e.Exception != null)
-            {
-                ErrorLogDL.Insert( e.Exception );
-                e.ExceptionHandled = true;
-                return;
-            }
-            string id = (string)ViewState["id"];
-            Response.Redirect( "EditPicture.aspx?id=" + id, true );
+            Response.Redirect("default.aspx");
         }
+
+        
 
                
         

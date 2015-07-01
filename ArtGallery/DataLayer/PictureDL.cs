@@ -90,7 +90,7 @@ namespace ArtGallery
 
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public static ArtGalleryDS.PictureDataTable GetById(int id)
+        public static ArtGalleryDS.Picture_GetByIDDataTable GetById(int id)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString);
             ArtGalleryDS data = new ArtGalleryDS();
@@ -101,7 +101,7 @@ namespace ArtGallery
                 selectCommand.CommandType = CommandType.StoredProcedure;
                 selectCommand.Parameters.AddWithValue("@id",id);
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
-                da.Fill(data, "Picture");
+                da.Fill(data, "Picture_GetByID");
             }
             catch { }
             finally
@@ -109,7 +109,7 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            return data.Picture;
+            return data.Picture_GetByID;
         }
 
         [DataObjectMethod( DataObjectMethodType.Select, false )]

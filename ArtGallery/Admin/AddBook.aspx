@@ -18,8 +18,7 @@
             <asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
             <cc:TPMSFormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"
                 DataKeyNames="id, lastupdated" DefaultMode="Insert" Width="100%" UpdatePanelID="up1"
-                InsertOrUpdateCheckField="lastupdated"
-                OnPreRender="FormView1_PreRender" OnItemInserted="FormView1_ItemInserted">
+                InsertOrUpdateCheckField="lastupdated" >
                 <InsertItemTemplate>
                     <table>
                         <tr>
@@ -179,8 +178,8 @@
                             <td colspan="2" align="center">
                                 <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True"
                                     CommandName="Insert" Text="Insert" />
-                                &nbsp;<asp:LinkButton ID="LinkButton2" runat="server"
-                                    CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                &nbsp;<asp:LinkButton ID="LinkCancel" runat="server"
+                                    CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="LinkCancel_Click" />
                             </td>
                         </tr>
                     </table>

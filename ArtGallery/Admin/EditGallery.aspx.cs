@@ -26,13 +26,25 @@ namespace ArtGallery.Admin
         protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Update failed";
+            }
+            else
+                ErrorLabel.Text = "Updated successful";
         }
 
         protected void ObjectDataSource1_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Delete failed";
+            }
+            else
+                Response.Redirect("default.aspx");
         }
     }
 }

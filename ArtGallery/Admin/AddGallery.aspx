@@ -66,7 +66,7 @@
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
                 CommandName="Insert" Text="Insert" /><cc3:Popup runat="server" Key="Insert" ID="puInsert" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
-                CausesValidation="False" CommandName="Cancel" Text="Cancel" /><cc3:Popup runat="server" Key="CancelInsert" ID="puCanel" />
+                CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="InsertCancelButton_Click" /><cc3:Popup runat="server" Key="CancelInsert" ID="puCanel" />
             </td>
             </tr>
             </table>

@@ -114,7 +114,7 @@ namespace ArtGallery
         /// <param name="e"></param>
         protected void ObjectDataSource1_Selected( object sender, ObjectDataSourceStatusEventArgs e )
         {
-            if (e.ReturnValue == null || ((ArtGalleryDS.PictureDataTable)e.ReturnValue).Rows.Count == 0)
+            if (e.ReturnValue == null || ((ArtGalleryDS.Picture_GetByIDDataTable)e.ReturnValue).Rows.Count == 0)
                 Response.Redirect( "~/default.aspx", true );
         }
 
@@ -122,31 +122,61 @@ namespace ArtGallery
         protected void ObjectDataSource1_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Update failed";
+            }
+            else
+                ErrorLabel.Text = "Updated successful";
         }
 
         protected void ObjectDataSource1_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Delete failed";
+            }
+            else
+                Response.Redirect("default.aspx");
         }
 
         protected void odsReproductions_Inserted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Insert failed";
+            }
+            else
+                ErrorLabel.Text = "Insert successful";
         }
 
         protected void odsReproductions_Updated( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Update failed";
+            }
+            else
+                ErrorLabel.Text = "Updated successful";
         }
 
         protected void odsReproductions_Deleted( object sender, ObjectDataSourceStatusEventArgs e )
         {
             if (e.Exception != null)
-                ErrorLogDL.Insert( e.Exception );
+            {
+                ErrorLogDL.Insert(e.Exception);
+                e.ExceptionHandled = true;
+                ErrorLabel.Text = "Deleet failed";
+            }
+            else
+                ErrorLabel.Text = "Delete successful";
         }
         #endregion
     }

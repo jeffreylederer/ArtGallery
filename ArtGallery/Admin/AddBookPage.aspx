@@ -18,8 +18,7 @@
 
             <asp:Label runat="server" ID="ErrorLabel" ForeColor="Red" EnableViewState="false" />
             <asp:FormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1"
-                DefaultMode="Insert" Width="100%" 
-                OnItemInserted="FormView1_ItemInserted">
+                DefaultMode="Insert" Width="100%">
                 <InsertItemTemplate>
                     <table>
                         <tr>
@@ -67,7 +66,7 @@
                                                 <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True"
                                                     CommandName="Insert" Text="Insert" />
                                                 &nbsp;<asp:LinkButton ID="LinkButton2" runat="server"
-                                                    CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                                    CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="Cancel_Click"/>
                                             </td>
                                         </tr>
                                 </table>
@@ -76,7 +75,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetById" TypeName="ArtGallery.BookPageDL">
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetById" TypeName="ArtGallery.BookPageDL" OnInserted="ObjectDataSource1_Inserted">
         <InsertParameters>
             <asp:QueryStringParameter Name="bookid" Type="Int32" QueryStringField="id" DefaultValue="0" />
             <asp:Parameter Name="PicturePath" Type="String" />

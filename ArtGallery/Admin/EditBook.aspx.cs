@@ -122,7 +122,8 @@ namespace ArtGallery
                 e.ExceptionHandled = true;
                 ErrorLabel.Text = "Delete failed";
             }
-            Response.Redirect("Default.aspx");
+            else
+                Response.Redirect("Default.aspx");
         }
 
        

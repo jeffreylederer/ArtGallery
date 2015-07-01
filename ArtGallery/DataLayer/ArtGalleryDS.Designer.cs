@@ -68,6 +68,8 @@ namespace ArtGallery.DataLayer {
         
         private BookPage_GetByIdDataTable tableBookPage_GetById;
         
+        private Picture_GetByIDDataTable tablePicture_GetByID;
+        
         private OrphanPictureDataTable tableOrphanPicture;
         
         private global::System.Data.DataRelation relationFK_BookPage_Book;
@@ -173,6 +175,9 @@ namespace ArtGallery.DataLayer {
                 }
                 if ((ds.Tables["BookPage_GetById"] != null)) {
                     base.Tables.Add(new BookPage_GetByIdDataTable(ds.Tables["BookPage_GetById"]));
+                }
+                if ((ds.Tables["Picture_GetByID"] != null)) {
+                    base.Tables.Add(new Picture_GetByIDDataTable(ds.Tables["Picture_GetByID"]));
                 }
                 if ((ds.Tables["OrphanPicture"] != null)) {
                     base.Tables.Add(new OrphanPictureDataTable(ds.Tables["OrphanPicture"]));
@@ -419,6 +424,16 @@ namespace ArtGallery.DataLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Picture_GetByIDDataTable Picture_GetByID {
+            get {
+                return this.tablePicture_GetByID;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public OrphanPictureDataTable OrphanPicture {
             get {
                 return this.tableOrphanPicture;
@@ -557,6 +572,9 @@ namespace ArtGallery.DataLayer {
                 }
                 if ((ds.Tables["BookPage_GetById"] != null)) {
                     base.Tables.Add(new BookPage_GetByIdDataTable(ds.Tables["BookPage_GetById"]));
+                }
+                if ((ds.Tables["Picture_GetByID"] != null)) {
+                    base.Tables.Add(new Picture_GetByIDDataTable(ds.Tables["Picture_GetByID"]));
                 }
                 if ((ds.Tables["OrphanPicture"] != null)) {
                     base.Tables.Add(new OrphanPictureDataTable(ds.Tables["OrphanPicture"]));
@@ -726,6 +744,12 @@ namespace ArtGallery.DataLayer {
                     this.tableBookPage_GetById.InitVars();
                 }
             }
+            this.tablePicture_GetByID = ((Picture_GetByIDDataTable)(base.Tables["Picture_GetByID"]));
+            if ((initTable == true)) {
+                if ((this.tablePicture_GetByID != null)) {
+                    this.tablePicture_GetByID.InitVars();
+                }
+            }
             this.tableOrphanPicture = ((OrphanPictureDataTable)(base.Tables["OrphanPicture"]));
             if ((initTable == true)) {
                 if ((this.tableOrphanPicture != null)) {
@@ -791,6 +815,8 @@ namespace ArtGallery.DataLayer {
             base.Tables.Add(this.tableReproduction_GetById);
             this.tableBookPage_GetById = new BookPage_GetByIdDataTable();
             base.Tables.Add(this.tableBookPage_GetById);
+            this.tablePicture_GetByID = new Picture_GetByIDDataTable();
+            base.Tables.Add(this.tablePicture_GetByID);
             this.tableOrphanPicture = new OrphanPictureDataTable();
             base.Tables.Add(this.tableOrphanPicture);
             this.relationFK_BookPage_Book = new global::System.Data.DataRelation("FK_BookPage_Book", new global::System.Data.DataColumn[] {
@@ -949,6 +975,12 @@ namespace ArtGallery.DataLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializePicture_GetByID() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeOrphanPicture() {
             return false;
         }
@@ -1073,6 +1105,9 @@ namespace ArtGallery.DataLayer {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void BookPage_GetByIdRowChangeEventHandler(object sender, BookPage_GetByIdRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Picture_GetByIDRowChangeEventHandler(object sender, Picture_GetByIDRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void OrphanPictureRowChangeEventHandler(object sender, OrphanPictureRowChangeEvent e);
@@ -8926,6 +8961,594 @@ namespace ArtGallery.DataLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Picture_GetByIDDataTable : global::System.Data.TypedTableBase<Picture_GetByIDRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnFrame;
+            
+            private global::System.Data.DataColumn columnWidth;
+            
+            private global::System.Data.DataColumn columnHeight;
+            
+            private global::System.Data.DataColumn columnDate;
+            
+            private global::System.Data.DataColumn columnweight;
+            
+            private global::System.Data.DataColumn columnMetaTags;
+            
+            private global::System.Data.DataColumn columnNotes;
+            
+            private global::System.Data.DataColumn columnMedia;
+            
+            private global::System.Data.DataColumn columnGallery;
+            
+            private global::System.Data.DataColumn columnPicturePath;
+            
+            private global::System.Data.DataColumn columnprice;
+            
+            private global::System.Data.DataColumn columnsurface;
+            
+            private global::System.Data.DataColumn columnPackingweight;
+            
+            private global::System.Data.DataColumn columnAvailable;
+            
+            private global::System.Data.DataColumn columnhandling;
+            
+            private global::System.Data.DataColumn columnGalleryid;
+            
+            private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columncopyrightholder;
+            
+            private global::System.Data.DataColumn columnlastupdated;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDDataTable() {
+                this.TableName = "Picture_GetByID";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Picture_GetByIDDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Picture_GetByIDDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FrameColumn {
+                get {
+                    return this.columnFrame;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WidthColumn {
+                get {
+                    return this.columnWidth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HeightColumn {
+                get {
+                    return this.columnHeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn weightColumn {
+                get {
+                    return this.columnweight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MetaTagsColumn {
+                get {
+                    return this.columnMetaTags;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NotesColumn {
+                get {
+                    return this.columnNotes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MediaColumn {
+                get {
+                    return this.columnMedia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GalleryColumn {
+                get {
+                    return this.columnGallery;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PicturePathColumn {
+                get {
+                    return this.columnPicturePath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn surfaceColumn {
+                get {
+                    return this.columnsurface;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PackingweightColumn {
+                get {
+                    return this.columnPackingweight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AvailableColumn {
+                get {
+                    return this.columnAvailable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn handlingColumn {
+                get {
+                    return this.columnhandling;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GalleryidColumn {
+                get {
+                    return this.columnGalleryid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn copyrightholderColumn {
+                get {
+                    return this.columncopyrightholder;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn lastupdatedColumn {
+                get {
+                    return this.columnlastupdated;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRow this[int index] {
+                get {
+                    return ((Picture_GetByIDRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Picture_GetByIDRowChangeEventHandler Picture_GetByIDRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Picture_GetByIDRowChangeEventHandler Picture_GetByIDRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Picture_GetByIDRowChangeEventHandler Picture_GetByIDRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Picture_GetByIDRowChangeEventHandler Picture_GetByIDRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddPicture_GetByIDRow(Picture_GetByIDRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRow AddPicture_GetByIDRow(
+                        string Title, 
+                        string Frame, 
+                        double Width, 
+                        double Height, 
+                        short Date, 
+                        decimal weight, 
+                        string MetaTags, 
+                        string Notes, 
+                        string Media, 
+                        string Gallery, 
+                        string PicturePath, 
+                        decimal price, 
+                        string surface, 
+                        decimal Packingweight, 
+                        bool Available, 
+                        decimal handling, 
+                        int Galleryid, 
+                        string Description, 
+                        string copyrightholder, 
+                        System.DateTime lastupdated) {
+                Picture_GetByIDRow rowPicture_GetByIDRow = ((Picture_GetByIDRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Title,
+                        Frame,
+                        Width,
+                        Height,
+                        Date,
+                        weight,
+                        MetaTags,
+                        Notes,
+                        Media,
+                        Gallery,
+                        PicturePath,
+                        price,
+                        surface,
+                        Packingweight,
+                        Available,
+                        handling,
+                        Galleryid,
+                        Description,
+                        copyrightholder,
+                        lastupdated};
+                rowPicture_GetByIDRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPicture_GetByIDRow);
+                return rowPicture_GetByIDRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRow FindByid(int id) {
+                return ((Picture_GetByIDRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Picture_GetByIDDataTable cln = ((Picture_GetByIDDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Picture_GetByIDDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnTitle = base.Columns["Title"];
+                this.columnFrame = base.Columns["Frame"];
+                this.columnWidth = base.Columns["Width"];
+                this.columnHeight = base.Columns["Height"];
+                this.columnDate = base.Columns["Date"];
+                this.columnweight = base.Columns["weight"];
+                this.columnMetaTags = base.Columns["MetaTags"];
+                this.columnNotes = base.Columns["Notes"];
+                this.columnMedia = base.Columns["Media"];
+                this.columnGallery = base.Columns["Gallery"];
+                this.columnPicturePath = base.Columns["PicturePath"];
+                this.columnprice = base.Columns["price"];
+                this.columnsurface = base.Columns["surface"];
+                this.columnPackingweight = base.Columns["Packingweight"];
+                this.columnAvailable = base.Columns["Available"];
+                this.columnhandling = base.Columns["handling"];
+                this.columnGalleryid = base.Columns["Galleryid"];
+                this.columnDescription = base.Columns["Description"];
+                this.columncopyrightholder = base.Columns["copyrightholder"];
+                this.columnlastupdated = base.Columns["lastupdated"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnFrame = new global::System.Data.DataColumn("Frame", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrame);
+                this.columnWidth = new global::System.Data.DataColumn("Width", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWidth);
+                this.columnHeight = new global::System.Data.DataColumn("Height", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHeight);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columnweight = new global::System.Data.DataColumn("weight", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight);
+                this.columnMetaTags = new global::System.Data.DataColumn("MetaTags", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMetaTags);
+                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNotes);
+                this.columnMedia = new global::System.Data.DataColumn("Media", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedia);
+                this.columnGallery = new global::System.Data.DataColumn("Gallery", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGallery);
+                this.columnPicturePath = new global::System.Data.DataColumn("PicturePath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPicturePath);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
+                this.columnsurface = new global::System.Data.DataColumn("surface", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsurface);
+                this.columnPackingweight = new global::System.Data.DataColumn("Packingweight", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPackingweight);
+                this.columnAvailable = new global::System.Data.DataColumn("Available", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAvailable);
+                this.columnhandling = new global::System.Data.DataColumn("handling", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhandling);
+                this.columnGalleryid = new global::System.Data.DataColumn("Galleryid", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGalleryid);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columncopyrightholder = new global::System.Data.DataColumn("copyrightholder", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncopyrightholder);
+                this.columnlastupdated = new global::System.Data.DataColumn("lastupdated", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlastupdated);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columnTitle.AllowDBNull = false;
+                this.columnTitle.MaxLength = 300;
+                this.columnFrame.AllowDBNull = false;
+                this.columnFrame.MaxLength = 100;
+                this.columnWidth.AllowDBNull = false;
+                this.columnHeight.AllowDBNull = false;
+                this.columnDate.AllowDBNull = false;
+                this.columnweight.AllowDBNull = false;
+                this.columnMetaTags.ReadOnly = true;
+                this.columnMetaTags.MaxLength = 2147483647;
+                this.columnNotes.ReadOnly = true;
+                this.columnNotes.MaxLength = 2147483647;
+                this.columnMedia.ReadOnly = true;
+                this.columnMedia.MaxLength = 50;
+                this.columnGallery.AllowDBNull = false;
+                this.columnGallery.MaxLength = 50;
+                this.columnPicturePath.AllowDBNull = false;
+                this.columnPicturePath.MaxLength = 256;
+                this.columnprice.AllowDBNull = false;
+                this.columnsurface.ReadOnly = true;
+                this.columnsurface.MaxLength = 50;
+                this.columnAvailable.AllowDBNull = false;
+                this.columnGalleryid.AllowDBNull = false;
+                this.columnDescription.ReadOnly = true;
+                this.columnDescription.MaxLength = 3000;
+                this.columncopyrightholder.AllowDBNull = false;
+                this.columncopyrightholder.MaxLength = 100;
+                this.columnlastupdated.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRow NewPicture_GetByIDRow() {
+                return ((Picture_GetByIDRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Picture_GetByIDRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Picture_GetByIDRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Picture_GetByIDRowChanged != null)) {
+                    this.Picture_GetByIDRowChanged(this, new Picture_GetByIDRowChangeEvent(((Picture_GetByIDRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Picture_GetByIDRowChanging != null)) {
+                    this.Picture_GetByIDRowChanging(this, new Picture_GetByIDRowChangeEvent(((Picture_GetByIDRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Picture_GetByIDRowDeleted != null)) {
+                    this.Picture_GetByIDRowDeleted(this, new Picture_GetByIDRowChangeEvent(((Picture_GetByIDRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Picture_GetByIDRowDeleting != null)) {
+                    this.Picture_GetByIDRowDeleting(this, new Picture_GetByIDRowChangeEvent(((Picture_GetByIDRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovePicture_GetByIDRow(Picture_GetByIDRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ArtGalleryDS ds = new ArtGalleryDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Picture_GetByIDDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class OrphanPictureDataTable : global::System.Data.TypedTableBase<OrphanPictureRow> {
             
             private global::System.Data.DataColumn columnPicturePath;
@@ -12175,6 +12798,371 @@ namespace ArtGallery.DataLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class Picture_GetByIDRow : global::System.Data.DataRow {
+            
+            private Picture_GetByIDDataTable tablePicture_GetByID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Picture_GetByIDRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePicture_GetByID = ((Picture_GetByIDDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tablePicture_GetByID.idColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    return ((string)(this[this.tablePicture_GetByID.TitleColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Frame {
+                get {
+                    return ((string)(this[this.tablePicture_GetByID.FrameColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.FrameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Width {
+                get {
+                    return ((double)(this[this.tablePicture_GetByID.WidthColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.WidthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Height {
+                get {
+                    return ((double)(this[this.tablePicture_GetByID.HeightColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.HeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short Date {
+                get {
+                    return ((short)(this[this.tablePicture_GetByID.DateColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal weight {
+                get {
+                    return ((decimal)(this[this.tablePicture_GetByID.weightColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.weightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MetaTags {
+                get {
+                    try {
+                        return ((string)(this[this.tablePicture_GetByID.MetaTagsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MetaTags\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.MetaTagsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Notes {
+                get {
+                    try {
+                        return ((string)(this[this.tablePicture_GetByID.NotesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.NotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Media {
+                get {
+                    try {
+                        return ((string)(this[this.tablePicture_GetByID.MediaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Media\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.MediaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Gallery {
+                get {
+                    return ((string)(this[this.tablePicture_GetByID.GalleryColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.GalleryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PicturePath {
+                get {
+                    return ((string)(this[this.tablePicture_GetByID.PicturePathColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.PicturePathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal price {
+                get {
+                    return ((decimal)(this[this.tablePicture_GetByID.priceColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string surface {
+                get {
+                    try {
+                        return ((string)(this[this.tablePicture_GetByID.surfaceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'surface\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.surfaceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Packingweight {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePicture_GetByID.PackingweightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Packingweight\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.PackingweightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Available {
+                get {
+                    return ((bool)(this[this.tablePicture_GetByID.AvailableColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.AvailableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal handling {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePicture_GetByID.handlingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'handling\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.handlingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Galleryid {
+                get {
+                    return ((int)(this[this.tablePicture_GetByID.GalleryidColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.GalleryidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tablePicture_GetByID.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Picture_GetByID\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePicture_GetByID.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string copyrightholder {
+                get {
+                    return ((string)(this[this.tablePicture_GetByID.copyrightholderColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.copyrightholderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime lastupdated {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePicture_GetByID.lastupdatedColumn]));
+                }
+                set {
+                    this[this.tablePicture_GetByID.lastupdatedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMetaTagsNull() {
+                return this.IsNull(this.tablePicture_GetByID.MetaTagsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMetaTagsNull() {
+                this[this.tablePicture_GetByID.MetaTagsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNotesNull() {
+                return this.IsNull(this.tablePicture_GetByID.NotesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNotesNull() {
+                this[this.tablePicture_GetByID.NotesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMediaNull() {
+                return this.IsNull(this.tablePicture_GetByID.MediaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMediaNull() {
+                this[this.tablePicture_GetByID.MediaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssurfaceNull() {
+                return this.IsNull(this.tablePicture_GetByID.surfaceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsurfaceNull() {
+                this[this.tablePicture_GetByID.surfaceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPackingweightNull() {
+                return this.IsNull(this.tablePicture_GetByID.PackingweightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPackingweightNull() {
+                this[this.tablePicture_GetByID.PackingweightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshandlingNull() {
+                return this.IsNull(this.tablePicture_GetByID.handlingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethandlingNull() {
+                this[this.tablePicture_GetByID.handlingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tablePicture_GetByID.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tablePicture_GetByID.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class OrphanPictureRow : global::System.Data.DataRow {
             
             private OrphanPictureDataTable tableOrphanPicture;
@@ -12949,6 +13937,40 @@ namespace ArtGallery.DataLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BookPage_GetByIdRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Picture_GetByIDRowChangeEvent : global::System.EventArgs {
+            
+            private Picture_GetByIDRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRowChangeEvent(Picture_GetByIDRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Picture_GetByIDRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -18943,6 +19965,207 @@ namespace ArtGallery.DataLayer.ArtGalleryDSTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             ArtGalleryDS.BookPage_GetByIdDataTable dataTable = new ArtGalleryDS.BookPage_GetByIdDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Picture_GetByIDTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Picture_GetByIDTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Picture_GetByID";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("Frame", "Frame");
+            tableMapping.ColumnMappings.Add("Width", "Width");
+            tableMapping.ColumnMappings.Add("Height", "Height");
+            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("weight", "weight");
+            tableMapping.ColumnMappings.Add("MetaTags", "MetaTags");
+            tableMapping.ColumnMappings.Add("Notes", "Notes");
+            tableMapping.ColumnMappings.Add("Media", "Media");
+            tableMapping.ColumnMappings.Add("Gallery", "Gallery");
+            tableMapping.ColumnMappings.Add("PicturePath", "PicturePath");
+            tableMapping.ColumnMappings.Add("price", "price");
+            tableMapping.ColumnMappings.Add("surface", "surface");
+            tableMapping.ColumnMappings.Add("Packingweight", "Packingweight");
+            tableMapping.ColumnMappings.Add("Available", "Available");
+            tableMapping.ColumnMappings.Add("handling", "handling");
+            tableMapping.ColumnMappings.Add("Galleryid", "Galleryid");
+            tableMapping.ColumnMappings.Add("Description", "Description");
+            tableMapping.ColumnMappings.Add("copyrightholder", "copyrightholder");
+            tableMapping.ColumnMappings.Add("lastupdated", "lastupdated");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.Picture_GetByID";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ArtGalleryDS.Picture_GetByIDDataTable dataTable, global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ArtGalleryDS.Picture_GetByIDDataTable GetData(global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            ArtGalleryDS.Picture_GetByIDDataTable dataTable = new ArtGalleryDS.Picture_GetByIDDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

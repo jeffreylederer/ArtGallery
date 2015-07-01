@@ -62,10 +62,10 @@ namespace ArtGallery
 
         protected bool GenerateInvoice( int id, SpiceLogic.PayPalCtrlForWPS.Controls.BuyNowButton btnBuy, bool unframe )
         {
-            ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
+            var table = PictureDL.GetById( id );
             if (table == null || table.Rows.Count != 1)
                 return false;
-            ArtGalleryDS.PictureRow row = table[0];
+            var row = table[0];
             btnBuy.ItemName = row.Title + (unframe ? " (unframed)" : "");
             btnBuy.ItemNumber = id.ToString();
             if (!unframe)

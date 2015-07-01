@@ -19,7 +19,7 @@ namespace ArtGallery
                 {
                     int id = int.Parse( Request.QueryString["id"] );
    
-                    ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
+                    var table = PictureDL.GetById( id );
                     if (table == null || table.Rows.Count != 1)
                     {
                         cellFramed.Visible = false;
@@ -127,10 +127,10 @@ namespace ArtGallery
         private bool GenerateInvoice( int id, bool framed, PictureInfo pictureInfo )
         {
             
-            ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
+            var table = PictureDL.GetById( id );
             if (table == null || table.Rows.Count != 1)
                 return false;
-            ArtGalleryDS.PictureRow row = table[0];
+            var row = table[0];
             btnBuy.ItemName = row.Title + (framed ? "": " (unframed)" );
             btnBuy.ItemNumber = id.ToString();
             if (ddlShipping.SelectedValue != "00")

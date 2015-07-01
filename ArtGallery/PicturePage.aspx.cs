@@ -24,7 +24,7 @@ namespace ArtGallery
 
         private void ProcessPicture( int id )
         {
-            ArtGalleryDS.PictureDataTable table = PictureDL.GetById( id );
+            var table = PictureDL.GetById( id );
             FormView1.DataSource = table.Rows;
             FormView1.DataBind();
 

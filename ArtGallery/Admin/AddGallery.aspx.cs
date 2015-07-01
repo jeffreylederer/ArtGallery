@@ -20,11 +20,17 @@ namespace ArtGallery.Admin
             {
                 ErrorLabel.Text = e.Exception.Message;
                 e.ExceptionHandled = true;
+                ErrorLabel.Text = "Insert failed";
                 return;
             }
             string id = e.ReturnValue.ToString();
             Application["keywords"] = null;
             Response.Redirect("EditGallery.aspx?id=" + id, true);
+        }
+
+        protected void InsertCancelButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("default.aspx");
         }
     }
 }
