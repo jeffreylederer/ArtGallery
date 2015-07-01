@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfAdditionalData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AdditionalData>
+    <Name>strongbox</Name>
+    <Value>2836</Value>
+  </AdditionalData>
+  <AdditionalData>
+    <Name>width</Name>
+    <Value>22.75</Value>
+  </AdditionalData>
+  <AdditionalData>
+    <Name>height</Name>
+    <Value>30.75</Value>
+  </AdditionalData>
+  <AdditionalData>
+    <Name>framed</Name>
+    <Value>true</Value>
+  </AdditionalData>
+  <AdditionalData>
+    <Name>shipping method</Name>
+    <Value>Ground</Value>
+  </AdditionalData>
+</ArrayOfAdditionalData>
