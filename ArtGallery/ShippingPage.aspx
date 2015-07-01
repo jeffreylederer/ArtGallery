@@ -52,7 +52,7 @@
 
                                         <asp:DropDownList ID="ddlShipping" runat="server">
                                             <asp:ListItem Value="00">Local Pickup</asp:ListItem>
-                                            <asp:ListItem Selected="True" Value="03">Ground</asp:ListItem>
+                                            <asp:ListItem Value="03">Ground</asp:ListItem>
                                             <asp:ListItem Value="01">Next Day Air</asp:ListItem>
                                             <asp:ListItem Value="02">Second Day Air</asp:ListItem>
                                         </asp:DropDownList>
