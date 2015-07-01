@@ -89,7 +89,7 @@
     </Reference>
     <Reference Include="SpiceLogicPayPalStd, Version=3.6.0.6, Culture=neutral, PublicKeyToken=e444157244638e02, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\SpiceLogicPayPalStd.dll</HintPath>
+      <HintPath>Assemblies\SpiceLogicPayPalStd.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -482,6 +482,7 @@
     <Content Include="App_Data\YosefGolem copy.jpg" />
     <Content Include="App_Data\ZoodiacTiny.jpg" />
     <Content Include="App_Data\Zugzwang-TheLastMove.jpg" />
+    <Content Include="Assemblies\SpiceLogicPayPalStd.dll" />
     <Content Include="Contact.aspx" />
     <Content Include="Admin\EditBookPage.aspx" />
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
