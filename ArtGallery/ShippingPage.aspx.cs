@@ -23,11 +23,21 @@ namespace ArtGallery
                     if (table == null || table.Rows.Count != 1)
                     {
                         cellFramed.Visible = false;
+                        ddlShipping.SelectedValue = "03";
                     }
-                    else
+                    else if (!table[0].Frame.ToUpper().Contains("UNFRAMED"))
                     {
-                            cellFramed.Visible = !table[0].Frame.ToUpper().Contains( "UNFRAMED" ) && table[0].Available;
-                            chkFramed.Checked =  !table[0].Frame.ToUpper().Contains( "UNFRAMED" );
+                            cellFramed.Visible = table[0].Available;
+                            chkFramed.Checked = true;
+                            ddlShipping.SelectedValue = "03";
+                    }
+                    else 
+                    {
+                        cellFramed.Visible = false;
+                        chkFramed.Checked = false;
+                        ddlShipping.Items.Add(new ListItem("Media Mail (7 days)", "10"));
+                        ddlShipping.Items.Add(new ListItem("Priority Mail (2 days)", "20"));
+                        ddlShipping.SelectedValue = "10";
                     }
 
                     ArtGalleryDS.Picture_GetInfoDataTable ptable = PictureDL.GetInfo( id, false );
@@ -141,7 +151,7 @@ namespace ArtGallery
                 }
                 else
                 {
-                    pictureInfo.handling = 10;
+                    pictureInfo.handling = framed ? 10 : 3;
                     pictureInfo.packagingWeight = 1.5m;
                     pictureInfo.pictureWeight = .5m;
                     pictureInfo.height = (decimal)Math.Ceiling( Math.Max( row.Width, row.Height ) );
@@ -274,6 +284,17 @@ namespace ArtGallery
         {
             if (ddlShipping.SelectedValue == "00")
                 return 0;
+            else if (ddlShipping.SelectedValue == "10")
+            {
+                var wght = (int)Math.Ceiling((double)pictureInfo.weight);
+                if (wght == 1)
+                    return (decimal)2.69;
+                else
+                    return (decimal)(2.69 + (wght - 1) * .8);
+
+            }
+            else if (ddlShipping.SelectedValue == "20")
+                return (decimal)8.0;
             try
             {
                 RateService rate = new RateService();
