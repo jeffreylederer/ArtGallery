@@ -61,130 +61,93 @@
 
                                     </td>
                                 </tr>
-
+                                </tr>
                                 <tr>
-                                    <td align="right">First Name:
+                                    <td align="right">Quantity:
                                     </td>
                                     <td>
 
-                                        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                            ControlToValidate="txtFirstName" ErrorMessage="First Name is required">*</asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="ReqValQuantity" runat="server"
+                                            ControlToValidate="txtQuantity" ErrorMessage="Quantity is required">*</asp:RequiredFieldValidator>
+
+                                        <asp:RangeValidator ID="RngValQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity must be a positive number" MaximumValue="100" MinimumValue="1" Type="Integer">*</asp:RangeValidator>
 
                                     </td>
+                                    <tr>
+                                        <td align="right">First Name: </td>
+                                        <td>
+                                            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFirstName" ErrorMessage="First Name is required">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Last Name: </td>
+                                        <td>
+                                            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last Name is required">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Address: </td>
+                                        <td>
+                                            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAddress" ErrorMessage="Address is required">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"></td>
+                                        <td>
+                                            <asp:TextBox ID="txtAddress1" runat="server"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">City: </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCity" ErrorMessage="City is required">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">State: </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlState" runat="server" AppendDataBoundItems="True" DataSourceID="odsState" DataTextField="StateName" DataValueField="StateAbbr">
+                                                <asp:ListItem></asp:ListItem>
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlState" ErrorMessage="State is required">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <asp:Label ID="lblZip" runat="server" Text="Zipcode" />
+                                            : </td>
+                                        <td>
+                                            <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rqZip" runat="server" ControlToValidate="txtZipCode" ErrorMessage="Zipcode is required">*</asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="reZip" runat="server" ControlToValidate="txtZipCode" ErrorMessage="Not acceptable zipcode" ValidationExpression="\d{5}(-\d{4})?">*</asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RqZipCalc" runat="server" ControlToValidate="txtZipCode" ErrorMessage="Zipcode is required" ValidationGroup="calc">*</asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="reZipCalc" runat="server" ControlToValidate="txtZipCode" ErrorMessage="Not acceptable zipcode" ValidationExpression="\d{5}(-\d{4})?" ValidationGroup="calc">*</asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Country: </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
+                                                <asp:ListItem Selected="True" Value="US">United States</asp:ListItem>
+                                                <asp:ListItem Value="CA">Canada</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Email&nbsp; Address</td>
+                                        <td>
+                                            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address is requiired">*</asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtEmail" ErrorMessage="Not acceptable email address" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
                                 </tr>
 
-                                <tr>
-                                    <td align="right">Last Name:
-                                    </td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                            ControlToValidate="txtLastName" ErrorMessage="Last Name is required">*</asp:RequiredFieldValidator>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right">Address:
-                                    </td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                            ErrorMessage="Address is required" ControlToValidate="txtAddress">*</asp:RequiredFieldValidator>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right"></td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtAddress1" runat="server"></asp:TextBox>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right">City:
-                                    </td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                                            ControlToValidate="txtCity" ErrorMessage="City is required">*</asp:RequiredFieldValidator>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right">State:
-                                    </td>
-                                    <td>
-
-                                        <asp:DropDownList ID="ddlState" runat="server" AppendDataBoundItems="True"
-                                            DataSourceID="odsState" DataTextField="StateName" DataValueField="StateAbbr">
-                                            <asp:ListItem></asp:ListItem>
-                                        </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                                            ControlToValidate="ddlState" ErrorMessage="State is required">*</asp:RequiredFieldValidator>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right">
-                                        <asp:Label runat="server" ID="lblZip" Text="Zipcode" />:
-                                    </td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="rqZip" runat="server"
-                                            ControlToValidate="txtZipCode" ErrorMessage="Zipcode is required">*</asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="reZip" runat="server"
-                                            ControlToValidate="txtZipCode" ErrorMessage="Not acceptable zipcode"
-                                            ValidationExpression="\d{5}(-\d{4})?">*</asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RqZipCalc" runat="server" ValidationGroup="calc"
-                                            ControlToValidate="txtZipCode" ErrorMessage="Zipcode is required">*</asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="reZipCalc" runat="server"
-                                            ControlToValidate="txtZipCode" ErrorMessage="Not acceptable zipcode" ValidationGroup="calc"
-                                            ValidationExpression="\d{5}(-\d{4})?">*</asp:RegularExpressionValidator>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td align="right">Country:
-                                    </td>
-                                    <td>
-
-                                        <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True"
-                                            OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
-                                            <asp:ListItem Selected="True" Value="US">United States</asp:ListItem>
-                                            <asp:ListItem Value="CA">Canada</asp:ListItem>
-                                        </asp:DropDownList>
-
-                                    </td>
-                                </tr>
-
-
-
-
-                                <tr>
-                                    <td align="right">Email&nbsp; Address</td>
-                                    <td>
-
-                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                            ControlToValidate="txtEmail" ErrorMessage="Email address is requiired">*</asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
-                                            ControlToValidate="txtEmail" ErrorMessage="Not acceptable email address"
-                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
-
-                                    </td>
-                                </tr>
                             </table>
                             <br />
                             <br />

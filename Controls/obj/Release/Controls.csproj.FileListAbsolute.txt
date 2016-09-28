@@ -3,3 +3,8 @@ C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\Rele
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.pdb
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.csprojResolveAssemblyReference.cache
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\Release\Controls.dll
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\Release\Controls.pdb
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.csprojResolveAssemblyReference.cache
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.dll
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Release\Controls.pdb

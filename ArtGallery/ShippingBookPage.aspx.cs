@@ -79,12 +79,14 @@ namespace ArtGallery
 
             #endregion
 
-            
+
+            var Quantity = int.Parse(txtQuantity.Text);
             btnBuy.Amount = row.price;
-            if(ddlShipping.SelectedValue != "00")
+            if (ddlShipping.SelectedValue != "00")
                 btnBuy.Handling = (decimal) 3.0;
             btnBuy.ItemName = "Book: " + row.title;
             btnBuy.ItemNumber = id.ToString();
+            btnBuy.Quantity = Quantity;
             btnBuy.BuyerInfo.FirstName = txtFirstName.Text;
             btnBuy.BuyerInfo.LastName = txtLastName.Text;
             btnBuy.BuyerInfo.StAddress1 = txtAddress.Text;
@@ -94,14 +96,14 @@ namespace ArtGallery
             btnBuy.BuyerInfo.Zip = txtZipCode.Text;
             btnBuy.BuyerInfo.EmailAddress = txtEmail.Text;
             btnBuy.BuyerInfo.Country = ddlCountry.SelectedValue;
-            btnBuy.Shipping = ShippingCost( row );
+            btnBuy.Shipping = ShippingCost( row, Quantity );
             decimal salesTax = 0;
             if (ddlShipping.SelectedValue == "00")
                 salesTax = SalesTaxDL.Get( "15217" );  // change to ship from address
             else if(ddlCountry.SelectedValue == "US")
                 salesTax = SalesTaxDL.Get( txtZipCode.Text );
             if (salesTax > 0)
-                btnBuy.Tax = salesTax*btnBuy.Amount;
+                btnBuy.Tax = salesTax*btnBuy.Amount*Quantity;
             btnBuy.AdditionalDataItems["shipping method"] = ddlShipping.SelectedItem.Text;
             btnBuy.AdditionalDataItems["mechandize"] = "book";
             pnlForm.Visible = false;
@@ -173,13 +175,13 @@ namespace ArtGallery
             up1.Update();
         }
 
-        private decimal ShippingCost(ArtGalleryDS.BookRow row )
+        private decimal ShippingCost(ArtGalleryDS.BookRow row, int Quantity )
         {
             if (ddlShipping.SelectedValue == "00")
                 return 0;
             else if (ddlShipping.SelectedValue == "10")
             {
-                int wght = (int) Math.Ceiling((double) row.weight);
+                int wght = (int) Math.Ceiling((double) row.weight* Quantity);
                 if(wght==1)
                     return (decimal) 2.69;
                 else
@@ -273,7 +275,7 @@ namespace ArtGallery
                 uom.Code = "LBS";
                 uom.Description = "pounds";
                 packageWeight.UnitOfMeasurement = uom;
-                packageWeight.Weight = Math.Ceiling( row.weight ).ToString( "#" );
+                packageWeight.Weight = Math.Ceiling( row.weight * Quantity).ToString( "#" );
                 package.PackageWeight = packageWeight;
 
                 // package size
@@ -346,18 +348,20 @@ namespace ArtGallery
             
             
             bookInfo.handling = 3;
-            if(ddlShipping.SelectedValue == "00")
+            var Quantity = int.Parse(txtQuantity.Text);
+            if (ddlShipping.SelectedValue == "00")
             {
-                bookInfo.tax = SalesTaxDL.Get( "15217" ) * row.price; // needs to be changed shipfrom address
+                bookInfo.tax = SalesTaxDL.Get( "15217" ) * row.price * Quantity; // needs to be changed shipfrom address
                 bookInfo.handling=0;
             }
             else if (ddlCountry.SelectedValue == "US")
-                bookInfo.tax = SalesTaxDL.Get(txtZipCode.Text) * row.price;
+                bookInfo.tax = SalesTaxDL.Get(txtZipCode.Text) * row.price * Quantity;
             else
                 bookInfo.tax = 0;
-            bookInfo.price = row.price;
-            bookInfo.shipping = ShippingCost(row);
-            bookInfo.total = row.price + bookInfo.handling + bookInfo.shipping + bookInfo.tax;
+ 
+            bookInfo.price = row.price*Quantity;
+            bookInfo.shipping = ShippingCost(row, Quantity);
+            bookInfo.total = row.price*Quantity + bookInfo.handling + bookInfo.shipping + bookInfo.tax;
             BookInfo[] list = { bookInfo };
             fv.DataSource = list;
             fv.DataBind();
@@ -374,7 +378,7 @@ namespace ArtGallery
         public decimal total { get; set; }
         public decimal shipping { get; set; }
         public decimal handling { get; set; }
-      
+         
 
         public BookInfo()
         {

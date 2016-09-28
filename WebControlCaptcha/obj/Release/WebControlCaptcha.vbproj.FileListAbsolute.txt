@@ -2,3 +2,8 @@ C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.xml
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.dll
 C:\Users\jeff\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.xml
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.dll
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\bin\WebControlCaptcha.xml
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.vbprojResolveAssemblyReference.cache
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.dll
+C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Release\WebControlCaptcha.xml

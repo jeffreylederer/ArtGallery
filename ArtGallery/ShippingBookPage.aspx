@@ -62,7 +62,13 @@
 
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <td align="right">Quantity: </td>
+                                    <td>
+                                        <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="ReqValQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity is required">*</asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="RngValQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity must be a positive number" MaximumValue="100" MinimumValue="1" Type="Integer">*</asp:RangeValidator>
+                                    </td>
                                 <tr>
                                     <td align="right">First Name:
                                     </td>

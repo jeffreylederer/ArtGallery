@@ -79,12 +79,13 @@ namespace ArtGallery
 
             #endregion
 
-            
+            var Quantity = int.Parse(txtQuantity.Text);
             btnBuy.Amount = row.price;
             if(ddlShipping.SelectedValue != "00")
                 btnBuy.Handling = (decimal) 5.0;
             btnBuy.ItemName = "Print: " + row.Title;
             btnBuy.ItemNumber = id.ToString();
+            btnBuy.Quantity = Quantity;
             btnBuy.BuyerInfo.FirstName = txtFirstName.Text;
             btnBuy.BuyerInfo.LastName = txtLastName.Text;
             btnBuy.BuyerInfo.StAddress1 = txtAddress.Text;
@@ -94,14 +95,14 @@ namespace ArtGallery
             btnBuy.BuyerInfo.Zip = txtZipCode.Text;
             btnBuy.BuyerInfo.EmailAddress = txtEmail.Text;
             btnBuy.BuyerInfo.Country = ddlCountry.SelectedValue;
-            btnBuy.Shipping = ShippingCost( row );
+            btnBuy.Shipping = ShippingCost( row, Quantity );
             decimal salesTax = 0;
             if (ddlShipping.SelectedValue == "00")
                 salesTax = SalesTaxDL.Get( "15217" );  // change to ship from address
             else if(ddlCountry.SelectedValue == "US")
                 salesTax = SalesTaxDL.Get( txtZipCode.Text );
             if (salesTax > 0)
-                btnBuy.Tax = salesTax*btnBuy.Amount;
+                btnBuy.Tax = salesTax*btnBuy.Amount * Quantity;
             btnBuy.AdditionalDataItems["shipping method"] = ddlShipping.SelectedItem.Text;
             btnBuy.AdditionalDataItems["mechandize"] = "reproduction";
             pnlForm.Visible = false;
@@ -173,13 +174,13 @@ namespace ArtGallery
             up1.Update();
         }
 
-        private decimal ShippingCost(ArtGalleryDS.Reproduction_GetByIdRow row )
+        private decimal ShippingCost(ArtGalleryDS.Reproduction_GetByIdRow row, int Quantity )
         {
             if (ddlShipping.SelectedValue == "00")
                 return 0;
             else if (ddlShipping.SelectedValue == "10")
             {
-                int wght = (int) Math.Ceiling((double) row.weight);
+                int wght = (int) Math.Ceiling((double) row.weight*Quantity);
                 if(wght==1)
                     return (decimal) 2.69;
                 else
@@ -273,7 +274,7 @@ namespace ArtGallery
                 uom.Code = "LBS";
                 uom.Description = "pounds";
                 packageWeight.UnitOfMeasurement = uom;
-                packageWeight.Weight = Math.Ceiling( row.weight ).ToString( "#" );
+                packageWeight.Weight = Math.Ceiling( row.weight*Quantity ).ToString( "#" );
                 package.PackageWeight = packageWeight;
 
                 // package size
@@ -346,18 +347,21 @@ namespace ArtGallery
             
             
             ReproInfo.handling = 5;
-            if(ddlShipping.SelectedValue == "00")
+            var Quantity = int.Parse(txtQuantity.Text);
+            if (ddlShipping.SelectedValue == "00")
             {
-                ReproInfo.tax = SalesTaxDL.Get( "15217" ) * row.price; // needs to be changed shipfrom address
+                ReproInfo.tax = SalesTaxDL.Get( "15217" ) * row.price*Quantity; // needs to be changed shipfrom address
                 ReproInfo.handling=0;
             }
             else if (ddlCountry.SelectedValue == "US")
-                ReproInfo.tax = SalesTaxDL.Get(txtZipCode.Text) * row.price;
+                ReproInfo.tax = SalesTaxDL.Get(txtZipCode.Text) * row.price * Quantity;
             else
                 ReproInfo.tax = 0;
-            ReproInfo.price = row.price;
-            ReproInfo.shipping = ShippingCost(row);
-            ReproInfo.total = row.price + ReproInfo.handling + ReproInfo.shipping + ReproInfo.tax;
+  
+            ReproInfo.price = row.price*Quantity;
+          
+            ReproInfo.shipping = ShippingCost(row, Quantity);
+            ReproInfo.total = row.price* Quantity + ReproInfo.handling + ReproInfo.shipping + ReproInfo.tax;
             ReproInfo[] list = { ReproInfo };
             fv.DataSource = list;
             fv.DataBind();
