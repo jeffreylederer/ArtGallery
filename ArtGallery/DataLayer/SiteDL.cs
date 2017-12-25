@@ -31,7 +31,7 @@ namespace ArtGallery
                 SqlDataAdapter da = new SqlDataAdapter( selectCommand );
                 da.Fill( data, "Site" );
             }
-            catch { }
+            catch(Exception ex) { }
             finally
             {
                 if (conn != null && conn.State == ConnectionState.Open)

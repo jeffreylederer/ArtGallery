@@ -5,11 +5,20 @@
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <script type="text/javascript" src="Scripts/readmore.js"></script>
     <script type="text/javascript">
         function SelectImage(val) {
             var target = "refImage" + val;
             __doPostBack(target, val);
         }
+
+        window.addEventListener('load',
+            function() {
+                $('#description').readmore(
+                    {
+                        collapsedHeight: 75
+                    });
+            });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">

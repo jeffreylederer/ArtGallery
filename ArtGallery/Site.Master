@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-8" style="border: 0px none transparent">
 
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" style="font-family:Palatino, serif;font-size:large;">
                     <li><a href="Default.aspx">Home</a></li>
 
                     <li class="dropdown">
@@ -58,7 +58,7 @@
                         <ul class="dropdown-menu" id="ViewBooks">
                         </ul>
                     </li>
-
+                    <li><a href="GreetingCards.aspx">Greeting Cards</a></li>
                     <li><a href="About.aspx">About the Artist</a></li>
 
                     <li><a href="Contact.aspx">Contact</a></li>

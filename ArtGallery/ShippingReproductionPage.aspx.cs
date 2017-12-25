@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -40,11 +41,12 @@ namespace ArtGallery
                  return;
              }
              var row = table[0];
-            
 
-            
 
-            ArtGalleryDS.PayPalRow row1 = PayPayDL.GetAcive();
+
+
+            var mode = ConfigurationManager.AppSettings["env"];
+            ArtGalleryDS.PayPalRow row1 = PayPayDL.GetByMode(mode);
             if (row1 == null)
             {
                 return;
@@ -66,7 +68,7 @@ namespace ArtGallery
             btnBuy.PayPalReturn.PDTAuthenticationToken = row1.PDTAuthenticationToken;
 
             //paypalformsubmission
-            if (row1.mode == "sandbox")
+            if (mode == "sandbox")
             {
                 btnBuy.PayPalFormSubmission.PostDestination = FormSubmissionSettings.PostActionDestinations.PayPal_Sandbox;
                 btnBuy.PayPalFormSubmission.PostActionUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr";
@@ -105,6 +107,7 @@ namespace ArtGallery
                 btnBuy.Tax = salesTax*btnBuy.Amount * Quantity;
             btnBuy.AdditionalDataItems["shipping method"] = ddlShipping.SelectedItem.Text;
             btnBuy.AdditionalDataItems["mechandize"] = "reproduction";
+            btnBuy.Option1FieldName = txtDedication.Text;
             pnlForm.Visible = false;
             pnlProcessing.Visible = true;
             btnBuy.ImageUrl = "Images/dot.jpg";

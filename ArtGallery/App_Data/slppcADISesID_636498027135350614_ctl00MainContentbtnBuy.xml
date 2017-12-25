@@ -4,4 +4,8 @@
     <Name>shipping method</Name>
     <Value>Media Mail (7 days)</Value>
   </AdditionalData>
+  <AdditionalData>
+    <Name>mechandize</Name>
+    <Value>book</Value>
+  </AdditionalData>
 </ArrayOfAdditionalData>

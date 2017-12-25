@@ -33,7 +33,7 @@ namespace ArtGallery
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
                 da.Fill(data, "BookPage_GetById");
             }
-            catch (Exception ex)
+            catch (Exception)
             { 
             }
             finally
@@ -117,7 +117,7 @@ namespace ArtGallery
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
                 da.Fill(data, "BookPage");
             }
-            catch(Exception ex) 
+            catch(Exception) 
             { 
             }
             finally
@@ -146,7 +146,7 @@ namespace ArtGallery
                 SqlDataAdapter da = new SqlDataAdapter(selectCommand);
                 da.Fill(data, "BookPage");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             finally

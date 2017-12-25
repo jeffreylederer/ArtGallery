@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<ArrayOfAdditionalData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <AdditionalData>
-    <Name>shipping method</Name>
-    <Value>Media Mail (7 days)</Value>
-  </AdditionalData>
-</ArrayOfAdditionalData>

@@ -5,17 +5,15 @@
 <%@ Register Assembly="Microsoft.Web.GeneratedImage" Namespace="Microsoft.Web" TagPrefix="cc1" %>
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-    <script src="http://jtruncate.googlecode.com/svn/trunk/jquery.jtruncate.js" type="text/javascript"></script>
-    <script language="javascript" type="text/javascript">
-<!--
-    function pageLoad() {
-        $().ready(function () {
-            $('#description').jTruncate({
-                minTrail: 20
+    <script type="text/javascript" src="Scripts/readmore.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load',
+            function () {
+                $('#description').readmore(
+                    {
+                        collapsedHeight: 75
+                    });
             });
-        });
-    }
-    -->
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">

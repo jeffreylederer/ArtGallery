@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -62,7 +63,8 @@ namespace ArtGallery
 
             PictureInfo pictureInfo = new PictureInfo();
 
-            ArtGalleryDS.PayPalRow row1 = PayPayDL.GetAcive();
+            var mode = ConfigurationManager.AppSettings["env"];
+            ArtGalleryDS.PayPalRow row1 = PayPayDL.GetByMode(mode);
             if (row1 == null)
             {
                 return;
@@ -84,7 +86,7 @@ namespace ArtGallery
             btnBuy.PayPalReturn.PDTAuthenticationToken = row1.PDTAuthenticationToken;
 
             //paypalformsubmission
-            if (row1.mode == "sandbox")
+            if (mode == "sandbox")
             {
                 btnBuy.PayPalFormSubmission.PostDestination = FormSubmissionSettings.PostActionDestinations.PayPal_Sandbox;
                 btnBuy.PayPalFormSubmission.PostActionUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr";

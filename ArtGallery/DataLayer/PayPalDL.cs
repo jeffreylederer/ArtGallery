@@ -24,7 +24,7 @@ namespace ArtGallery
         /// <param name="mode">either SandBox or Real</param>
         /// <returns>PayPal typed dataset</returns>
         [DataObjectMethod( DataObjectMethodType.Select, false )]
-        public static ArtGalleryDS.PayPalDataTable GetByMode(string mode)
+        public static ArtGalleryDS.PayPalRow GetByMode(string mode)
         {
             SqlConnection conn = new SqlConnection( ConfigurationManager.ConnectionStrings["GalleryConnectionString"].ConnectionString );
             ArtGalleryDS data = new ArtGalleryDS();
@@ -47,7 +47,9 @@ namespace ArtGallery
                 if (conn != null && conn.State == ConnectionState.Open)
                     conn.Close();
             }
-            return data.PayPal;
+            if (data.PayPal.Rows.Count == 1)
+                return data.PayPal[0];
+            return null;
         }
 
         /// <summary>

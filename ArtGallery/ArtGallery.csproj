@@ -493,6 +493,7 @@
     <Content Include="DedicatedPayPalReturnHandler.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="google341f7300da3105de.html" />
+    <Content Include="GreetingCards.aspx" />
     <Content Include="Images\btn_buynowCC_LG.gif" />
     <Content Include="Images\buynow.gif" />
     <Content Include="Images\dot.jpg" />
@@ -512,6 +513,7 @@
     <Content Include="Prints.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.touchwipe.js" />
+    <Content Include="Scripts\readmore.js" />
     <Content Include="SearchPicturePage.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="GalleryPage.aspx" />
@@ -804,6 +806,13 @@
     </Compile>
     <Compile Include="Gallery.cs" />
     <Compile Include="GalleryController.cs" />
+    <Compile Include="GreetingCards.aspx.cs">
+      <DependentUpon>GreetingCards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GreetingCards.aspx.designer.cs">
+      <DependentUpon>GreetingCards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImageHandlers\Captcha.cs" />
     <Compile Include="ImageHandlers\CaptchaHandler.ashx.cs">
       <DependentUpon>CaptchaHandler.ashx</DependentUpon>

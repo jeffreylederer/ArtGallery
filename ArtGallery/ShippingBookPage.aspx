@@ -2,6 +2,16 @@
 
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript" src="Scripts/readmore.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load',
+            function () {
+                $('#description').readmore(
+                    {
+                        collapsedHeight: 75
+                    });
+            });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
@@ -192,9 +202,21 @@
 
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td align="right">Personal Dedication<br/>from the Author</td>
+                                    <td>
+                                        <asp:TextBox ID="txtDedication" runat="server" Rows="4"  Width="200px" TextMode="MultiLine" MaxLength="200"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"  ControlToValidate="txtDedication"
+                                            ErrorMessage="Dedication is limited to 200 characters" ValidationExpression=".{0,200}">*</asp:RegularExpressionValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="2"> Dedication is limited to 200 characters. The dedication will always include<br /> the Author&#39;s signature (which you do not need to include here.)<br /></td>
+
+                                </tr>
                             </table>
-                            <br />
-                            <br />
+                           
                         </ContentTemplate>
                     </asp:UpdatePanel>
 

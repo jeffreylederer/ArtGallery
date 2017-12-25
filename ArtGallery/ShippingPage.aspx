@@ -2,6 +2,16 @@
 
 <%@ Register Assembly="SpiceLogicPayPalStd" Namespace="SpiceLogic.PayPalCtrlForWPS.Controls" TagPrefix="cc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript" src="Scripts/readmore.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load',
+            function () {
+                $('#description').readmore(
+                    {
+                        collapsedHeight: 75
+                    });
+            });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel runat="server" ID="pnlProcessing" Visible="false">
