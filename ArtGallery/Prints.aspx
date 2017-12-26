@@ -9,7 +9,9 @@
             function () {
                 $('#description').readmore(
                     {
-                        collapsedHeight: 75
+                        collapsedHeight: 75,
+                        lessLink: '<a href="#">Less</a>',
+                        moreLink: '<a href="#">More</a>'
                     });
             });
     </script>

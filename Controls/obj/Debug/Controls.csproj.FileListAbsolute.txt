@@ -8,3 +8,7 @@ C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\bin\De
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Debug\Controls.csprojResolveAssemblyReference.cache
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Debug\Controls.dll
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\Controls\obj\Debug\Controls.pdb
+c:\websites\magiceye\Controls.dll
+c:\websites\magiceye\Controls.pdb
+c:\websites\magiceyegallery\Controls.dll
+c:\websites\magiceyegallery\Controls.pdb

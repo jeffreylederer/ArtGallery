@@ -18,3 +18,9 @@ C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptc
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.dll
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.xml
 C:\Users\DellPC\Documents\Visual Studio 2010\Projects\ArtGallery\WebControlCaptcha\obj\Debug\WebControlCaptcha.pdb
+c:\websites\magiceye\WebControlCaptcha.dll
+c:\websites\magiceye\WebControlCaptcha.pdb
+c:\websites\magiceye\WebControlCaptcha.xml
+c:\websites\magiceyegallery\WebControlCaptcha.dll
+c:\websites\magiceyegallery\WebControlCaptcha.pdb
+c:\websites\magiceyegallery\WebControlCaptcha.xml

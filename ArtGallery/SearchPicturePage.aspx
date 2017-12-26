@@ -8,7 +8,11 @@
     <script type="text/javascript" src="Scripts/readmore.js"></script>
     <script type="text/javascript">
         window.addEventListener('load', function () {
-            $('#description').readmore();
+            $('#description').readmore({
+                collapsedHeight: 75,
+                lessLink: '<a href="#">Less</a>',
+                moreLink: '<a href="#">More</a>'
+            });
         })
     </script>
     <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
