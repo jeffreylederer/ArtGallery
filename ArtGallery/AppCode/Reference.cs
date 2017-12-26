@@ -36,8 +36,9 @@ namespace RateWSSample.RateWebReference {
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public RateService() {
-            this.Url = "https://wwwcie.ups.com/webservices/Rate";
+        public RateService()
+        {
+            this.Url = "https://onlinetools.ups.com/webservices/Rate";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

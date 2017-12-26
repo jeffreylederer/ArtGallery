@@ -301,7 +301,7 @@ namespace ArtGallery
             {
                 RateService rate = new RateService();
                 RateRequest rateRequest = new RateRequest();
-                rate.Url = "https://wwwcie.ups.com/webservices/Rate";
+                //rate.Url = "https://wwwcie.ups.com/webservices/Rate";
 
                 // setup the command to be called
                 RequestType request = new RequestType();

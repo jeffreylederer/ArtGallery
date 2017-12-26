@@ -27,8 +27,10 @@ namespace RateWSSample.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("https://wwwcie.ups.com/webservices/Rate")]
-        public string RateWSSample_RateWebReference_RateService {
-            get {
+        public string RateWSSample_RateWebReference_RateService
+        {
+            get
+            {
                 return ((string)(this["RateWSSample_RateWebReference_RateService"]));
             }
         }

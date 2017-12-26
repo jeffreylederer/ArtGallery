@@ -47,9 +47,9 @@
                                         <asp:Label runat="server" ID="lblTitle" />
                                     </td>
                                 </tr>
-
+                                
                                 <tr>
-                                    <td align="right">Description:
+                                    <td align="right">Media:
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblDescription" />

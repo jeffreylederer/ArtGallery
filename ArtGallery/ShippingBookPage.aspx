@@ -6,7 +6,7 @@
     <script type="text/javascript">
         window.addEventListener('load',
             function () {
-                $('#description').readmore(
+                $('#MainContent_lblDescription').readmore(
                     {
                         collapsedHeight: 75,
                         lessLink: '<a href="#">Less</a>',
@@ -214,7 +214,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="left" colspan="2"> Dedication is limited to 200 characters. The dedication will always include<br /> the Author&#39;s signature (which you do not need to include here.)<br /></td>
+                                    <td></td>
+                                    <td width="200px"> Dedication is limited to 200 characters. The dedication will always include the Author&#39;s signature (which you do not need to include here.)<br /></td>
 
                                 </tr>
                             </table>

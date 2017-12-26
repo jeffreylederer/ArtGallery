@@ -168,7 +168,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="left" colspan="2"> Dedication is limited to 200 characters. The dedication will always include<br /> the Author&#39;s signature (which you do not need to include here.)<br /></td>
+                                    <td></td>
+                                    <td width="200px"> Dedication is limited to 200 characters. The dedication will always include the Artist&#39;s signature (which you do not need to include here.)<br /></td>
 
                                 </tr>
                             </table>
